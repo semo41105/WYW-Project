@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+C:\Users\GwonGyeongJae\Documents\GitHub\WYW-Project\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+751875005.index
+2595375682.index
+2580006594.index
+3930403626.index
+1461351801.index
+344026019.index
+3031922549.index
