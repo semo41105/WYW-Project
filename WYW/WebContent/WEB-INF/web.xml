@@ -9,4 +9,16 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+   <servlet>
+  	<servlet-name>StartPage</servlet-name>
+  	<servlet-class>com.stratpage.controller.Logincontroller</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>StartPage</servlet-name>
+  	<url-pattern>/controller.do</url-pattern>
+  </servlet-mapping>
+  
+  
 </web-app>
