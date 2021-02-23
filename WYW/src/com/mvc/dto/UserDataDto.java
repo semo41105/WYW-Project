@@ -18,7 +18,6 @@ public class UserDataDto {
 	private int boardno;		//보드 번호
 	private int groupno;		//그룹 번호
 	private int groupsq;		//그룹 시퀀스 번호
-	private int titletab;		//제목 텝
 	private String title;		//제목
 	private String content;		//내용
 	private String contentrole;	//내용 역할(공지,일반 글)
