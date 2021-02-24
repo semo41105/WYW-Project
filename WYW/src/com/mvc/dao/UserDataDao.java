@@ -34,7 +34,9 @@ public class UserDataDao extends JDBCTemplate{
 		return 0;
 	}
 	
-	//공지사항 등록
+	//공지사항 등록 = 스토리(게시판 글 작성)[userrole을 사용하여 분류함 
+	//						ex)일반 유저가 쓰면 일반 컨텐츠 글,
+	//							관리자가 글을 쓰면 공지 글]
 	
 	
 	

@@ -19,7 +19,6 @@ public class UserDataDto {
 	private int groupsq;		//그룹 시퀀스 번호
 	private String title;		//제목
 	private String content;		//내용
-	private String contentrole;	//내용 역할(공지,일반 글)
 	private String userimgname;	//등록한 사진 이름
 	private String userimg;		//등록한 사진 위치
 	private int userlike;		//좋아요 수
@@ -32,7 +31,7 @@ public class UserDataDto {
 
 	public UserDataDto(int userno, String userid, String userpw, String username, String useraddr, String userphone,
 			String useremail, String userenabled, String userrole, int userfollow, int boardno, int groupno,
-			int groupsq, String title, String content, String contentrole, String userimgname, String userimg,
+			int groupsq, String title, String content, String userimgname, String userimg,
 			int userlike, Date regdate, int followno, int followuser, int followinguser) {
 		super();
 		this.userno = userno;
@@ -50,7 +49,6 @@ public class UserDataDto {
 		this.groupsq = groupsq;
 		this.title = title;
 		this.content = content;
-		this.contentrole = contentrole;
 		this.userimgname = userimgname;
 		this.userimg = userimg;
 		this.userlike = userlike;
@@ -178,14 +176,6 @@ public class UserDataDto {
 
 	public void setContent(String content) {
 		this.content = content;
-	}
-
-	public String getContentrole() {
-		return contentrole;
-	}
-
-	public void setContentrole(String contentrole) {
-		this.contentrole = contentrole;
 	}
 
 	public String getUserimgname() {
