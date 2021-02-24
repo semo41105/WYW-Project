@@ -1,4 +1,4 @@
-package com.startpage.controller;
+package com.mvc.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,12 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.startpage.biz.LoginBiz;
-import com.startpage.biz.LoginBizImpl;
-import com.startpage.dto.LoginDto;
+import com.mvc.dao.UserDataDao;
+import com.mvc.dto.UserDataDto;
 
 @WebServlet("/Logincontroller")
-public class Logincontroller extends HttpServlet {
+public class loginController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
        
@@ -27,7 +26,7 @@ public class Logincontroller extends HttpServlet {
 		String command = request.getParameter("command");
 		System.out.println("["+command+"]");
 		
-		LoginBiz biz = new LoginBizImpl();
+		UserDataDao dao = new UserDataDao();
 		
 		HttpSession session = request.getSession(true);
 		
@@ -38,8 +37,7 @@ public class Logincontroller extends HttpServlet {
 			String id = request.getParameter("id");
 			String pw = request.getParameter("pw");
 			
-			LoginDto dto = biz.login(id,pw);
-			
+			UserDataDto dto = dao.login(id,pw);
 			
 			if(dto.getUserid() != null) {
 				
@@ -47,13 +45,13 @@ public class Logincontroller extends HttpServlet {
 				session.setMaxInactiveInterval(3600);				
 			
 				if(dto.getUserrole().equals("ADMIN")) {
-					dispatch("Logincontroller.do?command=adminmain", request, response); //Logincontroller.do?command=adminmain
+					dispatch("loginController.do?command=adminmain", request, response); //Logincontroller.do?command=adminmain
 				}else if(dto.getUserrole().equals("USER") || dto.getUserrole().equals("MANAGER")) {
-					dispatch("Logincontroller.do?command=usermain", request, response); //Logincontroller.do?command=usermain
+					dispatch("loginController.do?command=usermain", request, response); //Logincontroller.do?command=usermain
 				}
 				
 			}else {
-				jsResponse("로그인 실패", "Logincontroller.do?command=startpage", response);
+				jsResponse("로그인 실패", "loginController.do?command=startpage", response);
 
 			}
 		}

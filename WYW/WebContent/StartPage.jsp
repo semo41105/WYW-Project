@@ -11,7 +11,7 @@
 <body>
 	<div style="width: 400px">
 		<h1>WYW</h1>
-		<form action="Logincontroller.do" method="post">
+		<form action="loginController.do" method="post">
 			<input type="hidden" name="command" value="login">
 			<table>
 				<col width="300">
@@ -24,7 +24,7 @@
 				<tr>
 					<td><input type="submit" value="login"><td>
 				<tr>	 
-					<td><input type="button" value="signup" onclick="location.href='Logincontroller.do?command=signupform'"></td>
+					<td><input type="button" value="signup" onclick="location.href='loginController.do?command=signupform'"></td>
 				</tr>
 			</table>
 		</form>
