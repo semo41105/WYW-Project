@@ -77,12 +77,6 @@ public class UserDataDao extends JDBCTemplate{
 		return null;
 	}
 	
-	//설정(내 정보 조회)
-	public UserDataDto selectUser(int userno) {
-		
-		return null;
-	}
-	
 	//메인페이지(위치에 따른 날씨정보 확인)
 	public String showWeather() {
 		
@@ -150,26 +144,52 @@ public class UserDataDao extends JDBCTemplate{
 	}
 	
 	//스토리(사진 업로드)
-	public int imgUpload() {
+	public String imgUpload() {
 		
-		return 0;
+		return null;
 	}
 	
 	//스토리(사진 다운로드)
-	public int imgDownload() {
+	public String imgDownload() {
 		
-		return 0;
+		return null;
 	}
 	
-	//스토리(사진 삭제)
-	public int imgDelete() {
+	//마이페이지(팔로우 팔로잉 관리)
+	public boolean followChk() {
 		
-		return 0;
+		return false;
 	}
 	
+	//설정(내 정보 조회)
+	public UserDataDto selectUser(int userno) {
+		
+		return null;
+	}
 	
+	//설정(내 정보 수정)
+	public UserDataDto updateUser(int userno) {
+		
+		return null;
+	}
 	
+	//설정(회원 탈퇴)
+	public boolean deleteUser(int userno) {
+		
+		return false;
+	}
 	
+	//설정(전체 공지사항 보기)
+	public List<UserDataDto> selectAllNotice(){
+		
+		return null;
+	}
+	
+	//설정(공지사항_1개 선택)
+	public UserDataDto selectOneNotice(int seq, String contentrole){
+		
+		return null;
+	}
 	
 	
 	

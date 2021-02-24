@@ -24,13 +24,16 @@ public class UserDataDto {
 	private String userimg;		//등록한 사진 위치
 	private int userlike;		//좋아요 수
 	private Date regdate;		//글 등록 날자
+	private int followno;		//팔로우 번호
+	private int followuser;		//팔로우한 유저 번호
+	private int followinguser;	//팔로잉한 유저 번호
 	
 	public UserDataDto() {}
 
 	public UserDataDto(int userno, String userid, String userpw, String username, String useraddr, String userphone,
-			String useremail, String userenabled, String userrole, int userfollow, int boardno,
-			int groupno, int groupsq, String title, String content, String contentrole, String userimgname,
-			String userimg, int userlike, Date regdate) {
+			String useremail, String userenabled, String userrole, int userfollow, int boardno, int groupno,
+			int groupsq, String title, String content, String contentrole, String userimgname, String userimg,
+			int userlike, Date regdate, int followno, int followuser, int followinguser) {
 		super();
 		this.userno = userno;
 		this.userid = userid;
@@ -52,6 +55,9 @@ public class UserDataDto {
 		this.userimg = userimg;
 		this.userlike = userlike;
 		this.regdate = regdate;
+		this.followno = followno;
+		this.followuser = followuser;
+		this.followinguser = followinguser;
 	}
 
 	public int getUserno() {
@@ -130,8 +136,8 @@ public class UserDataDto {
 		return userfollow;
 	}
 
-	public void setUserfollower(int userfollower) {
-		this.userfollow = userfollower;
+	public void setUserfollow(int userfollow) {
+		this.userfollow = userfollow;
 	}
 
 	public int getBoardno() {
@@ -213,6 +219,32 @@ public class UserDataDto {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
+
+	public int getFollowno() {
+		return followno;
+	}
+
+	public void setFollowno(int followno) {
+		this.followno = followno;
+	}
+
+	public int getFollowuser() {
+		return followuser;
+	}
+
+	public void setFollowuser(int followuser) {
+		this.followuser = followuser;
+	}
+
+	public int getFollowinguser() {
+		return followinguser;
+	}
+
+	public void setFollowinguser(int followinguser) {
+		this.followinguser = followinguser;
+	}
+
+	
 	
 	
 	
