@@ -138,19 +138,19 @@ public class UserDataDao extends JDBCTemplate{
 	}
 	
 	//스토리(팔로어)
-	public int follower(String follower) {
+	public int follower() {
 		
 		return 0;
 	}
 	
 	//스토리(팔로잉)
-	public int following(String follower) {
+	public int following() {
 		
 		return 0;
 	}
 	
 	//스토리(사진 업로드)
-	public int imgUpload(String userimg) {
+	public int imgUpload() {
 		
 		return 0;
 	}

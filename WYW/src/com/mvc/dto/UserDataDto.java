@@ -13,8 +13,7 @@ public class UserDataDto {
 	private String useremail;	//유저 이메일
 	private String userenabled;	//유저 탈퇴여부
 	private String userrole;	//유저 역할(관리자,일반유저)
-	private int userfollower;	//유저 팔로워 숫자(0부터 시작)
-	private int userfollowing;	//유저 팔로잉 숫자(0부터 시작)
+	private int userfollow;		//유저 팔로우(팔로인,팔로우를 하나로 합침)
 	private int boardno;		//보드 번호
 	private int groupno;		//그룹 번호
 	private int groupsq;		//그룹 시퀀스 번호
@@ -29,7 +28,7 @@ public class UserDataDto {
 	public UserDataDto() {}
 
 	public UserDataDto(int userno, String userid, String userpw, String username, String useraddr, String userphone,
-			String useremail, String userenabled, String userrole, int userfollower, int userfollowing, int boardno,
+			String useremail, String userenabled, String userrole, int userfollow, int boardno,
 			int groupno, int groupsq, String title, String content, String contentrole, String userimgname,
 			String userimg, int userlike, Date regdate) {
 		super();
@@ -42,8 +41,7 @@ public class UserDataDto {
 		this.useremail = useremail;
 		this.userenabled = userenabled;
 		this.userrole = userrole;
-		this.userfollower = userfollower;
-		this.userfollowing = userfollowing;
+		this.userfollow = userfollow;
 		this.boardno = boardno;
 		this.groupno = groupno;
 		this.groupsq = groupsq;
@@ -128,20 +126,12 @@ public class UserDataDto {
 		this.userrole = userrole;
 	}
 
-	public int getUserfollower() {
-		return userfollower;
+	public int getUserfollow() {
+		return userfollow;
 	}
 
 	public void setUserfollower(int userfollower) {
-		this.userfollower = userfollower;
-	}
-
-	public int getUserfollowing() {
-		return userfollowing;
-	}
-
-	public void setUserfollowing(int userfollowing) {
-		this.userfollowing = userfollowing;
+		this.userfollow = userfollower;
 	}
 
 	public int getBoardno() {
