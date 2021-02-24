@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 
 
@@ -16,7 +17,9 @@
 <h2>공지사항</h2>
 <!-- 정렬 방식은 날짜 내림차순. 쿼리문에서 정렬 -->
 <!--  -->
-	<table border="1">
+	<div align="center">
+	<table border="1" >
+	<col width="100"><col width="500"><col width="150">
 	<!-- 글 번호, 제목, 날짜 -->
 	<tr>
 		<th>번호</th>
@@ -45,10 +48,11 @@
 	</c:choose>
 	 -->
 	<tr>
-		<td colspan="3">
-			<input type="button" value="글쓰기" onclick="<!-- 이동할 경로 -->">
+		<td colspan="3" align="right">
+			<input type="button" value="글쓰기" onclick="">
 		</td>
 	</tr>
 	</table>
+	</div>
 </body>
 </html>
