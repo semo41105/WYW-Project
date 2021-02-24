@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
 <!DOCTYPE HTML>
 <html>
-<head>
-<title>WYW_mypage</title>
+	<head>
+		<title>Visualize by TEMPLATED</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -15,15 +14,14 @@
 		<script src="assets/js/jquery.poptrox.min.js"></script>
 		<script src="assets/js/skel.min.js"></script>
 		<script src="assets/js/main.js"></script>
-</head>
-<body>
+	</head>
+	<body>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
 
 				<!-- Header -->
 					<header id="header">
-						<img src="images/setting.png" alt="setting" align="right" width="30px" onclick="">
 						<span class="avatar"><img src="images/avatar.jpg" alt="" /></span>
 						<h1>This is <strong>Visualize</strong>, a responsive site template designed by <a href="http://templated.co">TEMPLATED</a><br />
 						and released for free under the Creative Commons License.</h1>
@@ -85,5 +83,5 @@
 					</footer>
 
 			</div>
-</body>
+	</body>
 </html>
