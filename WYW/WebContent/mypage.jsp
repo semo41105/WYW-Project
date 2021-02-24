@@ -21,17 +21,20 @@
 			<div id="wrapper">
 
 				<!-- Header -->
-					<header id="header">
-						<span class="avatar"><img src="images/avatar.jpg" alt="" /></span>
-						<h1>This is <strong>Visualize</strong>, a responsive site template designed by <a href="http://templated.co">TEMPLATED</a><br />
-						and released for free under the Creative Commons License.</h1>
-						<ul class="icons">
-							<li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon style2 fa-500px"><span class="label">500px</span></a></li>
-							<li><a href="#" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
-						</ul>
+					<header>
+						<div><img alt="WYW_날씨를 입다" src="images/logo/logo_wyw.png" width="200" height="100"/></div>
+						<div id="header">
+							<span class="avatar"><img src="images/avatar.jpg" alt="" /></span>
+							<h1>This is <strong>Visualize</strong>, a responsive site template designed by <a href="http://templated.co">TEMPLATED</a><br />
+							and released for free under the Creative Commons License.</h1>
+							<ul class="icons">
+								<li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon style2 fa-500px"><span class="label">500px</span></a></li>
+								<li><a href="#" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
+							</ul>
+						</div>
 					</header>
 
 				<!-- Main -->
