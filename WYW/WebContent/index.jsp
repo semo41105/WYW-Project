@@ -10,6 +10,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:forward page="StartPage.jsp"></jsp:forward>
+	<jsp:forward page="Logincontroller.do?command=startpage"></jsp:forward>
 </body>
 </html>

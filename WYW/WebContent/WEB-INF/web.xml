@@ -12,12 +12,12 @@
   
    <servlet>
   	<servlet-name>StartPage</servlet-name>
-  	<servlet-class>com.stratpage.controller.Logincontroller</servlet-class>
+  	<servlet-class>com.startpage.controller.Logincontroller</servlet-class>
   </servlet>
   
   <servlet-mapping>
   	<servlet-name>StartPage</servlet-name>
-  	<url-pattern>/controller.do</url-pattern>
+  	<url-pattern>/Logincontroller.do</url-pattern>
   </servlet-mapping>
   
   

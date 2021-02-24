@@ -11,7 +11,7 @@
 <body>
 	<div style="width: 400px">
 		<h1>WYW</h1>
-		<form action="Logincontroller.jsp" method="post">
+		<form action="Logincontroller.do" method="post">
 			<input type="hidden" name="command" value="login">
 			<table>
 				<col width="300">
@@ -19,12 +19,12 @@
 					<td><input type="text" name="id" placeholder="아이디"></td>
 				</tr>
 				<tr>
-					<td><input type="text" name="pw" placeholder="비밀번호"></td>
+					<td><input type="password" name="pw" placeholder="비밀번호"></td>
 				</tr>
 				<tr>
 					<td><input type="submit" value="login"><td>
 				<tr>	 
-					<td><input type="button" value="signup" onclick="location.href='controller.do?command=signupform'"></td>
+					<td><input type="button" value="signup" onclick="location.href='Logincontroller.do?command=signupform'"></td>
 				</tr>
 			</table>
 		</form>
