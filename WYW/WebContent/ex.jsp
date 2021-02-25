@@ -34,6 +34,8 @@
 </head>
 <body>
 <div id="userprofile">
+				<img src="images/set.png" alt="setting" align="right" width="30px" onclick="">
+
 	<img src="img/setting.png" alt="setting" align="right" width="30px" onclick="">
 	<span id="userimg">이미지</span>
 	<span id="userid">userid</span>
