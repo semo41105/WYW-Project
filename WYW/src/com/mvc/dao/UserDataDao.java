@@ -2,8 +2,6 @@ package com.mvc.dao;
 
 import java.util.List;
 
-import javax.jws.soap.SOAPBinding.Use;
-
 import com.mvc.dto.UserDataDto;
 
 import common.JDBCTemplate;

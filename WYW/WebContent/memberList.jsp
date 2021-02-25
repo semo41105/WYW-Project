@@ -4,22 +4,17 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
 <title>회원 목록</title>
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<style type="text/css">
-  table {
-    width: 100%;
-    border-top: 1px solid #444444;
-    border-collapse: collapse;
-  }
-  th, td {
-    border-bottom: 1px solid #444444;
-    padding: 10px;
-  }
-</style>
+		<link rel="stylesheet" href="assets/css/main.css" /> 
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.poptrox.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/main.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		var searchForm = $("#searchForm");
@@ -34,14 +29,44 @@
 
 	});
 </script>
-</head>
-<body>
-	<!-- 헤더랑 푸터는 한꺼번에 넣기 -->
-	<h2>회원 목록</h2>
-	<div align="center">
-		<form id="searchForm" action="" method="post">
 
-			<select name="searchType">
+<style type="text/css">
+#top > p{
+	margin-top:50px;
+	margin-left:100px;
+	font-size:28pt;
+}
+
+#inputboxes{
+
+float: left; padding: 0px 0px 0px 0px
+
+}
+#searchForm{
+
+padding : 200px 200px;
+}
+#centerbox{
+margin-left : 20%;
+margin-right : 20%;
+}
+option {
+color:#000000;
+}
+</style>
+</head>
+
+<body>
+<br>
+	<div id="top">
+	<p>회원 목록</p>
+	</div>
+	<div align="center">
+		<form action="" method="post">
+			<div>
+			
+			<div>
+			<select name="searchType" style="width:100px;">
 				<option value="id" selected>아이디</option>
 				<option value="name">이름</option>
 				<!-- db 확인 후에 밸류값 수정하기 -->
@@ -50,9 +75,18 @@
 				<option value="userPhone">연락처</option>
 				<option value="userEnabled">가입여부</option>
 				<option value="userRole">등급</option>
-			</select> <input type="text" id="findtextbox">
-			<!-- input?submit? -->
-			<button name="">검색</button>
+			</select> 
+			</div>
+			
+			<div>
+			<input type="text" id="findtextbox" style="width:200px;">
+			</div>
+			
+			<div>
+			<input type="submit" value="검색">
+			</div>
+			
+			</div>
 		</form>
 	</div>
 

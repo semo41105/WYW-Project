@@ -5,19 +5,7 @@
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
-  
-  <servlet>
-  	<servlet-name>manager</servlet-name>
-  	<servlet-class>controller.managerpageController</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  	<servlet-name>manager</servlet-name>
-  	<url-pattern>/manager.do</url-pattern>
-  
-  </servlet-mapping>  
-  
-  
+
   
   
   
