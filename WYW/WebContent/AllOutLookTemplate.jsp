@@ -15,7 +15,7 @@
 			#s1{ float: left; width: 33%; padding: 25px 0px 25px 0px }
 			#s2{ float: left; width: 100% }
 			#s4{ padding: 8px 0px 0px 0px;
-				 margin-left: 20px;
+				 margin-left: 25px;
 			}
 			
 			#ask1{ 
@@ -47,9 +47,9 @@
 						<div id="s1">
 							<input id="ask1" type="button" value="검색" onclick="">
 							<a href="#" class="label">
-								<img id="s4" class="icons" src="images/icon/set.png" alt="setting" align="right" width="30px">
-								<img id="s4" class="icons" src="images/icon/user.png" alt="setting" align="right" width="30px">
-								<img id="s4" class="icons" src="images/icon/home.png" alt="setting" align="right" width="30px">
+								<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px">
+								<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px">
+								<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px">
 							</a>
 						</div>
 					</header>
