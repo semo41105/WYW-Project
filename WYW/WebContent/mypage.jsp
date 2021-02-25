@@ -22,7 +22,7 @@
 
 				<!-- Header -->
 					<header>
-						<div><img alt="WYW_날씨를 입다" src="images/logo/logo_wyw.png" width="200" height="100"/></div>
+						<div><a href="#"><img alt="WYW_날씨를 입다" src="images/logo/logo_wyw.png" width="200" height="100"/></a></div>
 						<div id="header">
 							<span class="avatar"><img src="images/avatar.jpg" alt="" /></span>
 							<h1>This is <strong>Visualize</strong>, a responsive site template designed by <a href="http://templated.co">TEMPLATED</a><br />
