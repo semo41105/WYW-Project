@@ -22,6 +22,14 @@
 				font-weight: bold; 
 				color: #3f385a;
 			}
+			a{ text-decoration: none }
+			.avatacon {
+			    width: 30px; 
+			    height: 30px;
+			    object-fit: cover;
+			    object-position: top;
+			    border-radius: 50%;
+			}
 		</style>
 	<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
@@ -49,19 +57,15 @@
 							</a>
 						</div>
 						<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
-						<div id="header">
-							<div>
-								<a href="#">
-									<span class="avatar"><img src="images/avatar.jpg" alt="" /></span>
-								</a>
-							</div>
-						</div>
 					</header>
 
 				<!-- Main -->
-					<section id="main">
+					<section>
 						<div>
-							
+							<a href="#">
+						    	<img class="avatacon" src="images/avatar.jpg">
+						    	<strong>&nbsp;&nbsp;userID</strong>
+						    </a>
 						</div>
 					</section>
 
