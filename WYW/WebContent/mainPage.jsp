@@ -1,130 +1,63 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-
-<% request.setCharacterEncoding("UTF-8");%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
-
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="EUC-KR">
-<title>¸ŞÀÎ ÆäÀÌÁö</title>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/mainPage.css">
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg3XCX9YlpK-ohJiE75xcdbLAa4kv-FWY"
-  type="text/javascript"></script>
-<script type="text/javascript" src="./js/jquery-3.5.1.js"></script>
+	<head>
+		<title>ë©”ì¸í˜ì´ì§€</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	<!-- Scripts -->
+		<script src="assets/js/location.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.poptrox.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+	</head>
+	<body>
 
-<script type="text/javascript">
- 	$(function(){
-		getJson();
-	});
-	
-	function getJson(){
-		$.getJSON('http://api.openweathermap.org/data/2.5/forecast?id=1835848&appid=d3689315a68c7fb612f372f174579300&units=metric',
-				function(data){
-				
-			for(var i=1; i<data.list.length; i++){
-				var maxTemp = data.list[0].main.temp_max;
-				var minTemp = data.list[0].main.temp_min;
-				
-				if(maxTemp<(data.list[i].main.temp_max)){
-					maxTemp = data.list[i].main.temp_max
-				}
-				if(minTemp>(data.list[i].main.temp_min)){
-					minTemp = data.list[i].main.temp_min
-				}
-			}
-				$('.maxtemp').append(maxTemp);
-				$('.mintemp').append(minTemp);
-		});
-	}
- 	$(function(){
-		getLocation();
-	});
-	function getLocation() {
-		  if (navigator.geolocation) { // GPS¸¦ Áö¿øÇÏ¸é
-		    navigator.geolocation.getCurrentPosition(function(position) {
-		    	var geocoder = new google.maps.Geocoder();
-				var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-								
-				geocoder.geocode({'latLng':latlng}, function(results, status){
-					if(status == google.maps.GeocoderStatus.OK){
-						if(results[1]){
-							$('.nowloc').append(results[3].formatted_address);
-						}else{
-							alert("Geocoder failed due to : "+status);
-						}
-					}
-				});
-		    }, function(error) {
-		      console.error(error);
-		    }, {
-		      enableHighAccuracy: false,
-		      maximumAge: 0,
-		      timeout: Infinity
-		    });
-		  } else {
-		    alert('GPS¸¦ Áö¿øÇÏÁö ¾Ê½À´Ï´Ù');
-		  }
-		} 
-/* 	$(function(){
-		getLocation();
-	});
-		
-	function getLocation() {
-		if(navigator.geolocation){
-			navigator.geolocation.watchPosition(showPosition);
-		} else{
-			alert("GPS¸¦ Áö¿øÇÏÁö ¾Ê½À´Ï´Ù.")
-		}
-	}
-	
-	function showPosition(){
-		var geocoder = new google.maps.Geocoder();
-		var latlng = new google.maps.LatLng(position.coords.lastitude, position.coords.longtitude);
-		
-		geocoder.geocode({'latLng':latlng}, function(results, status)){
-			if(status == google.maps.GeocoderStatus.OK){
-				if(results[1]){
-					forAddress.innerHTML = results[3].firmatted_address;
-				}else{
-					alert("Geocoder failed due to : "+status);
-				}
-			}
-		}
-	} */
-	
-</script>
-</head>
-<body>
-	<header>
-		<h2>»ó´Ü ¹è³Ê ¹× ¸Ş´º</h2>
-	</header>
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-	<div class="main">
-		<h2>¸ŞÀÎ</h2>
-		<div class="weather">
-			<div class="left">
-				<div class="nowloc">ÇöÀç À§Ä¡ : </div><br>
-				<div class="nowtemp">ÇöÀç ¿Âµµ : </div><br>
-				<div class="maxtemp">ÃÖ°í ±â¿Â : </div><br>
-				<div class="mintemp">ÃÖÀú ±â¿Â : </div>
+				<!-- Header -->
+					<header>
+						<div><img alt="WYW_ë‚ ì”¨ë¥¼ ì…ë‹¤" src="images/logo/logo_wyw_yellowChange.png" width="200" height="100"/></div>
+					</header>
+
+				<!-- Main -->
+					<section id="main">
+							<div class="main"><br>
+								<h2>í˜„ì¬ ë‚ ì”¨ ë° ì¶”ì²œ ì˜·ì°¨ë¦¼</h2>
+								<div class="weather">
+									<div class="left">
+										<p class="nowloc">í˜„ì¬ ìœ„ì¹˜ : </p>
+										<p class="nowtemp">í˜„ì¬ ì˜¨ë„ : </p>
+										<p class="maxtemp">ìµœê³  ê¸°ì˜¨ : </p>
+										<p class="mintemp">ìµœì € ê¸°ì˜¨ : </p>
+									</div>
+									<div class="right"><span>ê¸°ì˜¨ë³„ ì˜·ì°¨ë¦¼ ì´ë¯¸ì§€ ì‚½ì…</span></div>
+								</div>
+						
+								<div class="recommend">
+									<div class="circle" id="one"></div>
+									<div class="circle" id="two"><span>ì‚¬ì§„ì‚½ì… / í´ë¦­ì‹œ í•´ë‹¹ í˜ì´ì§€ë¡œ</span></div>
+									<div class="circle" id="three"></div>
+								</div>
+						
+								<div class="follower">
+									<span>ìŠ¤í† ë¦¬ ì„¸ë¡œ ë°°ì¹˜ / í´ë¦­ ì‹œ í•´ë‹¹ í˜ì´ì§€ë¡œ</span>
+								</div>
+							</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+					</footer>
+
 			</div>
-			<div class="right"></div>
-		</div>
 
-		<div class="recommend">
-			<div class="circle" id="one"></div>
-			<div class="circle" id="two"></div>
-			<div class="circle" id="three"></div>
-		</div>
-
-		<div class="follower"></div>
-	</div>
-
-	<footer>
-		<h2>ÇÏ´Ü ¸Ş´º</h2>
-	</footer>
-
-</body>
+	</body>
 </html>
