@@ -21,16 +21,21 @@
 		font-weight: bold; 
 		color: #3f385a;
 		}
-	#pf1{ float: left; width: 30%; padding: 0px 0px 0px 10px; }	
-	#pf2{ float: left; position:relative; width: 70%; border: 1px solid;}
-	#userid{float:left;
-			font-size: 20pt;
-			transform: translate(0px, 70px);
-		}	
-	.setloc{float:left;
-			font-size: 20pt;
-			transform: translate(250px, 100px);
-		}	
+	#pf1{ float: left; width: 30%; padding: 0px 0px 0px 100px; }	
+	#pf2{ float: left; position:absoulte; width: 70%;
+		  transform: translate(0px, 50px);
+		  font-size: 20pt;
+		}
+	#userid{float: left;
+			margin-left: 150px;
+		}
+	#pf3{float:left; position:absoulte; width: 70%;
+     	 transform: translate(0px, 85px);
+     	 font-size: 20pt;
+		}
+	#post{float: left; margin-left: 80px;}
+	#follower{float:left; margin-left: 80px;}
+	#following{float:left; margin-left:80px;}	
 /*main*/		
 	.thumbnails {margin-top: 100px;}		
 </Style>
@@ -72,9 +77,23 @@
 						<span id="userimg" class="avatar"><img src="images/avatar.jpg" alt="" /></span>
 					</div>
 					<div id="pf2">
-						<span>UserId</span>
-						<img src="images/icon/map.png" width="30px">
-						<span>&nbsp;&nbsp;setlocation</span>			
+						<span id="userid">UserId</span>
+						<img src="images/icon/map.png" width="26px">
+						<span>&nbsp;&nbsp;Set Location</span>			
+					</div>
+					<div id="pf3">
+						<div id="post">
+							<span><b>45</b></span>
+							<span>&nbsp;&nbsp;Posts</span>
+						</div>
+						<div id="follower">
+							<span><b>100&nbsp;&nbsp;</b></span>					
+							<a href="">Followers</a>
+						</div>
+						<div id="following">
+							<span><b>17&nbsp;&nbsp;</b></span>				
+							<a href="">Following</a>
+						</div>
 					</div>
 				</div>
 			<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
