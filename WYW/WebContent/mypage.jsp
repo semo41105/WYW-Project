@@ -22,7 +22,7 @@
 		color: #3f385a;
 		}
 	#pf1{ float: left; width: 30%; padding: 0px 0px 0px 10px; }	
-	#pf2{ float: left; width: 70%; padding: 0px 0px 0px 0px; }
+	#pf2{ float: left; position:relative; width: 70%; border: 1px solid;}
 	#userid{float:left;
 			font-size: 20pt;
 			transform: translate(0px, 70px);
@@ -69,8 +69,12 @@
 			<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
 				<div id="header">
 					<div id="pf1">
-							<span id="userimg" class="avatar"><img src="images/avatar.jpg" alt="" /></span>
-						</a>
+						<span id="userimg" class="avatar"><img src="images/avatar.jpg" alt="" /></span>
+					</div>
+					<div id="pf2">
+						<span>UserId</span>
+						<img src="images/icon/map.png" width="30px">
+						<span>&nbsp;&nbsp;setlocation</span>			
 					</div>
 				</div>
 			<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
