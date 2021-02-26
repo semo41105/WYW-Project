@@ -53,7 +53,9 @@
 						<div id="s1">
 							<input id="ask1" type="button" value="검색" onclick="">
 							<a href="#" class="label">
-								<img id="s4" class="icons" src="images/icon/set.png" alt="setting" align="right" width="30px"/>
+								<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px">
+								<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px">
+								<img id="s4" class="icons" src="images/icon/home.png" alt="home" align="right" width="30px">
 							</a>
 						</div>
 						<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
@@ -61,12 +63,22 @@
 
 				<!-- Main -->
 					<section>
-						<div>
-							<a href="#">
-						    	<img class="avatacon" src="images/avatar.jpg">
-						    	<strong>&nbsp;&nbsp;userID</strong>
-						    </a>
-						</div>
+							<div style="position: absolute;">
+								<div style="position: relative;top: 110px; left: 280px;">
+									<a href="#">
+								    	<img class="avatacon" src="images/avatar.jpg">
+								    	<strong>&nbsp;&nbsp;userID</strong>
+							    	</a>
+								</div>
+								<div style="position: relative;top: 75px; left: 585px;">
+									<a href="#">
+										<img alt="menu" src="images/icon/menu.png" width="30px">
+									</a>
+								</div>
+							</div>
+						    <div id="header">
+						    	<img alt="img" src="images/thumbs/05.jpg"/>
+						    </div>
 					</section>
 
 				<!-- Footer -->
