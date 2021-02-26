@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항 게시글 보기</title>
+<title>공지사항 수정하기</title>
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <link rel="stylesheet" href="assets/css/main.css" />
@@ -19,10 +19,6 @@
 	font-size: 28pt;
 }
 
-#tablediv {
-	margin: 100px 300px;
-}
-
 #button {
 	background-color: #FFFBC1;
 	color: black;
@@ -30,15 +26,19 @@
 	margin: 5px;
 	float: right;
 }
+
+body>form {
+	margin: 100px 300px;
+}
 </style>
 </head>
 <body>
-	<br>
 	<div id="top">
 		<p>공지사항</p>
 	</div>
-
-	<div id="tablediv">
+	<form action="controller.do" method="post">
+		<input type="hidden" name="command" value="noticeboardupdate">
+		<input type="hidden" name="seq" value="${dto.seq }">
 		<table border="1">
 			<tr>
 				<th>NO</th>
@@ -49,37 +49,24 @@
 				<td>${dto.regdate }</td>
 			</tr>
 			<tr>
+				<th>WRITER</th>
+				<td>${dto.writer }</td>
+			</tr>
+			<tr>
 				<th>TITLE</th>
-				<td>${dto.title }</td>
+				<td><input type="text" name="title" value="${dto.title }"></td>
 			</tr>
 			<tr>
 				<th>CONTENT</th>
-				<td><textarea rows="20" cols="35" readonly="readonly">${dto.content }</textarea></td>
+				<td><textarea rows="30" cols="40" name="content">${dto.content }</textarea></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="button" value="목록"
-					onclick="location.href='controller.do?command=list'" id="button">
-					<input type="button" value="삭제"
-					onclick="location.href='controller.do?command=delete&seq=${dto.seq}'"
-					id="button"> <input type="button" value="수정"
-					onclick="location.href='controller.do?command=updateform&seq=${dto.seq}'"
-					id="button"></td>
+				<td colspan="2"><input type="button" value="취소" id="button"
+					onclick="location.href='controller.do?command=dstail&seq=${dto.seq }'">
+					<input type="submit" value="수정" id="button" onclick=""></td>
 			</tr>
-
-
 		</table>
-	</div>
 
-
-
-
-
-
-
-
-
-
-
-
+	</form>
 </body>
 </html>

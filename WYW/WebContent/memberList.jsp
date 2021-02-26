@@ -10,7 +10,7 @@
 <title>회원 목록</title>
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-		<link rel="stylesheet" href="assets/css/main.css" /> 
+<link rel="stylesheet" href="assets/css/main.css" />
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.poptrox.min.js"></script>
 <script src="assets/js/skel.min.js"></script>
@@ -31,65 +31,56 @@
 </script>
 
 <style type="text/css">
-#top > p{
-	margin-top:50px;
-	margin-left:100px;
-	font-size:28pt;
+#top>p {
+	margin-top: 50px;
+	margin-left: 100px;
+	font-size: 28pt;
 }
 
-#inputboxes{
-
-float: left; padding: 0px 0px 0px 0px
-
-}
-#searchForm{
-
-padding : 200px 200px;
-}
-#centerbox{
-margin-left : 20%;
-margin-right : 20%;
-}
 option {
-color:#000000;
+	color: #000000;
+}
+
+#middle {
+	float: left;
+}
+
+.space {
+	width: 30%;
 }
 </style>
 </head>
 
 <body>
-<br>
+	<br>
 	<div id="top">
-	<p>회원 목록</p>
+		<p>회원 목록</p>
 	</div>
-	<div align="center">
-		<form action="" method="post">
-			<div>
-			
-			<div>
-			<select name="searchType" style="width:100px;">
+	<br>
+	<form action="" method="post">
+		<div id="middle" class="space">&nbsp;</div>
+		<div id="middle" style="width: 9%;">
+			<select name="searchType">
 				<option value="id" selected>아이디</option>
 				<option value="name">이름</option>
-				<!-- db 확인 후에 밸류값 수정하기 -->
 				<option value="address">주소</option>
 				<option value="email">이메일</option>
 				<option value="userPhone">연락처</option>
 				<option value="userEnabled">가입여부</option>
 				<option value="userRole">등급</option>
-			</select> 
-			</div>
-			
-			<div>
-			<input type="text" id="findtextbox" style="width:200px;">
-			</div>
-			
-			<div>
-			<input type="submit" value="검색">
-			</div>
-			
-			</div>
-		</form>
-	</div>
+			</select>
 
+		</div>
+		<div id="middle" style="width: 21%; padding: 0px 5px;">
+			<input type="text" id="findtextbox">
+		</div>
+		<div id="middle" style="width: 10%;">
+			<input type="submit" id="button" value="검색"
+				style="background-color: #FFFBC1; color: black; width: 120px;">
+		</div>
+		<div id="middle" class="space">&nbsp;</div>
+
+	</form>
 	<br>
 	<hr>
 	<br>
