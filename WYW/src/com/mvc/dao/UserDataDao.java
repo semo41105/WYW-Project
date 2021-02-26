@@ -1,5 +1,6 @@
 package com.mvc.dao;
 
+import java.sql.Connection;
 import java.util.List;
 
 import com.mvc.dto.UserDataDto;
@@ -13,6 +14,8 @@ public class UserDataDao extends JDBCTemplate{
 	 * 2.가입된 회원(userenabled='y')의 정보
 	 * 3.회원 등급 조정(userrole)
 	 * 4.공지사항 등록
+	 * 5.공지사항 수정
+	 * 6.공지사항 삭제
 	 * */
 	//회원 전체 정보(탈퇴 회원 포함)
 	public List<UserDataDto> selectAll(){
@@ -180,7 +183,7 @@ public class UserDataDao extends JDBCTemplate{
 	}
 	
 	//설정(전체 공지사항 보기)
-	public List<UserDataDto> selectAllNotice(){
+	public List<UserDataDto> selectAllNotice(Connection con){
 		
 		return null;
 	}

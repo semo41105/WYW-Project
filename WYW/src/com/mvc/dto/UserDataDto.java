@@ -4,28 +4,28 @@ import java.util.Date;
 
 public class UserDataDto {
 
-	private int userno;			//°¡ÀÔ ¼ø¼­ ¹øÈ£
-	private String userid;		//À¯Àú ¾ÆÀÌµğ
-	private String userpw;		//À¯Àú ºñ¹Ğ¹øÈ£
-	private String username;	//À¯Àú ÀÌ¸§
-	private String useraddr;	//À¯Àú ÁÖ¼Ò
-	private String userphone;	//À¯Àú ÀüÈ­¹øÈ£
-	private String useremail;	//À¯Àú ÀÌ¸ŞÀÏ
-	private String userenabled;	//À¯Àú Å»Åğ¿©ºÎ
-	private String userrole;	//À¯Àú ¿ªÇÒ(°ü¸®ÀÚ,ÀÏ¹İÀ¯Àú)
-	private int userfollow;		//À¯Àú ÆÈ·Î¿ì(ÆÈ·ÎÀÎ,ÆÈ·Î¿ì¸¦ ÇÏ³ª·Î ÇÕÄ§)
-	private int boardno;		//º¸µå ¹øÈ£
-	private int groupno;		//±×·ì ¹øÈ£
-	private int groupsq;		//±×·ì ½ÃÄö½º ¹øÈ£
-	private String title;		//Á¦¸ñ
-	private String content;		//³»¿ë
-	private String userimgname;	//µî·ÏÇÑ »çÁø ÀÌ¸§
-	private String userimg;		//µî·ÏÇÑ »çÁø À§Ä¡
-	private int userlike;		//ÁÁ¾Æ¿ä ¼ö
-	private Date regdate;		//±Û µî·Ï ³¯ÀÚ
-	private int followno;		//ÆÈ·Î¿ì ¹øÈ£
-	private int followuser;		//ÆÈ·Î¿ìÇÑ À¯Àú ¹øÈ£
-	private int followinguser;	//ÆÈ·ÎÀ×ÇÑ À¯Àú ¹øÈ£
+	private int userno;			//ê°€ì… ìˆœì„œ ë²ˆí˜¸
+	private String userid;		//ìœ ì € ì•„ì´ë””
+	private String userpw;		//ìœ ì € ë¹„ë°€ë²ˆí˜¸
+	private String username;	//ìœ ì € ì´ë¦„
+	private String useraddr;	//ìœ ì € ì£¼ì†Œ
+	private String userphone;	//ìœ ì € ì „í™”ë²ˆí˜¸
+	private String useremail;	//ìœ ì € ì´ë©”ì¼
+	private String userenabled;	//ìœ ì € íƒˆí‡´ì—¬ë¶€
+	private String userrole;	//ìœ ì € ì—­í• (ê´€ë¦¬ì,ì¼ë°˜ìœ ì €)
+	private int userfollow;		//ìœ ì € íŒ”ë¡œìš°(íŒ”ë¡œì¸,íŒ”ë¡œìš°ë¥¼ í•˜ë‚˜ë¡œ í•©ì¹¨)
+	private int boardno;		//ë³´ë“œ ë²ˆí˜¸
+	private int groupno;		//ê·¸ë£¹ ë²ˆí˜¸
+	private int groupsq;		//ê·¸ë£¹ ì‹œí€€ìŠ¤ ë²ˆí˜¸
+	private String title;		//ì œëª©
+	private String content;		//ë‚´ìš©
+	private String userimgname;	//ë“±ë¡í•œ ì‚¬ì§„ ì´ë¦„
+	private String userimg;		//ë“±ë¡í•œ ì‚¬ì§„ ìœ„ì¹˜
+	private int userlike;		//ì¢‹ì•„ìš” ìˆ˜
+	private Date regdate;		//ê¸€ ë“±ë¡ ë‚ ì
+	private int followno;		//íŒ”ë¡œìš° ë²ˆí˜¸
+	private int followuser;		//íŒ”ë¡œìš°í•œ ìœ ì € ë²ˆí˜¸
+	private int followinguser;	//íŒ”ë¡œì‰í•œ ìœ ì € ë²ˆí˜¸
 	
 	public UserDataDto() {}
 
