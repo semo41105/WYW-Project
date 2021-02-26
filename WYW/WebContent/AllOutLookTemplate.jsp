@@ -1,37 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
+
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>No Name</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="assets/css/main.css" />
+<title>No Name</title>
 <!-- Style -->
-		<style type="text/css">
-			#s0{ float: left; width: 34% }
-			#s1{ float: left; width: 33%; padding: 25px 0px 25px 0px }
-			#s2{ float: left; width: 100% }
-			#s4{ padding: 8px 0px 0px 0px;
-				 margin-left: 25px;
+	<style type="text/css">
+		#s0{ float: left; width: 34% }
+		#s1{ float: left; width: 33%; padding: 25px 0px 25px 0px }
+		#s2{ float: left; width: 100% }
+		#s4{ padding: 8px 0px 0px 0px;
+			 margin-left: 25px;
 			}
 			
-			#ask1{ 
-				border: 2px solid black;
-				background-color: #fffbc1; 
-				font-weight: bold; 
-				color: #3f385a;
+		#ask1{ 
+			border: 2px solid black;
+			background-color: #fffbc1; 
+			font-weight: bold; 
+			color: #3f385a;
 			}
-		</style>
-	<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.poptrox.min.js"></script>
-		<script src="assets/js/skel.min.js"></script>
-		<script src="assets/js/main.js"></script>
-	</head>
-	<body>
+	</style>
+<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.poptrox.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/main.js"></script>
+</head>
+<body>
 
 		<!-- Wrapper -->
 			<div id="wrapper">

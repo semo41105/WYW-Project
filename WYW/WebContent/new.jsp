@@ -21,6 +21,10 @@
 		font-weight: bold; 
 		color: #3f385a;
 		}
+	#header .avatar{
+		transform: translate(0px, 50px);
+
+		}
 	#pf1{ float: left; width: 30%; padding: 0px 0px 0px 10px; }	
 	#pf2{ float: left; width: 70%; padding: 0px 0px 0px 0px; }
 	#userid{float:left;
@@ -71,6 +75,11 @@
 					<div id="pf1">
 							<span id="userimg" class="avatar"><img src="images/avatar.jpg" alt="" /></span>
 						</a>
+					</div>
+					<div id="pf2">
+						<span id="userid">UserId</span>
+						<img class="setloc" id="setlocicon" src="images/icon/map.png" width="30px">
+						<span class="setloc">&nbsp;&nbsp;setlocation</span>
 					</div>
 				</div>
 			<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
