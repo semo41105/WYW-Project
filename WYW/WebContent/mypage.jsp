@@ -33,6 +33,9 @@
      	 transform: translate(0px, 85px);
      	 font-size: 20pt;
 		}
+	#pf999{border-bottom: 1px dotted;
+		   transform: translate(0px, 130px);
+		}
 	#post{float: left; margin-left: 80px;}
 	#follower{float:left; margin-left: 80px;}
 	#following{float:left; margin-left:80px;}	
@@ -99,49 +102,43 @@
 			<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
 </header>
 
+	<div id="pf999">&nbsp;</div>
+
 		
 <!-- Main -->
 	<section id="main">
+	
 
 <!-- Thumbnails -->
 	<section class="thumbnails">
-						<div>
+	
+					<div>
 						<a href="images/fulls/01.jpg">
 							<img src="images/thumbs/01.jpg" alt="" />
-							<h3>Lorem ipsum dolor sit amet</h3>
 						</a>
-						<a href="images/fulls/02.jpg">
-							<img src="images/thumbs/02.jpg" alt="" />
-							<h3>Lorem ipsum dolor sit amet</h3>
-									</a>
-								</div>
-								<div>
-									<a href="images/fulls/03.jpg">
-										<img src="images/thumbs/03.jpg" alt="" />
-										<h3>Lorem ipsum dolor sit amet</h3>
-									</a>
-									<a href="images/fulls/04.jpg">
-										<img src="images/thumbs/04.jpg" alt="" />
-										<h3>Lorem ipsum dolor sit amet</h3>
-									</a>
-									<a href="images/fulls/05.jpg">
-										<img src="images/thumbs/05.jpg" alt="" />
-										<h3>Lorem ipsum dolor sit amet</h3>
-									</a>
-								</div>
-								<div>
-									<a href="images/fulls/06.jpg">
-										<img src="images/thumbs/06.jpg" alt="" />
-										<h3>Lorem ipsum dolor sit amet</h3>
-									</a>
-									<a href="images/fulls/07.jpg">
-										<img src="images/thumbs/07.jpg" alt="" />
-										<h3>Lorem ipsum dolor sit amet</h3>
-									</a>
-								</div>
-							</section>
+						<a href="images/fulls/01.jpg">
+							<img src="images/thumbs/01.jpg" alt="" />
+						</a>
+					</div>
+					<div>
+						<a href="images/fulls/01.jpg">
+							<img src="images/thumbs/01.jpg" alt="" />
+						</a>
+						<a href="images/fulls/01.jpg">
+							<img src="images/thumbs/01.jpg" alt="" />
+						</a>
+					</div>
+					<div>
+						<a href="images/fulls/01.jpg">
+							<img src="images/thumbs/01.jpg" alt="" />
+						</a>
+						<a href="images/fulls/01.jpg">
+							<img src="images/thumbs/01.jpg" alt="" />
+						</a>
+					</div>
+	</section>
 
-					</section>
+	</section>
 
 				<!-- Footer -->
 					<footer id="footer">
