@@ -23,6 +23,22 @@ h2 {
 	align-items: center;
 }
 
+.main select{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 300px;
+	
+}
+
+select optgroup{
+	color: black;
+}
+
+select option{
+	color: black;
+}
+
 .weather {
 	display: flex;
     height: 200px;
@@ -72,6 +88,7 @@ div .circle{
 	width:150px;
 	height:150px;
 	border-radius:75px;
+	overflow: hidden;
 }
 
 .follower {
