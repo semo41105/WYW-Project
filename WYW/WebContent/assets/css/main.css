@@ -23,16 +23,20 @@ h2 {
 	align-items: center;
 }
 
-.main select{
+.weatherimg{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.weatherimg select{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	text-align-last: center;
 	width: 300px;
 	
-}
-
-select optgroup{
-	color: black;
 }
 
 select option{
@@ -46,28 +50,29 @@ select option{
 	margin: 20px;
 }
 
-div .left{
+div .weatherDetail{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
-    width: 60%;
+    width: 50%;
     float: left;
     box-sizing: border-box;
+    border: 1px solid black;
+    border-right-style: hidden;
 }
 
-.left p{
+.weatherDetail p{
 	margin-bottom: 0;
 }
 
-div .right{
+div .icon{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-    width: 40%;
+    width: 50%;
     float: right;
     box-sizing: border-box;
-    background-color: lightgray;
 	border: 1px solid black;
 }
 
@@ -84,7 +89,6 @@ div .circle{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	background-color: lightgray;
 	width:150px;
 	height:150px;
 	border-radius:75px;

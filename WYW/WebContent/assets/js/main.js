@@ -4,12 +4,6 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
 
-$(document).ready(function(){
-	$("#city").change(function(){
-		var selectCity = $(this).val();
-		console.log(selectCity);
-	});
-});
 
 
 const getJSON = function(url, callback){
@@ -28,32 +22,88 @@ const getJSON = function(url, callback){
     xhr.send();
 };
 
-getJSON('http://api.openweathermap.org/data/2.5/weather?q=seoul&appid=d3689315a68c7fb612f372f174579300&units=metric',
-function(err, data){
-    if(err !== null){
-        alert("오류 발생");
-    }else{
-        loadWeather(data);
-    }
+
+$(document).ready(function(){
+	$("#city").change(function(){
+		var selectCity = $(this).val();
+		console.log(selectCity);
+		
+		var url = 'http://api.openweathermap.org/data/2.5/weather?q='+selectCity+'&appid=d3689315a68c7fb612f372f174579300&units=metric';
+		
+		getJSON(url, function(err, data){
+			if(err !== null){
+				alert("오류 발생");
+			}else{
+				loadWeather(data);
+				iconDaily(data);
+			}
+		});
+	});
 });
+		
+	function loadWeather(data){
+/*		var location = document.querySelector('.location');
+		var currentTime = document.querySelector('.current-time');
+		var currentTemp = document.querySelector('.current-temp');
+		var feelsLike = document.querySelector('.feels-like');*/
+		
+		var date = new Date();
+		var month = date.getMonth() + 1;
+		var day = date.getDate();
+		var hours = date.getHours();
+		var minutes = date.getMinutes();
+		
+		$(".location").html(`현재 위치 : ${data.name}, KR`);
+		$(".current-temp").html(`현재 온도 : ${data.main.temp}℃`);
+		$(".feels-like").html(`체감온도 : ${data.main.feels_like}℃`);
+		$(".current-time").html(`${month}월 ${day}일 ${hours}:${minutes} 기준`);
+		
+/*		location.append(data.name, ', ',`${data.sys.country}`);
+		currentTemp.append(`${data.main.temp}`);
+		feelsLike.append(`${data.main.feels_like}`);
+		currentTime.prepend(`${month}월 ${day}일 ${hours}:${minutes}`);*/
+	}
+	
+	function iconDaily(data){
+		var temp = `${data.main.temp}`;
+		var icon = document.querySelector('.icon');
+		
+		if(temp < 5){
+			icon.innerHTML = "<img src='images/clothing-icon/winter-hat.png' width='150px' height='150px'>"+
+							"<img src='images/clothing-icon/padded-jacket.png' width='150px' height='150px'>";
+		
+		}else if(temp >= 5 && temp < 9 ){
+			icon.innerHTML = "<img src='images/clothing-icon/padded-jacket.png' width='150px' height='150px'>"+
+							"<img src='images/clothing-icon/jeans.png' width='150px' height='150px'>";
+		
+		}else if(temp >= 9 && temp < 12){
+			icon.innerHTML = "<img src='images/clothing-icon/trench-coat.png.png' width='150px' height='150px'>"+
+							"<img src='images/clothing-icon/jean.png' width='150px' height='150px'>";
+		
+		}else if(temp >= 12 && temp < 17){
+			icon.innerHTML = "<img src='images/clothing-icon/hoodie.png' width='150px' height='150px'>"+
+							"<img src='images/clothing-icon/jean.png' width='150px' height='150px'>";
+		
+		}else if(temp >= 17 && temp < 20){
+			icon.innerHTML = "<img src='images/clothing-icon/sweater.png' width='150px' height='150px'>"+
+							"<img src='images/clothing-icon/jean.png' width='150px' height='150px'>";
+		
+		}else if(temp >= 20 && temp < 23){
+			icon.innerHTML = "<img src='images/clothing-icon/short-sleeve.png' width='150px' height='150px'>"+
+							"<img src='images/clothing-icon/jean.png' width='150px' height='150px'>";
+		
+		}else if(temp >= 23 && temp < 28){
+			icon.innerHTML = "<img src='images/clothing-icon/short-sleeve.png' width='150px' height='150px'>"+
+							"<img src='images/clothing-icon/shorts.png' width='150px' height='150px'>";
+		
+		}else if(temp >= 28){
+			icon.innerHTML = "<img src='images/clothing-icon/sleeveless.png' width='150px' height='150px'>"+
+							"<img src='images/clothing-icon/shorts.png' width='150px' height='150px'>";
+		}
+		
+	}
 
-function loadWeather(data){
-    var location = document.querySelector('.location');
-    var currentTime = document.querySelector('.current-time');
-    var currentTemp = document.querySelector('.current-temp');
-    var feelsLike = document.querySelector('.feels-like');
 
-    var date = new Date();
-    var month = date.getMonth() + 1;
-    var day = date.getDate();
-    var hours = date.getHours();
-    var minutes = date.getMinutes();
-
-    location.append(data.name, ', ',`${data.sys.country}`);
-    currentTemp.append(`${data.main.temp}`);
-    feelsLike.append(`${data.main.feels_like}`);
-    currentTime.prepend(`${month}월 ${day}일 ${hours}:${minutes}`);
-}
 
 
 

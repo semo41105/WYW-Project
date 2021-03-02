@@ -25,36 +25,36 @@
 			<!-- Main -->
 			<section id="main">
 					<div class="main"><br>
+					<div class="weatherimg">
 						<select id="city">
-							<option>현재 계신 도시를 선택해주세요.</option>
-							<optgroup label="시/도">
-								<option value="seoul">서울특별시</option>
-								<option value="incheon">인천광역시</option>
-								<option value="daejeon">대전광역시</option>
-								<option value="gwangju">광주광역시</option>
-								<option value="daegu">대구광역시</option>
-								<option value="ulsan">울산광역시</option>
-								<option value="busan">부산광역시</option>
-								<option value="gyeonggi-do">경기도</option>
-								<option value="gangwon-do">강원도</option>
-								<option value="chungcheongbuk-do">충청북도</option>
-								<option value="chungcheongnam-do">충청남도</option>
-								<option value="jeollabuk-do">전라북도</option>
-								<option value="jeollanam-do">전라남도</option>
-								<option value="gyeongsangbuk-do">경상북도</option>
-								<option value="gyeongsangnam-do">경상남도</option>
-								<option value="jeju-do">제주도</option>
-							</optgroup>
+							<option hidden>현재 계신 도시를 선택해주세요.</option>
+							<option value="seoul">서울특별시</option>
+							<option value="incheon">인천광역시</option>
+							<option value="daejeon">대전광역시</option>
+							<option value="gwangju">광주광역시</option>
+							<option value="daegu">대구광역시</option>
+							<option value="ulsan">울산광역시</option>
+							<option value="busan">부산광역시</option>
+							<option value="gyeonggi-do">경기도</option>
+							<option value="gangwon-do">강원도</option>
+							<option value="chungcheongbuk-do">충청북도</option>
+							<option value="chungcheongnam-do">충청남도</option>
+							<option value="jeollabuk-do">전라북도</option>
+							<option value="jeollanam-do">전라남도</option>
+							<option value="gyeongsangbuk-do">경상북도</option>
+							<option value="gyeongsangnam-do">경상남도</option>
+							<option value="jeju-do">제주도</option>
 						</select>
 						<div class="weather">
-							<div class="left">
+							<div class="weatherDetail">
 								<p class="location">현재 위치 : </p>
-								<p class="current-temp">현재 온도 : </p>
-								<p class="feels-like">체감온도 : </p>
-								<p class="current-time"> 기준</p>
+								<p class="current-temp">현재 기온 : </p>
+								<p class="feels-like">체감 온도 : </p>
+								<p class="current-time">현재 시간 : </p>
 							</div>
-							<div class="right"><span>기온별 옷차림 이미지 삽입</span></div>
+							<div class="icon"></div>
 						</div>
+					</div>
 				
 						<div class="recommend">
 							<div class="circle" id="one">
