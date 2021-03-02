@@ -60,6 +60,7 @@
 <!-- Header -->
 <header>	
 			<div id="s0">
+				<a>
 					<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw.png" width="200" height="100">
 				</a>
 			</div>
@@ -146,7 +147,5 @@
 					</footer>
 
 	</div>
-	</body>
-</html>
 </body>
 </html>
