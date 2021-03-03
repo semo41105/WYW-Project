@@ -92,16 +92,17 @@
 									<img id="hidemenu" alt="menu" src="images/icon/menu.png" width="30px">
 									<img id="viewmenu" alt="menu" src="images/icon/overmenu.png" width="30px">								
 								</div>
+								<div style="position: relative; top: 33px; left: 623px; background-color: #fffbc1; color: black; font-weight: bold;">
+									<table border="1">
+										<col width="100">
+										<tr>
+											<td align="center">sasdfsdf</td>
+										</tr>
+									</table>
+								</div>
 							</div>
 						    <div id="header">
 						    	<img alt="img" src="images/thumbs/01.jpg"/>
-						    </div>
-						    <div id="viewmenu">
-						    	<table>
-						    		<tr>
-						    			<th></th>
-						    		</tr>
-						    	</table>
 						    </div>
 					</section>
 
