@@ -36,6 +36,24 @@
 		<script src="assets/js/jquery.poptrox.min.js"></script>
 		<script src="assets/js/skel.min.js"></script>
 		<script src="assets/js/main.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var h = document.getElementById('hidemenu');
+				var op = document.getElementById('viewmenu');
+				
+				op.style.display = 'none';
+				
+				h.onclick = function(){
+					h.style.display = 'none';
+					op.style.display = '';
+				}
+				
+				op.onclick = function(){
+					op.style.display = 'none';
+					h.style.display = '';
+				}
+			}
+		</script>
 	</head>
 	<body>
 
@@ -71,13 +89,19 @@
 							    	</a>
 								</div>
 								<div style="position: relative;top: 75px; left: 585px;">
-									<a href="#">
-										<img alt="menu" src="images/icon/menu.png" width="30px">
-									</a>
+									<img id="hidemenu" alt="menu" src="images/icon/menu.png" width="30px">
+									<img id="viewmenu" alt="menu" src="images/icon/overmenu.png" width="30px">								
 								</div>
 							</div>
 						    <div id="header">
-						    	<img alt="img" src="images/thumbs/05.jpg"/>
+						    	<img alt="img" src="images/thumbs/01.jpg"/>
+						    </div>
+						    <div id="viewmenu">
+						    	<table>
+						    		<tr>
+						    			<th></th>
+						    		</tr>
+						    	</table>
 						    </div>
 					</section>
 
