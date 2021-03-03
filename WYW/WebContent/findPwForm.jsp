@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>StartPage</title>
+<title>비밀번호 찾기</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="assets/css/main.css" />
@@ -31,29 +31,24 @@
 		<!-- Main -->
 		<section id="main">
 			<div style="display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+				<h1>비빌번호 찾기</h1>
+				<span>비밀번호는 이름, 가입한 아이디, 이메일을 통해 찾으실 수 있습니다.</span>
+				<br>
 				<form action="loginController.do" method="post">
-					<input type="hidden" name="command" value="login">
+					<input type="hidden" name="command" value="findPw">
 					<table>
 						<col width="310">
+						<tr style="background-color:transparent; border: solid 0px;">
+							<td><input type="text" name="name" placeholder="이름" style="text-align:center"></td>
+						</tr>
 						<tr style="background-color:transparent; border: solid 0px;">
 							<td><input type="text" name="id" placeholder="아이디" style="text-align:center"></td>
 						</tr>
 						<tr style="background-color:transparent; border: solid 0px;">
-							<td><input type="password" name="pw" placeholder="비밀번호" style="text-align:center"></td>
+							<td><input type="email" name="email" placeholder="이메일" style="text-align:center"></td>
 						</tr>
 						<tr style="background-color:transparent; border: solid 0px;">
-							<td><input type="submit" value="login" style="width:300px;"></tr>
-						<tr style="border: solid 0px;">
-							<td><input type="button" value="signup" style="width:300px;"
-								onclick="location.href='loginController.do?command=signupform'"></td>
-						</tr>
-						<tr style="background-color:transparent; border: solid 0px;">
-							<td colspan="2" style="padding:10px; text-align:center;">
-								<input type="button" value="아이디찾기" style="width:148px;"
-								onclick="location.href='loginController.do?command=findIdForm'">
-								<input type="button" value="비밀번호찾기" style="width:148px; text-align:center;"
-								onclick="location.href='loginController.do?command=findPwForm'">
-							</td>
+							<td><input type="submit" value="찾기" style="width:300px;">
 						</tr>
 
 					</table>
