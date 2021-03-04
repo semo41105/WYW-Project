@@ -45,11 +45,6 @@ body>form {
 				<td>${dto.regdate }</td>
 			</tr>
 			<tr>
-				<th>WRITER</th>
-				<td>${dto.username }</td>
-				<!-- 세션에서 username 가져오기 -->
-			</tr>
-			<tr>
 				<th>TITLE</th>
 				<td><input type="text" name="title" value="${dto.title }"></td>
 			</tr>

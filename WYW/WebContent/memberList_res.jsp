@@ -145,7 +145,7 @@ tr>td {
 		<input type="hidden" name="command" value="searchmembers">
 		<div id="middle" class="space">&nbsp;</div>
 		<div id="middle" style="width: 9%;">
-			<select name="select">
+			<select name="searchType">
 				<option value="id" selected>아이디</option>
 				<option value="name">이름</option>
 				<option value="address">주소</option>
@@ -157,7 +157,7 @@ tr>td {
 
 		</div>
 		<div id="middle" style="width: 21%; padding: 0px 5px;">
-			<input type="text" name="findtextbox" id="findtextbox" value="">
+			<input type="text" name="findtextbox" id="findtextbox">
 		</div>
 		<div id="middle" style="width: 10%;">
 			<input type="submit" name="searchbtn" id="searchbtn" value="검색"

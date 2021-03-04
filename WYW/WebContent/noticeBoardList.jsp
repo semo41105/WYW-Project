@@ -3,7 +3,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
+<%@page import="com.mvc.dto.UserDataDto"%>
 <!DOCTYPE html>
 <html>
 
@@ -140,12 +140,12 @@ table {
 					</tr>
 				</c:when>
 				<c:otherwise>
-					<c:forEach var="dto" items="{list}">
+					<c:forEach var="dto" items="${list}" varStatus="status">
 						<tr>
-							<td>${fn:length(dto)}-${dto.index}</td>
+							<td>${fn:length(list)-status.index}</td>
 							<td><a
 								href="manager.do?command=noticedetail&boardno=${dto.boardno}">${dto.title }</a></td>
-							<td>${dto.regdate}></td>
+							<td>${dto.regdate}</td>
 						</tr>
 					</c:forEach>
 				</c:otherwise>

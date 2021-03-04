@@ -33,14 +33,14 @@ public class ManagerBiz {
 	
 	public boolean updateNotice(UserDataDto dto) {
 		
-		int res = dao.updateBoard(dto);
+		int res = dao.updateNotice(dto);
 		
 		return (res>0)?true:false;
 	}
 
 	public boolean deleteNotice(int boardno) {
 		
-		int res = dao.deleteBoard(boardno);
+		int res = dao.deleteNotice(boardno);
 		
 		return (res>0)?true:false;
 	}

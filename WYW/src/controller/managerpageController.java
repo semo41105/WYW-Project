@@ -27,7 +27,7 @@ public class managerpageController extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 
 		String command = request.getParameter("command");
-		System.out.println("[" + command + "]"); // command 올바르게 넘어오는 지 확인용
+		System.out.println("[" + command + "]");
 
 		ManagerBiz biz = new ManagerBiz();
 		HttpSession session = request.getSession(); // 세션 이렇게 가져오는 것 맞는지 확인 필요
@@ -36,7 +36,7 @@ public class managerpageController extends HttpServlet {
 			List<UserDataDto> list = biz.selectAllNotice();
 			request.setAttribute("list", list);
 
-			dispatch("noticeBoardList", request, response);
+			dispatch("noticeBoardList.jsp", request, response);
 		} else if (command.equals("noticedetail")) {
 			int boardno = Integer.parseInt(request.getParameter("boardno"));
 
@@ -46,16 +46,17 @@ public class managerpageController extends HttpServlet {
 			dispatch("noticeBoardDetail.jsp", request, response);
 
 		} else if (command.equals("noticewriteform")) {
-			String userrole = (String) session.getAttribute("userrole");
+			// String userrole = (String) session.getAttribute("userrole");
 
 			// 접근 권한에 따라 이동
-			if (userrole == "MANAGER") {
-				response.sendRedirect("noticeBoardWrite.jsp");
-			} else {
-				jsResponse("접근 권한이 없습니다.", "manager.do?command=noticelist", response);
-			}
+			// if (userrole == "MANAGER") {
+			response.sendRedirect("noticeBoardWrite.jsp");
+			// } else {
+			// jsResponse("접근 권한이 없습니다.", "manager.do?command=noticelist", response);
+			// }
 
 		} else if (command.equals("noticewrite")) {
+			// 세션 유지될 때에 확인 가능
 			String userid = request.getParameter("userid");
 			String writer = request.getParameter("writer");
 			String title = request.getParameter("title");
@@ -72,63 +73,67 @@ public class managerpageController extends HttpServlet {
 			}
 
 		} else if (command.equals("noticeupdateform")) {
-			String userrole = (String) session.getAttribute("userrole");
+			// String userrole = (String) session.getAttribute("userrole");
 
 			// 접근 권한에 따라 이동
-			if (userrole == "MANAGER") {
-				response.sendRedirect("noticeBoardUpdate.jsp");
-			} else {
-				jsResponse("접근 권한이 없습니다.", "manager.do?command=noticelist", response);
-			}
+			// if (userrole == "MANAGER") {
+			int boardno = Integer.parseInt(request.getParameter("boardno"));
+			UserDataDto dto = biz.selectOneNotice(boardno);
+			request.setAttribute("dto", dto);
+
+			dispatch("noticeBoardUpdate.jsp", request, response);
+			// } else {
+			// jsResponse("접근 권한이 없습니다.", "manager.do?command=noticelist", response);
+			// }
 
 		} else if (command.equals("noticeupdate")) {
-		
+
 			int boardno = Integer.parseInt(request.getParameter("boardno"));
 			String title = request.getParameter("title");
 			String content = request.getParameter("content");
-			
+
 			UserDataDto dto = new UserDataDto(boardno, title, content);
-			
+
 			boolean res = biz.updateNotice(dto);
-			
+
 			if (res) {
 				jsResponse("글 수정 성공", "manager.do?command=noticelist", response);
 			} else {
 				dispatch("manager.do?command=noticeupdateform", request, response);
 			}
-			
-			
+
 		} else if (command.equals("noticedelete")) {
-			String userrole = (String) session.getAttribute("userrole");
+			// String userrole = (String) session.getAttribute("userrole");
 
-			if (userrole == "MANAGER") {
-				int boardno = Integer.parseInt(request.getParameter("boardno"));
+			// if (userrole == "MANAGER") {
+			int boardno = Integer.parseInt(request.getParameter("boardno"));
 
-				boolean res = biz.deleteNotice(boardno);
+			boolean res = biz.deleteNotice(boardno);
 
-				if (res) {
-					dispatch("manager.do?command=noticelist", request, response);
-				} else {
-					dispatch("manager.do?command=noticedetail&boardno=" + boardno, request, response);
-				}
+			if (res) {
+				dispatch("manager.do?command=noticelist", request, response);
 			} else {
-				jsResponse("접근 권한이 없습니다.", "manager.do?command=noticelist", response);
+				dispatch("manager.do?command=noticedetail&boardno=" + boardno, request, response);
 			}
+			// } else {
+			// jsResponse("접근 권한이 없습니다.", "manager.do?command=noticelist", response);
+			// }
 
-		}else if (command.equals("memberlistall")) {
+		} else if (command.equals("memberlistall")) {
 
-			//다 완성하고 나서 접근권한 설정하기
-			
+			// 다 완성하고 나서 접근권한 설정하기
 
 			List<UserDataDto> list = biz.selectAllMember();
 			request.setAttribute("list", list);
 			dispatch("memberList.jsp", request, response);
-			
-			
-			
 
+		}else if(command.equals("searchmembers")) {
 			
-			
+			String select = request.getParameter("select");
+			System.out.println(select);
+			String findtextbox = request.getParameter("findtextbox");
+			System.out.println(findtextbox);
+
 			
 			
 		}

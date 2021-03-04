@@ -27,8 +27,10 @@ public class UserDataDao extends JDBCTemplate {
 		
 		try {
 			pstm = con.prepareStatement(sql);
-
+			System.out.println("03. query 준비 " + sql);
+			
 			rs = pstm.executeQuery();
+			System.out.println("04. query 실행 및 리턴");
 			
 			while(rs.next()) {
 				UserDataDto tmp = new UserDataDto();
@@ -47,11 +49,13 @@ public class UserDataDao extends JDBCTemplate {
 			
 		
 		} catch (SQLException e) {
+			System.out.println("3/4단계 에러");
 			e.printStackTrace();
 		}finally {
 			close(rs);
 			close(pstm);
 			close(con);
+			System.out.println("05. db 종료\n");
 		}
 		
 		return res;
@@ -206,37 +210,34 @@ public class UserDataDao extends JDBCTemplate {
 		Connection con = getConnection();
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
-		// userdatadto에 content등이 들어가있음..
 		List<UserDataDto> res = new ArrayList<UserDataDto>();
 
 		// 테이블 조인해서 유저권한 manager인 사람의 글만 보일 수 있게 쿼리문 작성
 		String sql = " SELECT * FROM USERCONTENT " + " JOIN USERDATA ON(USERCONTENT.USERID = USERDATA.USERNO) "
 				+ " WHERE USERROLE='MANAGER' ORDER BY REGDATE DESC ";
 
-//public UserDataDto(int userno, String userid, String userpw, String username, String useraddr, String userphone,
-//		String useremail, String userenabled, String userrole, int userfollow, int boardno, int groupno,
-//		int groupsq, String title, String content, String userimgname, String userimg,
-//		int userlike, Date regdate, int followno, int followuser, int followinguser)
-
 		try {
 			pstm = con.prepareStatement(sql);
+			System.out.println("03. query 준비 " + sql);
 
 			rs = pstm.executeQuery();
-
+			System.out.println("04. query 실행 및 리턴");
 			while (rs.next()) {
 				UserDataDto dto = new UserDataDto();
-				dto.setBoardno(rs.getInt(11));
-				dto.setTitle(rs.getString(14));
-
+				dto.setBoardno(rs.getInt(1));
+				dto.setTitle(rs.getString(4));
+				dto.setRegdate(rs.getDate(10));
 				res.add(dto);
 			}
 
 		} catch (SQLException e) {
+			System.out.println("3/4단계 에러");
 			e.printStackTrace();
 		} finally {
 			close(rs);
 			close(pstm);
 			close(con);
+			System.out.println("05. db 종료\n");
 		}
 
 		return res;
@@ -247,31 +248,33 @@ public class UserDataDao extends JDBCTemplate {
 		Connection con = getConnection();
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
-		UserDataDto res = null;
+		UserDataDto res = new UserDataDto();
 
 		String sql = " SELECT * FROM USERCONTENT WHERE BOARDNO=? ";
 
 		try {
 			pstm = con.prepareStatement(sql);
 			pstm.setInt(1, boardno);
-
+			System.out.println("03. query 준비 " + sql);
+			
 			rs = pstm.executeQuery();
-
+			System.out.println("04. query 실행 및 리턴");
 			while (rs.next()) {
-//				res.setBoardno(rs.getInt(columnIndex));
-//				res.setTitle(rs.getString(columnIndex));
-//				res.setContent(rs.getString(columnIndex));
-//				res.setRegdate(rs.getDate(columnIndex));
-
+				res.setBoardno(rs.getInt(1));
+				res.setTitle(rs.getString(4));
+				res.setContent(rs.getString(5));
+				res.setRegdate(rs.getDate(10));
 			}
 
 		} catch (SQLException e) {
+			System.out.println("3/4단계 에러");
 			e.printStackTrace();
 
 		} finally {
 			close(rs);
 			close(pstm);
 			close(con);
+			System.out.println("05. db 종료\n");
 		}
 
 		return res;
@@ -293,14 +296,16 @@ public class UserDataDao extends JDBCTemplate {
 			pstm.setString(1, dto.getTitle());
 			pstm.setString(2, dto.getContent());
 			pstm.setString(3, dto.getUserid());
-
+			System.out.println("03. query 준비 " + sql);
+			
 			res = pstm.executeUpdate();
-
+			System.out.println("04. query 실행 및 리턴");
 			if (res > 0) {
 				commit(con);
 			}
 
 		} catch (SQLException e) {
+			System.out.println("3/4단계 에러");
 			e.printStackTrace();
 		} finally {
 			close(pstm);
@@ -322,14 +327,17 @@ public class UserDataDao extends JDBCTemplate {
 			pstm.setString(1, dto.getTitle());
 			pstm.setString(2, dto.getContent());
 			pstm.setInt(3, dto.getBoardno());
+			System.out.println("03. query 준비 " + sql);
 			
 			res = pstm.executeUpdate();
-			
+			System.out.println("04. query 실행 및 리턴");
 		} catch (SQLException e) {
+			System.out.println("3/4단계 에러");
 			e.printStackTrace();
 		}finally {
 			close(pstm);
 			close(con);
+			System.out.println("05. db 종료\n");
 		}
 		
 		return res;
@@ -360,14 +368,17 @@ public class UserDataDao extends JDBCTemplate {
 		try {
 			pstm = con.prepareStatement(sql);
 			pstm.setInt(1, boardno);
+			System.out.println("03. query 준비 " + sql);
 
 			res = pstm.executeUpdate();
-
+			System.out.println("04. query 실행 및 리턴");
 		} catch (SQLException e) {
+			System.out.println("3/4단계 에러");
 			e.printStackTrace();
 		} finally {
 			close(pstm);
 			close(con);
+			System.out.println("05. db 종료\n");
 		}
 
 		return res;

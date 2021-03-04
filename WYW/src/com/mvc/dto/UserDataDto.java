@@ -1,6 +1,6 @@
 package com.mvc.dto;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class UserDataDto {
 
@@ -59,7 +59,18 @@ public class UserDataDto {
 		this.followinguser = followinguser;
 	}
 
-//insertnotice
+@Override
+	public String toString() {
+		return "UserDataDto [userno=" + userno + ", userid=" + userid + ", userpw=" + userpw + ", username=" + username
+				+ ", useraddr=" + useraddr + ", userphone=" + userphone + ", useremail=" + useremail + ", userenabled="
+				+ userenabled + ", userrole=" + userrole + ", userfollow=" + userfollow + ", boardno=" + boardno
+				+ ", groupno=" + groupno + ", groupsq=" + groupsq + ", title=" + title + ", content=" + content
+				+ ", userimgname=" + userimgname + ", userimg=" + userimg + ", userlike=" + userlike + ", regdate="
+				+ regdate + ", followno=" + followno + ", followuser=" + followuser + ", followinguser=" + followinguser
+				+ "]";
+	}
+
+	//insertnotice
 	public UserDataDto(String userid, String writer, String title, String content) {
 
 		this.userid = userid;
