@@ -6,13 +6,13 @@
   </welcome-file-list>
   
   <servlet>
-    <servlet-name>Main</servlet-name>
-    <servlet-class>controller.mainController</servlet-class>
+    <servlet-name>StartPage</servlet-name>
+    <servlet-class>com.mvc.controller.loginController</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>Main</servlet-name>
-    <url-pattern>/main.do</url-pattern>
+    <servlet-name>StartPage</servlet-name>
+    <url-pattern>/loginController.do</url-pattern>
   </servlet-mapping>
   
 </web-app>
