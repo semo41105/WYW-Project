@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
+<% response.setContentType("text/html; charset=UTF-8"); %>    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,8 +10,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3><a href="mypage.jsp">글</a></h3>	
-	<h3><a href="template.jsp">배포용</a></h3>
-	<h3><a href="myfollow.jsp">팔로우페이지</a></h3>
+	<jsp:forward page="loginController.do?command=startpage"></jsp:forward>
 </body>
 </html>

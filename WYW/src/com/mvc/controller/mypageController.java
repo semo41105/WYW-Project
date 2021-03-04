@@ -1,4 +1,4 @@
-package controller;
+package com.mvc.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
