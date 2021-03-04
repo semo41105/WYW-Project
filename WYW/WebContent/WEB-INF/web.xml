@@ -15,4 +15,15 @@
     <url-pattern>/main.do</url-pattern>
   </servlet-mapping>
   
+   <servlet>
+  	<servlet-name>StartPage</servlet-name>
+  	<servlet-class>com.mvc.controller.loginController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>StartPage</servlet-name>
+  	<url-pattern>/loginController.do</url-pattern>
+  </servlet-mapping>
+  
+  
 </web-app>

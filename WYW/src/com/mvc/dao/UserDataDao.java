@@ -450,8 +450,47 @@ public class UserDataDao extends JDBCTemplate {
 	
 	//설정(내 정보 조회)
 	public UserDataDto selectUser(int userno) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		UserDataDto res = null;
 		
-		return null;
+		String sql =" SELECT * FROM USERDATA WHERE USERNO=? ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, userno);
+			System.out.println("03. query 준비 : " + sql);
+			
+			rs = pstm.executeQuery(); 
+			System.out.println("04. query 실행 및 리턴");
+			
+			while(rs.next()) {
+				res = new UserDataDto();
+				res.setUserno(rs.getInt(1));
+				res.setUserid(rs.getString(2));
+				res.setUserpw(rs.getString(3));
+				res.setUsername(rs.getString(4));
+				res.setUseraddr(rs.getString(5));
+				res.setUserphone(rs.getString(6));
+				res.setUseremail(rs.getString(7));
+				res.setUserenabled(rs.getString(8));
+				res.setUserrole(rs.getString(9));
+				res.setUserfollow(rs.getInt(10));
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료 \n");
+
+		}
+		
+		return res;
 	}
 	
 	//설정(내 정보 수정)
