@@ -7,7 +7,7 @@
   
   <servlet>
     <servlet-name>Main</servlet-name>
-    <servlet-class>com.main.controller.mainController</servlet-class>
+    <servlet-class>controller.mainController</servlet-class>
   </servlet>
   
   <servlet-mapping>
