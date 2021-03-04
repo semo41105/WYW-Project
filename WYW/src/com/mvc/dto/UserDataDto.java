@@ -1,6 +1,6 @@
 package com.mvc.dto;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class UserDataDto {
 
@@ -234,4 +234,12 @@ public class UserDataDto {
 		this.followinguser = followinguser;
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
 }
