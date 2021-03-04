@@ -7,12 +7,32 @@
   
   <servlet>
     <servlet-name>StartPage</servlet-name>
-    <servlet-class>com.mvc.controller.loginController</servlet-class>
+    <servlet-class>controller.loginController</servlet-class>
   </servlet>
   
   <servlet-mapping>
     <servlet-name>StartPage</servlet-name>
     <url-pattern>/loginController.do</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>MainPage</servlet-name>
+    <servlet-class>controller.loginController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>MainPage</servlet-name>
+    <url-pattern>/mainController.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ManagerPage</servlet-name>
+    <servlet-class>controller.managerpageController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>ManagerPage</servlet-name>
+    <url-pattern>/manager</url-pattern>
+  </servlet-mapping>  
   
 </web-app>

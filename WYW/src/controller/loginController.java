@@ -1,4 +1,4 @@
-package com.mvc.controller;
+package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -48,7 +48,7 @@ public class loginController extends HttpServlet {
 				if(dto.getUserrole().equals("ADMIN")) {
 					dispatch("adminmain.jsp", request, response); //Logincontroller.do?command=adminmain
 				}else if(dto.getUserrole().equals("USER") || dto.getUserrole().equals("MANAGER")) {
-					dispatch("usermain.jsp", request, response); //Logincontroller.do?command=usermain
+					dispatch("mainPage.jsp", request, response); //Logincontroller.do?command=usermain
 				}
 				
 			}else {
