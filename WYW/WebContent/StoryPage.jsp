@@ -30,6 +30,13 @@
 			    object-position: top;
 			    border-radius: 50%;
 			}
+			#select {
+				font-size: 15px;
+				background: #ff6382;
+				vertical-align: middle; 
+				text-align-last: center;
+				color: #d3d3d3;
+			}
 		</style>
 	<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
@@ -93,27 +100,39 @@
 									<img id="viewmenu" alt="menu" src="images/icon/overmenu.png" width="30px">								
 								</div>
 								<div style="position: relative; top: 33px; left: 623px; background-color: #fffbc1; color: black; font-weight: bold;">
-									<table border="1">
-										<col width="250">
-										<tr>
-											<td align="center"><input type="button" style="width: 100%; height: 100%;" value="지역 선택" onclick=""></td>
-										</tr>
-										<tr>
-											<td align="center">
-												<input type="checkbox" name="성별" value="남성">남성
-												<input type="checkbox" name="성별" value="여성">여성
-												<input type="checkbox" name="성별" value="그외">그외
-											</td>
-										</tr>
-										<tr>
-											<td align="center"><input type="button" style="width: 100%; height: 100%;" value="사진 업로드" onclick=""></td>
-										</tr>
-										<tr>
-											<td align="center">
-												<input name="fname" type="file" value="사진 업로드" style="color: black;" accept=".jpg, .jpeg, .png, .gif, .bmp">
-											</td>
-										</tr>
-									</table>
+									<form name="upload" method="post" action="">
+										<table border="1">
+											<col width="250">
+											<tr>
+												<td align="center">
+													<select id="select" name="selectloc">
+														<option value="">지역 선택</option>
+														<option value="M">남성</option>
+														<option value="FM">여성</option>
+														<option value="O">그외</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<td align="center">
+													<select id="select" name="selectsex">
+														<option value="">성별 선택</option>
+														<option value="M">남성</option>
+														<option value="FM">여성</option>
+														<option value="O">그외</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<td align="center">
+													<input name="fname" type="file" value="사진 선택" style="color: black;" accept=".jpg, .jpeg, .png, .gif, .bmp; images/storyimg/*; capture=camera"/>
+												</td>
+											</tr>
+											<tr>
+												<td align="center"><input type="submit" style="width: 100%; height: 100%;" value="내용 업로드" onclick=""></td>
+											</tr>
+										</table>
+									</form>
 								</div>
 							</div>
 						    <div id="header">
