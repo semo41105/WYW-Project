@@ -51,7 +51,7 @@
         float: right;
         margin-top:5%;
         margin-right:12.5%;
-        background-color: rgba(255, 255, 255, 0.185);
+         background-color: rgba(255, 255, 255, 0.185);
         border-radius : 30px 30px 30px 30px;
     }
     #btn{ 
@@ -61,14 +61,9 @@
         border-radius : 10px 10px 10px 10px;
     }
     form {
-        padding: 20px 0px 40px 320px;
+        padding: 0px 0px 40px 325px;
         font-size: 14px;
     }
-    .a1>h1{
-    	text-align : center;
-    	padding : 40px 0px 0px 0px;
-    }
-    
     
 </style>    
 </head>
@@ -93,14 +88,11 @@
             <button onclick="location.href = 'NoticeForm.jsp'" id="btn">공지사항</button>
         </article>
         <article class="a1" id="right">
-            	<h1>회원탈퇴</h1>
             <form>
-                   <label> 아이디  </label> <input type="text" name="userid" style="text-align:center; width:250px; height:50px;"><br>
-                    <label> 비밀번호  </label> <input type="text" name="userpw" style="text-align:center; width:250px; height:50px;" placeholder="비밀번호를 입력하세요"><br>               
-           			<input type="submit" value="확인">    
+              
             </form>   
-            	 
         </article>
+        
     </section>
   
     <footer class="a1">
