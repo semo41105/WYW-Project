@@ -41,12 +41,7 @@ $(document).ready(function(){
 	});
 });
 		
-	function loadWeather(data){
-/*		var location = document.querySelector('.location');
-		var currentTime = document.querySelector('.current-time');
-		var currentTemp = document.querySelector('.current-temp');
-		var feelsLike = document.querySelector('.feels-like');*/
-		
+	function loadWeather(data){		
 		var date = new Date();
 		var month = date.getMonth() + 1;
 		var day = date.getDate();
@@ -54,14 +49,9 @@ $(document).ready(function(){
 		var minutes = date.getMinutes();
 		
 		$(".location").html(`현재 위치 : ${data.name}, KR`);
-		$(".current-temp").html(`현재 온도 : ${data.main.temp}℃`);
-		$(".feels-like").html(`체감온도 : ${data.main.feels_like}℃`);
+		$(".current-temp").html(`현재 온도 : ${data.main.temp}º`);
+		$(".feels-like").html(`체감온도 : ${data.main.feels_like}º`);
 		$(".current-time").html(`${month}월 ${day}일 ${hours}:${minutes} 기준`);
-		
-/*		location.append(data.name, ', ',`${data.sys.country}`);
-		currentTemp.append(`${data.main.temp}`);
-		feelsLike.append(`${data.main.feels_like}`);
-		currentTime.prepend(`${month}월 ${day}일 ${hours}:${minutes}`);*/
 	}
 	
 	function iconDaily(data){
