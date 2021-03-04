@@ -47,16 +47,20 @@
 			window.onload = function(){
 				var h = document.getElementById('hidemenu');
 				var op = document.getElementById('viewmenu');
+				var opp = document.getElementById('menu');
 				
 				op.style.display = 'none';
+				opp.style.display = 'none';
 				
 				h.onclick = function(){
 					h.style.display = 'none';
 					op.style.display = '';
+					opp.style.display = '';
 				}
 				
 				op.onclick = function(){
 					op.style.display = 'none';
+					opp.style.display = 'none';
 					h.style.display = '';
 				}
 			}
@@ -99,17 +103,30 @@
 									<img id="hidemenu" alt="menu" src="images/icon/menu.png" width="30px">
 									<img id="viewmenu" alt="menu" src="images/icon/overmenu.png" width="30px">								
 								</div>
-								<div style="position: relative; top: 33px; left: 623px; background-color: #fffbc1; color: black; font-weight: bold;">
+								<div id="menu" style="position: relative; top: 33px; left: 623px; background-color: #fffbc1; color: black; font-weight: bold;">
 									<form name="upload" method="post" action="">
 										<table border="1">
 											<col width="250">
 											<tr>
 												<td align="center">
 													<select id="select" name="selectloc">
-														<option value="">지역 선택</option>
-														<option value="M">남성</option>
-														<option value="FM">여성</option>
-														<option value="O">그외</option>
+														<option value="">현재 계신 도시를 선택해주세요.</option>
+														<option value="seoul">서울특별시</option>
+							                            <option value="incheon">인천광역시</option>
+							                            <option value="daejeon">대전광역시</option>
+							                            <option value="gwangju">광주광역시</option>
+							                            <option value="daegu">대구광역시</option>
+							                            <option value="ulsan">울산광역시</option>
+							                            <option value="busan">부산광역시</option>
+							                            <option value="gyeonggi-do">경기도</option>
+							                            <option value="gangwon-do">강원도</option>
+							                            <option value="chungcheongbuk-do">충청북도</option>
+							                            <option value="chungcheongnam-do">충청남도</option>
+							                            <option value="jeollabuk-do">전라북도</option>
+							                            <option value="jeollanam-do">전라남도</option>
+							                            <option value="gyeongsangbuk-do">경상북도</option>
+							                            <option value="gyeongsangnam-do">경상남도</option>
+							                            <option value="jeju-do">제주도</option>
 													</select>
 												</td>
 											</tr>
