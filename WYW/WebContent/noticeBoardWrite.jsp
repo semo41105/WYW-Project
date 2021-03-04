@@ -109,10 +109,9 @@ body>form {
 	String userid = (String) session.getAttribute("userid");
 	%>
 	<form action="controller.do" method="post">
-		<input type="hidden" name="command" value="noticewrite"> <input
-			type="hidden" name="writer" value="<%=username%>"> <input
-			type="hidden" name="userid" value="<%=userid%>">
-		<!-- 세션의 username을 가져왔으니 게시글에 등록하는 방법 이게 맞을지 알아보기 -->
+		<input type="hidden" name="command" value="noticewrite"> 
+		<input type="hidden" name="writer" value="<%=username%>"> 
+		<input type="hidden" name="userid" value="<%=userid%>">
 		<table border="1">
 			<tr>
 				<th>WRITER</th>

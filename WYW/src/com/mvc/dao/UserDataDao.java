@@ -210,7 +210,7 @@ public class UserDataDao extends JDBCTemplate {
 		List<UserDataDto> res = new ArrayList<UserDataDto>();
 
 		// 테이블 조인해서 유저권한 manager인 사람의 글만 보일 수 있게 쿼리문 작성
-		String sql = " SELECT * FROM USERCONTENT " + " JOIN USERDATA USING(USERID) "
+		String sql = " SELECT * FROM USERCONTENT " + " JOIN USERDATA ON(USERCONTENT.USERID = USERDATA.USERNO) "
 				+ " WHERE USERROLE='MANAGER' ORDER BY REGDATE DESC ";
 
 //public UserDataDto(int userno, String userid, String userpw, String username, String useraddr, String userphone,
@@ -225,7 +225,6 @@ public class UserDataDao extends JDBCTemplate {
 
 			while (rs.next()) {
 				UserDataDto dto = new UserDataDto();
-				// 글 번호는 NOTICEBOARDLIST에서 처리해주지만 디테일로 넘어갈 때 필요하다
 				dto.setBoardno(rs.getInt(11));
 				dto.setTitle(rs.getString(14));
 				dto.setRegdate(rs.getDate(19));
