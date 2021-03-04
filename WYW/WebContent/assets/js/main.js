@@ -77,20 +77,20 @@ $(document).ready(function(){
 							"<img src='images/clothing-icon/jeans.png' width='150px' height='150px'>";
 		
 		}else if(temp >= 9 && temp < 12){
-			icon.innerHTML = "<img src='images/clothing-icon/trench-coat.png.png' width='150px' height='150px'>"+
-							"<img src='images/clothing-icon/jean.png' width='150px' height='150px'>";
+			icon.innerHTML = "<img src='images/clothing-icon/trench-coat.png' width='150px' height='150px'>"+
+							"<img src='images/clothing-icon/jeans.png' width='150px' height='150px'>";
 		
 		}else if(temp >= 12 && temp < 17){
 			icon.innerHTML = "<img src='images/clothing-icon/hoodie.png' width='150px' height='150px'>"+
-							"<img src='images/clothing-icon/jean.png' width='150px' height='150px'>";
+							"<img src='images/clothing-icon/jeans.png' width='150px' height='150px'>";
 		
 		}else if(temp >= 17 && temp < 20){
 			icon.innerHTML = "<img src='images/clothing-icon/sweater.png' width='150px' height='150px'>"+
-							"<img src='images/clothing-icon/jean.png' width='150px' height='150px'>";
+							"<img src='images/clothing-icon/jeans.png' width='150px' height='150px'>";
 		
 		}else if(temp >= 20 && temp < 23){
 			icon.innerHTML = "<img src='images/clothing-icon/short-sleeve.png' width='150px' height='150px'>"+
-							"<img src='images/clothing-icon/jean.png' width='150px' height='150px'>";
+							"<img src='images/clothing-icon/jeans.png' width='150px' height='150px'>";
 		
 		}else if(temp >= 23 && temp < 28){
 			icon.innerHTML = "<img src='images/clothing-icon/short-sleeve.png' width='150px' height='150px'>"+
