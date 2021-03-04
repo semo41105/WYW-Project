@@ -94,9 +94,24 @@
 								</div>
 								<div style="position: relative; top: 33px; left: 623px; background-color: #fffbc1; color: black; font-weight: bold;">
 									<table border="1">
-										<col width="100">
+										<col width="250">
 										<tr>
-											<td align="center">sasdfsdf</td>
+											<td align="center"><input type="button" style="width: 100%; height: 100%;" value="지역 선택" onclick=""></td>
+										</tr>
+										<tr>
+											<td align="center">
+												<input type="checkbox" name="성별" value="남성">남성
+												<input type="checkbox" name="성별" value="여성">여성
+												<input type="checkbox" name="성별" value="그외">그외
+											</td>
+										</tr>
+										<tr>
+											<td align="center"><input type="button" style="width: 100%; height: 100%;" value="사진 업로드" onclick=""></td>
+										</tr>
+										<tr>
+											<td align="center">
+												<input name="fname" type="file" value="사진 업로드" style="color: black;" accept=".jpg, .jpeg, .png, .gif, .bmp">
+											</td>
 										</tr>
 									</table>
 								</div>
