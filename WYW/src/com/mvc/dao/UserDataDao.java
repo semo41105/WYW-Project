@@ -227,7 +227,6 @@ public class UserDataDao extends JDBCTemplate {
 				UserDataDto dto = new UserDataDto();
 				dto.setBoardno(rs.getInt(11));
 				dto.setTitle(rs.getString(14));
-				dto.setRegdate(rs.getDate(19));
 
 				res.add(dto);
 			}
