@@ -150,14 +150,14 @@ tr>td {
 				<option value="name">이름</option>
 				<option value="address">주소</option>
 				<option value="email">이메일</option>
-				<option value="userPhone">연락처</option>
-				<option value="userEnabled">가입여부</option>
-				<option value="userRole">등급</option>
+				<option value="userphone">연락처</option>
+				<option value="userenabled">가입여부</option>
+				<option value="userrole">등급</option>
 			</select>
 
 		</div>
 		<div id="middle" style="width: 21%; padding: 0px 5px;">
-			<input type="text" name="findtextbox" id="findtextbox" value="">
+			<input type="text" name="findtextbox" id="findtextbox" placeholder="대소문자 구분, 가입여부는  Y/N">
 		</div>
 		<div id="middle" style="width: 10%;">
 			<input type="submit" name="searchbtn" id="searchbtn" value="검색"

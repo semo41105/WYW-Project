@@ -384,5 +384,85 @@ public class UserDataDao extends JDBCTemplate {
 		return res;
 	}
 
+	public List<UserDataDto> selectSearchMembers(String select, String findtextbox) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		List<UserDataDto> res = new ArrayList<UserDataDto>();
+		String kw = "";
+		System.out.println(select);
+		
+		if(select.equals("id")) {
+			//select로 컬럼이름
+			kw = "USERID";
+			System.out.println(select);
+			
+		}else if(select.equals("name")) {
+			kw = "USERNAME";
+			System.out.println(select);
+			
+		}else if(select.equals("address")) {
+			kw = "USERADDR";
+			System.out.println(select);
+			
+		}else if(select.equals("email")) {
+			kw = "USEREMAIL";
+			System.out.println(select);
+			
+		}else if(select.equals("userphone")) {
+			kw = "USERPHONE";
+			System.out.println(select);
+			
+		}else if(select.equals("userenabled")) {
+			kw = "USERENABLED";
+			System.out.println(select);
+			
+		}else if(select.equals("userrole")) {
+			kw = "USERROLE";
+			System.out.println(select);
+		}
+		
+		String sql = " SELECT * FROM USERDATA WHERE "+kw
+				+" LIKE \'%" +findtextbox+ "%\'"
+				+" ORDER BY USERNO DESC ";
+				//SELECT * FROM USERDATA WHERE ?(컬럼이름) LIKE "%?%";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			System.out.println("03. query 준비 " + sql);
+			
+			rs = pstm.executeQuery();
+			System.out.println("04. query 실행 및 리턴");
+			
+			while(rs.next()) {
+				UserDataDto tmp = new UserDataDto();
+				tmp.setUserno(rs.getInt(1));
+				tmp.setUserid(rs.getString(2));
+				tmp.setUserpw(rs.getString(3));
+				tmp.setUsername(rs.getString(4));
+				tmp.setUseraddr(rs.getString(5));
+				tmp.setUserphone(rs.getString(6));
+				tmp.setUseremail(rs.getString(7));
+				tmp.setUserenabled(rs.getString(8));
+				tmp.setUserrole(rs.getString(9));
+				
+				res.add(tmp);
+				System.out.println(tmp.toString());
+			}
+			
+		
+		} catch (SQLException e) {
+			System.out.println("3/4단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return res;
+	}
+
 
 }

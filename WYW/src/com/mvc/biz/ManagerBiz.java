@@ -53,4 +53,11 @@ public class ManagerBiz {
 		return res;
 	}
 	
+	
+	public List<UserDataDto> selectSearchMembers(String select, String findtextbox){
+		
+		List<UserDataDto> res = dao.selectSearchMembers(select, findtextbox);
+		
+		return res;
+	}
 }

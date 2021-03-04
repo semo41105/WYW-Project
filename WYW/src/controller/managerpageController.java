@@ -134,7 +134,9 @@ public class managerpageController extends HttpServlet {
 			String findtextbox = request.getParameter("findtextbox");
 			System.out.println(findtextbox);
 
-			
+			List<UserDataDto> list = biz.selectSearchMembers(select, findtextbox);
+			request.setAttribute("list", list);
+			dispatch("memberList.jsp", request, response);
 			
 		}
 
