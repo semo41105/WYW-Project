@@ -10,7 +10,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="mainPage.jsp">로그인하면 메인으로</a>
 	<jsp:forward page="loginController.do?command=startpage"></jsp:forward>
 </body>
 </html>

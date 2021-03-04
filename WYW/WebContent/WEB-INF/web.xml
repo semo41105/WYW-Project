@@ -6,13 +6,33 @@
   </welcome-file-list>
   
   <servlet>
-    <servlet-name>Main</servlet-name>
-    <servlet-class>com.main.controller.mainController</servlet-class>
+    <servlet-name>StartPage</servlet-name>
+    <servlet-class>controller.loginController</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>Main</servlet-name>
-    <url-pattern>/main.do</url-pattern>
+    <servlet-name>StartPage</servlet-name>
+    <url-pattern>/loginController.do</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>MainPage</servlet-name>
+    <servlet-class>controller.loginController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>MainPage</servlet-name>
+    <url-pattern>/mainController.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ManagerPage</servlet-name>
+    <servlet-class>controller.managerpageController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>ManagerPage</servlet-name>
+    <url-pattern>/manager</url-pattern>
+  </servlet-mapping>  
   
 </web-app>
