@@ -36,21 +36,18 @@ body>form {
 	<div id="top">
 		<p>공지사항</p>
 	</div>
-	<form action="controller.do" method="post">
-		<input type="hidden" name="command" value="noticeboardupdate">
-		<input type="hidden" name="seq" value="${dto.seq }">
+	<form action="manager.do" method="post">
+		<input type="hidden" name="command" value="noticeupdate">
+		<input type="hidden" name="boardno" value="${dto.boardno }">
 		<table border="1">
-			<tr>
-				<th>NO</th>
-				<td>${dto.seq }</td>
-			</tr>
 			<tr>
 				<th>DATE</th>
 				<td>${dto.regdate }</td>
 			</tr>
 			<tr>
 				<th>WRITER</th>
-				<td>${dto.writer }</td>
+				<td>${dto.username }</td>
+				<!-- 세션에서 username 가져오기 -->
 			</tr>
 			<tr>
 				<th>TITLE</th>
@@ -62,8 +59,8 @@ body>form {
 			</tr>
 			<tr>
 				<td colspan="2"><input type="button" value="취소" id="button"
-					onclick="location.href='controller.do?command=dstail&seq=${dto.seq }'">
-					<input type="submit" value="수정" id="button" onclick=""></td>
+					onclick="location.href='manager.do?command=noticedetail&boardno=${dto.boardno }'">
+					<input type="submit" value="수정" id="button" ></td>
 			</tr>
 		</table>
 

@@ -1,8 +1,5 @@
 package com.mvc.biz;
 
-import static common.JDBCTemplate.*;
-
-import java.sql.Connection;
 import java.util.List;
 
 import com.mvc.dao.UserDataDao;
@@ -14,14 +11,46 @@ public class ManagerBiz {
 	
 	
 	public List<UserDataDto> selectAllNotice(){
-		Connection con = getConnection();
 		
-		List<UserDataDto> res = dao.selectAllNotice(con);
-		close(con);
+		List<UserDataDto> res = dao.selectAllNotice();
 		
 		return res;
 	}
 	
+	public UserDataDto selectOneNotice(int boardno) {
+		
+		UserDataDto dto = dao.selectOneNotice(boardno);
+		
+		return dto;
+	}
 	
+	public boolean insertNotice(UserDataDto dto) {
+		
+		int res = dao.insertNotice(dto);
+		
+		return (res>0)?true:false;
+	}
+	
+	public boolean updateNotice(UserDataDto dto) {
+		
+		int res = dao.updateBoard(dto);
+		
+		return (res>0)?true:false;
+	}
+
+	public boolean deleteNotice(int boardno) {
+		
+		int res = dao.deleteBoard(boardno);
+		
+		return (res>0)?true:false;
+	}
+
+	
+	public List<UserDataDto> selectAllMember(){
+		
+		List<UserDataDto> res = dao.selectAll();
+		
+		return res;
+	}
 	
 }

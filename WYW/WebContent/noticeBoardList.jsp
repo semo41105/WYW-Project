@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html>
 
@@ -17,8 +19,9 @@
 <script src="assets/js/main.js"></script>
 <style type="text/css">
 #top>p {
-	margin-top: 50px;
-	margin-left: 100px;
+	margin-top: 100px;
+	margin-left: 50px;
+	margin-bottom: 0px;
 	font-size: 28pt;
 }
 
@@ -40,10 +43,77 @@ tr>th {
 table {
 	text-align: center;
 }
+
+#s0 {
+	float: left;
+	width: 34%
+}
+
+#s1 {
+	float: left;
+	width: 33%;
+	padding: 25px 0px 25px 0px
+}
+
+#s2 {
+	float: left;
+	width: 100%
+}
+
+#s3 {
+	float: left;
+	width: 30%;
+	padding: 0px 0px 0px 10px
+}
+
+#s4 {
+	padding: 8px 0px 0px 0px
+}
+
+#s5 {
+	float: left;
+	width: 70%;
+	padding: 6px 0px 0px 0px
+}
+
+#s6 {
+	float: left;
+}
+
+#ask1 {
+	border: 2px solid black;
+	background-color: #fffbc1;
+	font-weight: bold;
+	color: #3f385a;
+}
+
+#dd {
+	float: left;
+}
 </style>
 </head>
 
 <body>
+	<header>
+		<div id="s0">
+			<a href="#"> <img alt="WYW_날씨를 입다"
+				src="images/logo/logo_wyw_yellow.png" width="200" height="100" />
+			</a>
+		</div>
+		<div id="s1">
+			<input type="text">
+		</div>
+		<div id="s1">
+			<input id="ask1" type="button" value="검색" onclick=""> <a
+				href="#" class="label"> <img id="s4" class="icons"
+				src="images/icon/set.png" alt="setting" align="right" width="30px" />
+			</a>
+		</div>
+		<div id="s2"></div>
+		<!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
+		<div id="s2"></div>
+		<!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
+	</header>
 	<br>
 	<div id="top">
 		<p>공지사항</p>
@@ -63,32 +133,36 @@ table {
 					<th>DATE</th>
 				</tr>
 			</thead>
-			<!-- 반복문 통해서 공지사항 내용 뿌려주기 -->
-			<!--	<c:choose>
-	  <c:when test="${empty dto }">
-		 <tr>
-		 	<td colspan="3">-작성된 글이 존재하지 않습니다.</td>
-		 </tr>
-		</c:when>
-		<c:otherwise>
-			<c:forEach var="dto" items="{list}">
-				<tr>
-					<td>
-					
-					</td>
-					<td><a href="글 내용 보는 컨트롤러.do&공지글 번호?">${dto.title }</a></td>
-					<td>${dto.regdate}></td>
-				</tr>
-			</c:forEach>
-		</c:otherwise>
-	
-	</c:choose>
-	 -->
+			<c:choose>
+				<c:when test="${empty list }">
+					<tr>
+						<td colspan="3">--작성된 글이 존재하지 않습니다.--</td>
+					</tr>
+				</c:when>
+				<c:otherwise>
+					<c:forEach var="dto" items="{list}">
+						<tr>
+							<td>${fn:length(dto)}-${dto.index}</td>
+							<td><a
+								href="manager.do?command=noticedetail&boardno=${dto.boardno}">${dto.title }</a></td>
+							<td>${dto.regdate}></td>
+						</tr>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
 			<tr>
 				<td colspan="3" align="right"><input type="button" value="글쓰기"
-					onclick="" style="background-color: #FFFBC1; color: black;"></td>
+					onclick="location.href='manager.do?command=noticewrite' "
+					style="background-color: #FFFBC1; color: black;"></td>
 			</tr>
 		</table>
 	</div>
+	<footer id="footer">
+		<p>
+			&copy; Untitled. All rights reserved. Design: <a
+				href="http://templated.co">TEMPLATED</a>. Demo Images: <a
+				href="http://unsplash.com">Unsplash</a>.
+		</p>
+	</footer>
 </body>
 </html>
