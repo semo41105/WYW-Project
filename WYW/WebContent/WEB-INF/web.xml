@@ -17,7 +17,7 @@
   
   <servlet>
     <servlet-name>MainPage</servlet-name>
-    <servlet-class>controller.loginController</servlet-class>
+    <servlet-class>controller.mainController</servlet-class>
   </servlet>
   
   <servlet-mapping>

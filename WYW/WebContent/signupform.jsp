@@ -25,7 +25,6 @@
 			window.open(target, "", "width=350, height=200");
 		}
 	}
-
 	function idChkConfirm() {
 		var chk = document.getElementsByName("userid")[0].title;
 		if (chk == "n") {
@@ -119,7 +118,8 @@
 						</tr>
 					</table>
 				</form>
-
+				</div>
+			</section>
 				<!-- Footer -->
 				<footer id="footer">
 					<p>
@@ -130,6 +130,6 @@
 				</footer>
 
 			</div>
+		</div>
 </body>
 </html>
-
