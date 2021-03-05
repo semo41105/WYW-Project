@@ -84,7 +84,7 @@
 	<header>
 		<div id="s0">
 			<a href="#"> <img alt="WYW_날씨를 입다"
-				src="images/logo/logo_wyw_yellow.png" width="200" height="100" />
+				src="images/logo/logo_wyw_yellow_yellow.png" width="200" height="100" />
 			</a>
 		</div>
 		<div id="s1">

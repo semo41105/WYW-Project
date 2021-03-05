@@ -76,7 +76,7 @@
     <header class="a1">
             <div id="t1">
                 <img alt="WYW_날씨를 입다"
-                    src="images/logo_wyw.png" width="200" height="100">       
+                    src="images/logo_wyw_yellow.png" width="200" height="100">       
                     <div id="t2">
                        <a href=""><img alt="home" src="images/button/home.png" width="30" height="30"></a>
                         <a href=""><img alt="map" src="images/button/map.png" width="30" height="30"></a>
