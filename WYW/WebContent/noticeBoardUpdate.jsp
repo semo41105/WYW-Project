@@ -30,15 +30,63 @@
 body>form {
 	margin: 100px 300px;
 }
+
+#s0 {
+	float: left;
+	width: 34%
+}
+
+#s1 {
+	float: left;
+	width: 33%;
+	padding: 25px 0px 25px 0px
+}
+
+#s2 {
+	float: left;
+	width: 100%
+}
+
+#s4 {
+	padding: 8px 0px 0px 0px;
+	margin-left: 25px;
+}
+
+#ask1 {
+	border: 2px solid black;
+	background-color: #fffbc1;
+	font-weight: bold;
+	color: #3f385a;
+}
 </style>
 </head>
 <body>
+	<header>
+		<div id="s0">
+			<a href="#"> <img alt="WYW_날씨를 입다" src="images/logo/logo_wyw.png"
+				width="200" height="100">
+			</a>
+		</div>
+		<div id="s1">
+			<input type="text">
+		</div>
+		<div id="s1">
+			<input id="ask1" type="button" value="검색" onclick=""> <a
+				href="#" class="label"> <img id="s4" class="icons"
+				src="images/icon/setting.png" alt="setting" align="right"
+				width="30px"> <img id="s4" class="icons"
+				src="images/icon/user.png" alt="user" align="right" width="30px">
+				<img id="s4" class="icons" src="images/icon/up.png" alt="upload"
+				align="right" width="30px">
+			</a>
+		</div>
+	</header>
 	<div id="top">
 		<p>공지사항</p>
 	</div>
 	<form action="manager.do" method="post">
-		<input type="hidden" name="command" value="noticeupdate">
-		<input type="hidden" name="boardno" value="${dto.boardno }">
+		<input type="hidden" name="command" value="noticeupdate"> <input
+			type="hidden" name="boardno" value="${dto.boardno }">
 		<table border="1">
 			<tr>
 				<th>DATE</th>
@@ -55,7 +103,7 @@ body>form {
 			<tr>
 				<td colspan="2"><input type="button" value="취소" id="button"
 					onclick="location.href='manager.do?command=noticedetail&boardno=${dto.boardno }'">
-					<input type="submit" value="수정" id="button" ></td>
+					<input type="submit" value="수정" id="button"></td>
 			</tr>
 		</table>
 

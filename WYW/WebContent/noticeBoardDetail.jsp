@@ -48,24 +48,9 @@
 	width: 100%
 }
 
-#s3 {
-	float: left;
-	width: 30%;
-	padding: 0px 0px 0px 10px
-}
-
 #s4 {
-	padding: 8px 0px 0px 0px
-}
-
-#s5 {
-	float: left;
-	width: 70%;
-	padding: 6px 0px 0px 0px
-}
-
-#s6 {
-	float: left;
+	padding: 8px 0px 0px 0px;
+	margin-left: 25px;
 }
 
 #ask1 {
@@ -83,8 +68,8 @@
 <body>
 	<header>
 		<div id="s0">
-			<a href="#"> <img alt="WYW_날씨를 입다"
-				src="images/logo/logo_wyw_yellow.png" width="200" height="100" />
+			<a href="#"> <img alt="WYW_날씨를 입다" src="images/logo/logo_wyw.png"
+				width="200" height="100">
 			</a>
 		</div>
 		<div id="s1">
@@ -93,13 +78,13 @@
 		<div id="s1">
 			<input id="ask1" type="button" value="검색" onclick=""> <a
 				href="#" class="label"> <img id="s4" class="icons"
-				src="images/icon/set.png" alt="setting" align="right" width="30px" />
+				src="images/icon/setting.png" alt="setting" align="right"
+				width="30px"> <img id="s4" class="icons"
+				src="images/icon/user.png" alt="user" align="right" width="30px">
+				<img id="s4" class="icons" src="images/icon/up.png" alt="upload"
+				align="right" width="30px">
 			</a>
 		</div>
-		<div id="s2"></div>
-		<!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
-		<div id="s2"></div>
-		<!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
 	</header>
 	<br>
 	<div id="top">
