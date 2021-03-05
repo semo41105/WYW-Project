@@ -14,7 +14,7 @@
 			#s0{ float: left; width: 34% }
 			#s1{ float: left; width: 33%; padding: 25px 0px 25px 0px }
 			#s2{ float: left; width: 100% }
-			#s4{ padding: 8px 0px 0px 0px }
+			#s4{ padding: 8px 0px 0px 0px; margin-left: 25px; }
 			#s6{ float: left; }
 			#ask1{ 
 				border: 2px solid black;
@@ -75,7 +75,7 @@
 					<header>
 						<div id="s0">
 							<a href="#">
-								<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200" height="100"/>
+								<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200" height="100">
 							</a>
 						</div>
 						<div id="s1"><input type="text"></div>
@@ -84,7 +84,7 @@
 							<a href="#" class="label">
 								<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px">
 								<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px">
-								<img id="s4" class="icons" src="images/icon/home.png" alt="home" align="right" width="30px">
+								<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px">
 							</a>
 						</div>
 						<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
