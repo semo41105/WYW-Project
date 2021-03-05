@@ -10,6 +10,104 @@
 
 /* Reset */
 
+<<<<<<< HEAD
+=======
+	@charset "UTF-8";
+
+h2 {
+    text-align: center;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.weatherimg{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.weatherimg select{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	text-align-last: center;
+	width: 300px;
+	
+}
+
+select option{
+	color: black;
+}
+
+.weather {
+	display: flex;
+    height: 200px;
+    width: 660px;
+	margin: 20px;
+}
+
+div .weatherDetail{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-right-style: hidden;
+}
+
+.weatherDetail p{
+	margin-bottom: 0;
+}
+
+div .icon{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+    width: 50%;
+    float: right;
+    box-sizing: border-box;
+	border: 1px solid black;
+}
+
+.recommend {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+    height: 200px;
+    width: 660px;
+	margin: 20px;
+}
+
+div .circle{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width:150px;
+	height:150px;
+	border-radius:75px;
+	overflow: hidden;
+}
+
+.follower {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+    border: 1px solid black;
+    height: 200px;
+    width: 660px;
+	margin: 20px;
+}
+
+>>>>>>> master
 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 		margin: 0;
 		padding: 0;
@@ -2613,7 +2711,11 @@
 			}
 
 		}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> master
 /* Footer */
 
 	#footer {

@@ -1,5 +1,6 @@
 package com.mvc.dto;
 
+<<<<<<< HEAD
 import java.sql.Date;
 
 public class UserDataDto {
@@ -34,6 +35,41 @@ public class UserDataDto {
 			String useremail, String userenabled, String userrole, int userfollow, int boardno, int groupno,
 			int groupsq, String title, String content, String userimgname, String userimg, int userlike, Date regdate,
 			int followno, int followuser, int followinguser) {
+=======
+import java.util.Date;
+
+public class UserDataDto {
+
+	private int userno;			//가입 순서 번호
+	private String userid;		//유저 아이디
+	private String userpw;		//유저 비밀번호
+	private String username;	//유저 이름
+	private String useraddr;	//유저 주소
+	private String userphone;	//유저 전화번호
+	private String useremail;	//유저 이메일
+	private String userenabled;	//유저 탈퇴여부
+	private String userrole;	//유저 역할(관리자,일반유저)
+	private int userfollow;		//유저 팔로우(팔로인,팔로우를 하나로 합침)
+	private int boardno;		//보드 번호
+	private int groupno;		//그룹 번호
+	private int groupsq;		//그룹 시퀀스 번호
+	private String title;		//제목
+	private String content;		//내용
+	private String userimgname;	//등록한 사진 이름
+	private String userimg;		//등록한 사진 위치
+	private int userlike;		//좋아요 수
+	private Date regdate;		//글 등록 날자
+	private int followno;		//팔로우 번호
+	private int followuser;		//팔로우한 유저 번호
+	private int followinguser;	//팔로잉한 유저 번호
+	
+	public UserDataDto() {}
+
+	public UserDataDto(int userno, String userid, String userpw, String username, String useraddr, String userphone,
+			String useremail, String userenabled, String userrole, int userfollow, int boardno, int groupno,
+			int groupsq, String title, String content, String userimgname, String userimg,
+			int userlike, Date regdate, int followno, int followuser, int followinguser) {
+>>>>>>> master
 		super();
 		this.userno = userno;
 		this.userid = userid;
@@ -58,6 +94,7 @@ public class UserDataDto {
 		this.followuser = followuser;
 		this.followinguser = followinguser;
 	}
+<<<<<<< HEAD
 
 @Override
 	public String toString() {
@@ -70,6 +107,9 @@ public class UserDataDto {
 				+ "]";
 	}
 
+=======
+	
+>>>>>>> master
 	//insertnotice
 	public UserDataDto(String userid, String writer, String title, String content) {
 
@@ -79,7 +119,11 @@ public class UserDataDto {
 		this.content = content;
 
 	}
+<<<<<<< HEAD
 //updatenotice
+=======
+	//updatenotice
+>>>>>>> master
 	public UserDataDto(int boardno, String title, String content) {
 		
 		this.boardno = boardno;
@@ -263,5 +307,21 @@ public class UserDataDto {
 	public void setFollowinguser(int followinguser) {
 		this.followinguser = followinguser;
 	}
+<<<<<<< HEAD
 
+=======
+	
+	@Override
+	public String toString() {
+		return "UserDataDto [userno=" + userno + ", userid=" + userid + ", userpw=" + userpw + ", username=" + username
+				+ ", useraddr=" + useraddr + ", userphone=" + userphone + ", useremail=" + useremail + ", userenabled="
+				+ userenabled + ", userrole=" + userrole + ", userfollow=" + userfollow + ", boardno=" + boardno
+				+ ", groupno=" + groupno + ", groupsq=" + groupsq + ", title=" + title + ", content=" + content
+				+ ", userimgname=" + userimgname + ", userimg=" + userimg + ", userlike=" + userlike + ", regdate="
+				+ regdate + ", followno=" + followno + ", followuser=" + followuser + ", followinguser=" + followinguser
+				+ "]";
+	}
+	
+	
+>>>>>>> master
 }
