@@ -25,7 +25,6 @@
 			window.open(target, "", "width=350, height=200");
 		}
 	}
-
 	function idChkConfirm() {
 		var chk = document.getElementsByName("userid")[0].title;
 		if (chk == "n") {
@@ -76,8 +75,31 @@
 						</tr>
 						<tr>
 							<th style="text-align:center;">ADDR</th>
-							<td><input type="text" name="useraddr"
-								onclick="idChkConfirm();" required="required" style="width:150px; height:30px;"></td>
+							<!-- 0305 오전10시 정운호 수정 -->
+							<td>
+								<select name="useraddr" style="width:150px; height:30px; font-size:11px;" >
+									<option hidden>현재 위치를 선택해주세요.</option>
+		                            <option value="seoul">서울특별시</option>
+									<option value="incheon">인천광역시</option>
+									<option value="daejeon">대전광역시</option>
+									<option value="gwangju">광주광역시</option>
+									<option value="daegu">대구광역시</option>
+									<option value="ulsan">울산광역시</option>
+									<option value="busan">부산광역시</option>
+									<option value="gyeonggi-do">경기도</option>
+									<option value="gangwon-do">강원도</option>
+									<option value="chungcheongbuk-do">충청북도</option>
+									<option value="chungcheongnam-do">충청남도</option>
+									<option value="jeollabuk-do">전라북도</option>
+									<option value="jeollanam-do">전라남도</option>
+									<option value="gyeongsangbuk-do">경상북도</option>
+									<option value="gyeongsangnam-do">경상남도</option>
+									<option value="jeju-do">제주도</option>
+							</select>
+							</td>
+							<!-- 수정 전 코 -->
+							<!-- <td><input type="text" name="useraddr" 
+								onclick="idChkConfirm();" required="required" style="width:150px; height:30px;"></td> -->
 						</tr>
 						<tr style="background-color:transparent;">
 							<th style="text-align:center;">PHONE</th>
@@ -96,7 +118,8 @@
 						</tr>
 					</table>
 				</form>
-
+				</div>
+			</section>
 				<!-- Footer -->
 				<footer id="footer">
 					<p>
@@ -107,6 +130,6 @@
 				</footer>
 
 			</div>
+		</div>
 </body>
 </html>
-

@@ -109,7 +109,7 @@
 <!-- Main -->
 	<section id="main">
 	
-
+	</section>
 <!-- Thumbnails -->
 	<section class="thumbnails">
 	
@@ -137,7 +137,7 @@
 							<img src="images/thumbs/01.jpg" alt="" />
 						</a>
 					</div>
-	</section>
+
 
 	</section>
 
