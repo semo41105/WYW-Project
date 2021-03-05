@@ -508,20 +508,247 @@ public class UserDataDao extends JDBCTemplate{
 	
 	//설정(전체 공지사항 보기)
 	public List<UserDataDto> selectAllNotice(){
-		
-		return null;
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		List<UserDataDto> res = new ArrayList<UserDataDto>();
+
+		// 테이블 조인해서 유저권한 manager인 사람의 글만 보일 수 있게 쿼리문 작성
+		String sql = " SELECT * FROM USERCONTENT " + " JOIN USERDATA ON(USERCONTENT.USERID = USERDATA.USERNO) "
+				+ " WHERE USERROLE='MANAGER' ORDER BY REGDATE DESC ";
+
+		try {
+			pstm = con.prepareStatement(sql);
+			System.out.println("03. query 준비 " + sql);
+
+			rs = pstm.executeQuery();
+			System.out.println("04. query 실행 및 리턴");
+			while (rs.next()) {
+				UserDataDto dto = new UserDataDto();
+				dto.setBoardno(rs.getInt(1));
+				dto.setTitle(rs.getString(4));
+				dto.setRegdate(rs.getDate(10));
+				res.add(dto);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("3/4단계 에러");
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+
+		return res;
 	}
 	
 	//설정(공지사항_1개 선택)
-	public UserDataDto selectOneNotice(int seq, String contentrole){
-		
-		return null;
+	public UserDataDto selectOneNotice(int boardno) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		UserDataDto res = new UserDataDto();
+
+		String sql = " SELECT * FROM USERCONTENT WHERE BOARDNO=? ";
+
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, boardno);
+			System.out.println("03. query 준비 " + sql);
+			
+			rs = pstm.executeQuery();
+			System.out.println("04. query 실행 및 리턴");
+			while (rs.next()) {
+				res.setBoardno(rs.getInt(1));
+				res.setTitle(rs.getString(4));
+				res.setContent(rs.getString(5));
+				res.setRegdate(rs.getDate(10));
+			}
+
+		} catch (SQLException e) {
+			System.out.println("3/4단계 에러");
+			e.printStackTrace();
+
+		} finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+
+		return res;
 	}
 	
+	public int insertNotice(UserDataDto dto) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res = 0;
+
+		String sql = " INSERT INTO USERCONTENT VALUES(BOARDNOSQ.NEXTVAL," + " GROUPNOSQ.NEXTVAL, 1, ?, ?, ?,"
+		// GROUPNO, GROUPSQ,TITLE,CONTENT,USERID
+				+ " NULL, NULL, 0, SYSDATE) ";
+		// USERIMGNAME,USERIMG,USERLIKE,REGDATE
+
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, dto.getTitle());
+			pstm.setString(2, dto.getContent());
+			pstm.setString(3, dto.getUserid());
+			System.out.println("03. query 준비 " + sql);
+			
+			res = pstm.executeUpdate();
+			System.out.println("04. query 실행 및 리턴");
+			if (res > 0) {
+				commit(con);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("3/4단계 에러");
+			e.printStackTrace();
+		} finally {
+			close(pstm);
+			close(con);
+		}
+
+		return res;
+	}
 	
+	public int updateNotice(UserDataDto dto) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res = 0;
+
+		String sql = " UPDATE USERCONTENT SET TITLE=?, CONTENT=? WHERE BOARDNO=? ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, dto.getTitle());
+			pstm.setString(2, dto.getContent());
+			pstm.setInt(3, dto.getBoardno());
+			System.out.println("03. query 준비 " + sql);
+			
+			res = pstm.executeUpdate();
+			System.out.println("04. query 실행 및 리턴");
+		} catch (SQLException e) {
+			System.out.println("3/4단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return res;
+	}
 	
+	public int deleteNotice(int boardno) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res = 0;
+
+		String sql = " DELETE FROM USERCONTENT WHERE BOARDNO=? ";
+
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, boardno);
+			System.out.println("03. query 준비 " + sql);
+
+			res = pstm.executeUpdate();
+			System.out.println("04. query 실행 및 리턴");
+		} catch (SQLException e) {
+			System.out.println("3/4단계 에러");
+			e.printStackTrace();
+		} finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+
+		return res;
+	}
 	
-	
+
+	public List<UserDataDto> selectSearchMembers(String select, String findtextbox) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		List<UserDataDto> res = new ArrayList<UserDataDto>();
+		String kw = "";
+		System.out.println(select);
+		
+		if(select.equals("id")) {
+			//select로 컬럼이름
+			kw = "USERID";
+			System.out.println(select);
+			
+		}else if(select.equals("name")) {
+			kw = "USERNAME";
+			System.out.println(select);
+			
+		}else if(select.equals("address")) {
+			kw = "USERADDR";
+			System.out.println(select);
+			
+		}else if(select.equals("email")) {
+			kw = "USEREMAIL";
+			System.out.println(select);
+			
+		}else if(select.equals("userphone")) {
+			kw = "USERPHONE";
+			System.out.println(select);
+			
+		}else if(select.equals("userenabled")) {
+			kw = "USERENABLED";
+			System.out.println(select);
+			
+		}else if(select.equals("userrole")) {
+			kw = "USERROLE";
+			System.out.println(select);
+		}
+		
+		String sql = " SELECT * FROM USERDATA WHERE "+kw
+				+" LIKE \'%" +findtextbox+ "%\'"
+				+" ORDER BY USERNO DESC ";
+				//SELECT * FROM USERDATA WHERE ?(컬럼이름) LIKE "%?%";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			System.out.println("03. query 준비 " + sql);
+			
+			rs = pstm.executeQuery();
+			System.out.println("04. query 실행 및 리턴");
+			
+			while(rs.next()) {
+				UserDataDto tmp = new UserDataDto();
+				tmp.setUserno(rs.getInt(1));
+				tmp.setUserid(rs.getString(2));
+				tmp.setUserpw(rs.getString(3));
+				tmp.setUsername(rs.getString(4));
+				tmp.setUseraddr(rs.getString(5));
+				tmp.setUserphone(rs.getString(6));
+				tmp.setUseremail(rs.getString(7));
+				tmp.setUserenabled(rs.getString(8));
+				tmp.setUserrole(rs.getString(9));
+				
+				res.add(tmp);
+				System.out.println(tmp.toString());
+			}
+			
+		
+		} catch (SQLException e) {
+			System.out.println("3/4단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return res;
+	}
 	
 	
 	
