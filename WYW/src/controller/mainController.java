@@ -18,6 +18,10 @@ public class mainController extends HttpServlet {
 		String command = request.getParameter("command");
 		System.out.println("["+command+"]");
 		
+		if(command.equals("")) {
+			
+		}
+		
 		
 		}
 		
