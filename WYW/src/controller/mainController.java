@@ -18,17 +18,18 @@ public class mainController extends HttpServlet {
 		String command = request.getParameter("command");
 		System.out.println("["+command+"]");
 		
-		if(command.equals("")) {
+		if(command.equals("mainpage")) {
+			response.sendRedirect("mainPage.jsp");
 			
+		} else if(command.equals("mypage")) {
+			response.sendRedirect("mypage.jsp");
+		
 		}
 		
 		
-		}
 		
 		
-		
-		
-		
+	}		
 		
 		
 		
