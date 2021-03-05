@@ -61,46 +61,25 @@
         border-radius : 10px 10px 10px 10px;
     }
     form {
-        padding: 0px 0px 40px 230px;
+        padding: 0px 0px 40px 325px;
         font-size: 14px;
     }
-  
-	#s0{ float: left; width: 34% }
-	#s1{ float: left; width: 33%; padding: 25px 0px 25px 0px }
-	#s2{ float: left; width: 100% }
-	#s4{ padding: 8px 0px 0px 0px;
-			 margin-left: 25px;
-		}
-			
-	#ask1{ 
-		border: 2px solid black;
-		background-color: #fffbc1; 
-		font-weight: bold; 
-		color: #3f385a;
-		}
     
 </style>    
 </head>
 <body>
-    <!-- Wrapper -->
-			<div id="wrapper">
-				<!-- Header -->
-					<header>
-						<div id="s0">
-							<a href="#">
-								<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw.png" width="200" height="100">
-							</a>
-						</div>
-						<div id="s1"><input type="text"></div>
-						<div id="s1">
-							<input id="ask1" type="button" value="검색" onclick="">
-							<a href="#" class="label">
-								<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px">
-								<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px">
-								<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px">
-							</a>
-						</div>
-					</header>
+    <header class="a1">
+            <div id="t1">
+                <img alt="WYW_날씨를 입다"
+                    src="images/logo_wyw.png" width="200" height="100">       
+                    <div id="t2">
+                        <a href=""><img alt="home" src="images/button/home.png" width="30" height="30"></a>
+                        <a href=""><img alt="map" src="images/button/map.png" width="30" height="30"></a>
+                        <a href=""><img alt="set" src="images/button/set.png" width="30" height="30"></a>
+                        <a href=""><img alt="user" src="images/button/user.png" width="30" height="30"></a>
+                    </div>
+            </div>
+    </header>
 
     <section class="a1">
         <article class="a1" id="left">
@@ -117,7 +96,8 @@
                     <label> 아이디 <input type="text" name="userid" style="text-align:center; width:170px; height:30px;"></label>   
                     <label> 비밀번호 <input type="text" name="userpw" style="text-align:center; width:170px; height:30px;"> </label>
                     <label> 이메일 <input type="text" name="usermail" style="text-align:center; width:170px; height:30px;"> </label>
-                    <label> 주소 <input type="text" name="usernaddr" style="text-align:center; width:200px; height:30px;"></label>    
+                    <label> 주소 <input type="text" name="usernaddr" style="text-align:center; width:200px; height:30px;"></label>   
+                   
             </form>   
         </article>
         

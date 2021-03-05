@@ -22,6 +22,15 @@
     .a1{
         margin : 10px;
     }
+    #t1 {
+       margin-left : 10%;
+       margin-top : 35px;
+    }
+    #t2{
+        float : right;
+        margin-top : 50px;
+        margin-right : 15%;
+    }
     #t3{
         padding : 20px 0px 0px 380px;
     }
