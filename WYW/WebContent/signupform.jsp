@@ -76,9 +76,10 @@
 						</tr>
 						<tr>
 							<th style="text-align:center;">ADDR</th>
+							<!-- 0305 오전10시 정운호 수정 -->
 							<td>
 								<select name="useraddr" style="width:150px; height:30px; font-size:11px;" >
-									<option hidden>도시를 선택해주세요.</option>
+									<option hidden>현재 위치를 선택해주세요.</option>
 		                            <option value="seoul">서울특별시</option>
 									<option value="incheon">인천광역시</option>
 									<option value="daejeon">대전광역시</option>
@@ -97,7 +98,8 @@
 									<option value="jeju-do">제주도</option>
 							</select>
 							</td>
-							<!-- <td><input type="text" name="useraddr"
+							<!-- 수정 전 코 -->
+							<!-- <td><input type="text" name="useraddr" 
 								onclick="idChkConfirm();" required="required" style="width:150px; height:30px;"></td> -->
 						</tr>
 						<tr style="background-color:transparent;">
