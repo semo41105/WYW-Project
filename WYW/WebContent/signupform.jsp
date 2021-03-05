@@ -118,7 +118,8 @@
 						</tr>
 					</table>
 				</form>
-
+				</div>
+			</section>
 				<!-- Footer -->
 				<footer id="footer">
 					<p>
@@ -129,5 +130,6 @@
 				</footer>
 
 			</div>
+		</div>
 </body>
 </html>
