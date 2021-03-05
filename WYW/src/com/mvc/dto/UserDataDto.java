@@ -57,6 +57,24 @@ public class UserDataDto {
 		this.followuser = followuser;
 		this.followinguser = followinguser;
 	}
+	
+	//insertnotice
+	public UserDataDto(String userid, String writer, String title, String content) {
+
+		this.userid = userid;
+		this.username = writer;
+		this.title = title;
+		this.content = content;
+
+	}
+	//updatenotice
+	public UserDataDto(int boardno, String title, String content) {
+		
+		this.boardno = boardno;
+		this.title = title;
+		this.content = content;
+		
+	}
 
 	public int getUserno() {
 		return userno;
@@ -233,13 +251,17 @@ public class UserDataDto {
 	public void setFollowinguser(int followinguser) {
 		this.followinguser = followinguser;
 	}
-
 	
-	
-	
-	
-	
-	
+	@Override
+	public String toString() {
+		return "UserDataDto [userno=" + userno + ", userid=" + userid + ", userpw=" + userpw + ", username=" + username
+				+ ", useraddr=" + useraddr + ", userphone=" + userphone + ", useremail=" + useremail + ", userenabled="
+				+ userenabled + ", userrole=" + userrole + ", userfollow=" + userfollow + ", boardno=" + boardno
+				+ ", groupno=" + groupno + ", groupsq=" + groupsq + ", title=" + title + ", content=" + content
+				+ ", userimgname=" + userimgname + ", userimg=" + userimg + ", userlike=" + userlike + ", regdate="
+				+ regdate + ", followno=" + followno + ", followuser=" + followuser + ", followinguser=" + followinguser
+				+ "]";
+	}
 	
 	
 }
