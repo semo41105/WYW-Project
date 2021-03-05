@@ -20,7 +20,6 @@
 <body>
 	<%
 		UserDataDto dto = (UserDataDto) session.getAttribute("dto");
-
 		if (dto == null) {
 			response.sendRedirect("index.jsp");
 		}
@@ -58,21 +57,24 @@
 			<div style="display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
 				<h1>관리자 페이지</h1>
 				  <h2><%=dto.getUserid() %> 님 환영합니다.(회원등급: <strong><%=dto.getUserrole() %></strong>)</h2>
+				  
+				  <!-- 0305 이유나 수정(a태그 닫기, 경로 변경) -->
 					<table>
 						<col width="310">
 						<tr style="background-color:transparent; border: solid 0px; text-align:center;">
 							<td>
-								<a href="loginController.do?command=userlistall">회원 정보 조회(탈퇴 회원 포함))
+							<!-- <a href="loginController.do?command=userlistall">회원 정보 조회(탈퇴 회원 포함))</a> -->
+								<a href="manager.do?command=memberlistall">회원 정보 조회(탈퇴 회원 포함))</a>
 							</td>
 						</tr>
 						<tr style="background-color:transparent; border: solid 0px; text-align:center;">
 							<td>
-								<a href="loginController.do?command=userlistenabled">회원 정보 조회(enabled='y')
+								<a href="loginController.do?command=userlistenabled">회원 정보 조회(enabled='y')</a>
 							</td>
 						</tr>
 						<tr style="background-color:transparent; border: solid 0px; text-align:center;">
 							<td>
-								<a href="loginController.do?command=logout">로그아웃
+								<a href="loginController.do?command=logout">로그아웃</a>
 							</td>
 						</tr>
 						

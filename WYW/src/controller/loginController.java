@@ -1,28 +1,15 @@
 package controller;
 
 import java.io.IOException;
-<<<<<<< HEAD
-=======
 import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
->>>>>>> master
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-<<<<<<< HEAD
-
-@WebServlet("/loginController")
-public class loginController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-=======
 import javax.servlet.http.HttpSession;
 
 import com.mvc.dao.UserDataDao;
@@ -175,16 +162,12 @@ public class loginController extends HttpServlet {
 			}
 		}
 		
->>>>>>> master
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
 
-<<<<<<< HEAD
-}
-=======
 	
 	private void jsResponse(String msg, String url, HttpServletResponse response) throws IOException {
 		String s = "<script type='text/javascript'>"+"alert('"+msg+"');"+"location.href='"+url+"';"+"</script>";
@@ -208,4 +191,3 @@ public class loginController extends HttpServlet {
 	
 	
 	
->>>>>>> master

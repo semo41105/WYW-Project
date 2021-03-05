@@ -24,7 +24,6 @@
 				alert("내용을 입력해주세요.");
 				return false;
 			}
-
 		});
 	});
 </script>
@@ -36,73 +35,59 @@
 	margin-bottom: 0px;
 	font-size: 28pt;
 }
-
 option {
 	color: #000000;
 }
-
 #middle {
 	float: left;
 }
-
 .space {
 	width: 30%;
 }
-
 tr>th {
 	text-align: center;
 	padding: 11px;
 	font-size: 14pt;
 }
-
 tr>td {
 	text-align: center;
 	font-size: 14pt;
 }
-
 #s0 {
 	float: left;
 	width: 34%
 }
-
 #s1 {
 	float: left;
 	width: 33%;
 	padding: 25px 0px 25px 0px
 }
-
 #s2 {
 	float: left;
 	width: 100%
 }
-
 #s3 {
 	float: left;
 	width: 30%;
 	padding: 0px 0px 0px 10px
 }
-
 #s4 {
 	padding: 8px 0px 0px 0px
 }
-
 #s5 {
 	float: left;
 	width: 70%;
 	padding: 6px 0px 0px 0px
 }
-
 #s6 {
 	float: left;
 }
-
 #ask1 {
 	border: 2px solid black;
 	background-color: #fffbc1;
 	font-weight: bold;
 	color: #3f385a;
 }
-
 #dd {
 	float: left;
 }
