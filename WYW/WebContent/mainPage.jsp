@@ -20,7 +20,7 @@
 	<div id="wrapper">
 			<!-- Header -->
 			<header>
-				<div><img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellowChange.png" width="200" height="100"/></div>
+				<div><img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200" height="100"/></div>
 			</header>
 			<!-- Main -->
 			<section id="main">

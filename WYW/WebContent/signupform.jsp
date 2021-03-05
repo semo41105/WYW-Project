@@ -98,7 +98,7 @@
 									<option value="jeju-do">제주도</option>
 							</select>
 							</td>
-							<!-- 수정 전 코 -->
+							<!-- 수정 전 코드 -->
 							<!-- <td><input type="text" name="useraddr" 
 								onclick="idChkConfirm();" required="required" style="width:150px; height:30px;"></td> -->
 						</tr>
