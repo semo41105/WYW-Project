@@ -28,6 +28,9 @@
 		}
 	#userid{float: left;
 			margin-left: 150px;
+			font-size:30pt;
+			transform: translate(0px, -10px);
+			
 		}
 	#pf3{float:left; position:absoulte; width: 70%;
      	 transform: translate(0px, 85px);
@@ -61,7 +64,7 @@
 <header>	
 			<div id="s0">
 				<a>
-					<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw.png" width="200" height="100" onclick="location.href='mainController.do?command=mainpage'">
+					<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200" height="100" onclick="location.href='mainController.do?command=mainpage'">
 				</a>
 			</div>
 			<div id="s1"><input type="text"></div>
@@ -69,7 +72,7 @@
 					<input id="ask1" type="button" value="검색" onclick="">
 						<a href="#" class="label">
 							<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px">
-							<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px">
+							<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px" onclick="location.href='mainController.do?command=mypage'">
 							<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px">
 						</a>
 				</div>
@@ -81,9 +84,9 @@
 						<span id="userimg" class="avatar"><img src="images/avatar.jpg" alt="" /></span>
 					</div>
 					<div id="pf2">
-						<span id="userid">UserId</span>
+						<span id="userid">${dto.userid }</span>
 						<img src="images/icon/map.png" width="26px">
-						<span>&nbsp;&nbsp;Set Location</span>			
+						<span>&nbsp;&nbsp;${dto.useraddr }</span>			
 					</div>
 					<div id="pf3">
 						<div id="post">

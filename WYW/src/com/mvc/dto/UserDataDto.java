@@ -58,6 +58,16 @@ public class UserDataDto {
 		this.followinguser = followinguser;
 	}
 	
+	
+	//mypageprofile
+	public UserDataDto(int userno, String userid, String username, String useraddr) {
+		super();
+		this.userno = userno;
+		this.userid = userid;
+		this.username = username;
+		this.useraddr = useraddr;
+	}
+
 	//insertnotice
 	public UserDataDto(String userid, String writer, String title, String content) {
 
@@ -67,6 +77,8 @@ public class UserDataDto {
 		this.content = content;
 
 	}
+
+
 	//updatenotice
 	public UserDataDto(int boardno, String title, String content) {
 		

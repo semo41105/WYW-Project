@@ -37,7 +37,7 @@
 			<header style="height: 100px">
 				<div id="s0">
 					<a>
-						<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw.png" width="200" height="100" onclick="location.href='mainController.do?command=mainpage'">
+						<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200" height="100" onclick="location.href='mainController.do?command=mainpage'">
 					</a>
 				</div>
 				<div id="s1"><input type="text"></div>

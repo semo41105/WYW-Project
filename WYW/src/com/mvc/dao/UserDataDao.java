@@ -443,6 +443,41 @@ public class UserDataDao extends JDBCTemplate{
 		return null;
 	}
 	
+	//마이페이지(내정보)
+	public UserDataDto mypageUser(int userno) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		UserDataDto res = new UserDataDto();
+		
+		String sql = " SELECT * FROM USERDATA WHERE USERNO=? ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, userno);
+			
+			rs = pstm.executeQuery();
+			
+			while(rs.next()) {
+				res.setUserno(rs.getInt(1));
+				res.setUserid(rs.getString(2));
+				res.setUseraddr(rs.getString(5));
+				res.setUsername(rs.getString(4));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(con);
+			close(pstm);
+			close(rs);
+		}
+		
+		return res;
+		
+	}
+	
+	
 	//마이페이지(팔로우 팔로잉 관리)
 	public boolean followChk() {
 		
