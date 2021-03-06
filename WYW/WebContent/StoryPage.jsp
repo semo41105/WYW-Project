@@ -93,17 +93,17 @@
 				<!-- Main -->
 					<section>
 							<div style="position: absolute;">
-								<div style="position: relative;top: 110px; left: 280px;">
+								<div style="position: relative;top: 110px; left: 385px;">
 									<a href="#">
 								    	<img class="avatacon" src="images/avatar.jpg">
 								    	<strong>&nbsp;&nbsp;userID</strong>
 							    	</a>
 								</div>
-								<div style="position: relative;top: 75px; left: 585px;">
+								<div style="position: relative;top: 75px; left: 690px;">
 									<img id="hidemenu" alt="menu" src="images/icon/menu.png" width="30px">
 									<img id="viewmenu" alt="menu" src="images/icon/overmenu.png" width="30px">								
 								</div>
-								<div id="menu" style="position: relative; top: 33px; left: 623px; background-color: #fffbc1; color: black; font-weight: bold;">
+								<div id="menu" style="position: relative; top: 33px; left: 728px; background-color: #fffbc1; color: black; font-weight: bold;">
 									<form name="upload" method="post" action="">
 										<table border="1">
 											<col width="250">
