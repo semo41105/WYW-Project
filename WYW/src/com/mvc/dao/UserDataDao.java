@@ -477,9 +477,26 @@ public class UserDataDao extends JDBCTemplate{
 		
 	}
 	
+	//마이페이지(follow 리스트 가져오기)
+	public UserDataDto selectfollow(int userno) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		UserDataDto res = null;		
+		
+		String sql = "  ";
+		
+		return null;
+	}
 	
-	//마이페이지(팔로우 팔로잉 관리)
+	//마이페이지(follow unfollow 기능)
 	public boolean followChk() {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		UserDataDto res = null;
+		
+		String sql = "  ";
 		
 		return false;
 	}

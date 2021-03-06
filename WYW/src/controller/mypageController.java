@@ -38,7 +38,10 @@ public class mypageController extends HttpServlet {
 		} else if(command.equals("mainPage")) {
 			response.sendRedirect("mainPage.jsp");
 		
-		} 
+		} else if(command.equals("myfollow")) {
+			response.sendRedirect("myfollow.jsp");
+		
+		}
 		
 		
 			

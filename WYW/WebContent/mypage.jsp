@@ -95,11 +95,11 @@
 						</div>
 						<div id="follower">
 							<span><b>100&nbsp;&nbsp;</b></span>					
-							<a href="">Followers</a>
+							<a href="myfollow.jsp">Followers</a>
 						</div>
 						<div id="following">
-							<span><b>17&nbsp;&nbsp;</b></span>				
-							<a href="">Following</a>
+							<span><b>17&nbsp;&nbsp;</b></span>	
+							<a href="mypageController.do?command=myfollow">Following</a>										
 						</div>
 					</div>
 				</div>
