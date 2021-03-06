@@ -104,7 +104,7 @@
 									<img id="viewmenu" alt="menu" src="images/icon/overmenu.png" width="30px">								
 								</div>
 								<div id="menu" style="position: relative; top: 33px; left: 728px; background-color: #fffbc1; color: black; font-weight: bold;">
-									<form name="upload" method="post" action="">
+									<form name="upload" method="post" action="UploadController" enctype="multipart/form-data">
 										<table border="1">
 											<col width="250">
 											<tr>
@@ -146,7 +146,7 @@
 												</td>
 											</tr>
 											<tr>
-												<td align="center"><input type="submit" style="width: 100%; height: 100%;" value="내용 업로드" onclick=""></td>
+												<td align="center"><input type="submit" style="width: 100%; height: 100%;" value="내용 업로드"></td>
 											</tr>
 										</table>
 									</form>
