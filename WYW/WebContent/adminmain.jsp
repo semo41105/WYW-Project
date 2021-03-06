@@ -48,7 +48,7 @@
 		<!-- Header -->
 		<header>
 			<div style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; padding:20px;">
-				<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw.png" width="200"
+				<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200"
 					height="140">
 			</div>
 		</header>
@@ -58,12 +58,17 @@
 			<div style="display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
 				<h1>관리자 페이지</h1>
 				  <h2><%=dto.getUserid() %> 님 환영합니다.(회원등급: <strong><%=dto.getUserrole() %></strong>)</h2>
-				  <!-- 0305 이유나 수정 a태그 닫음, 경로 memberlist로 변경 -->
+				  <!-- 0305 이유나 수정 a태그 닫음, 경로 managerpage의 memberlist로 변경 -->
 					<table>
 						<col width="310">
 						<tr style="background-color:transparent; border: solid 0px; text-align:center;">
 							<td>
-								<a href="loginController.do?command=userlistall">회원 정보 조회(탈퇴 회원 포함))</a>
+								<a href="manager.do?command=noticelist">공지사항</a>
+							</td>
+						</tr>
+						<tr style="background-color:transparent; border: solid 0px; text-align:center;">
+							<td>
+								<a href="manager.do?command=memberlistall">회원 정보 조회(탈퇴 회원 포함))</a>
 							</td>
 						</tr>
 						<tr style="background-color:transparent; border: solid 0px; text-align:center;">

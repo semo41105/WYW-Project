@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@page import="com.mvc.dto.UserDataDto"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@page import="com.mvc.dto.UserDataDto"%>
 <!DOCTYPE html>
 <html>
 
@@ -79,9 +78,13 @@ table {
 </head>
 
 <body>
+<%
+		UserDataDto dto = (UserDataDto) session.getAttribute("dto");
+		System.out.println("jsp페이지의 username: "+dto.getUsername());
+	%>
 	<header>
 		<div id="s0">
-			<a href="#"> <img alt="WYW_날씨를 입다" src="images/logo/logo_wyw.png"
+			<a href="#"> <img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png"
 				width="200" height="100">
 			</a>
 		</div>
@@ -107,7 +110,8 @@ table {
 		<table border="1" style="padding: auto; text-align: center;">
 			<colgroup>
 				<col width="100">
-				<col width="500">
+				<col width="400">
+				<col width="100">
 				<col width="150">
 			</colgroup>
 
@@ -115,13 +119,14 @@ table {
 				<tr>
 					<th>NO</th>
 					<th>TITLE</th>
+					<th>WRITER</th>
 					<th>DATE</th>
 				</tr>
 			</thead>
 			<c:choose>
 				<c:when test="${empty list }">
 					<tr>
-						<td colspan="3">--작성된 글이 존재하지 않습니다.--</td>
+						<td colspan="4">--작성된 글이 존재하지 않습니다.--</td>
 					</tr>
 				</c:when>
 				<c:otherwise>
@@ -130,14 +135,15 @@ table {
 							<td>${fn:length(list)-status.index}</td>
 							<td><a
 								href="manager.do?command=noticedetail&boardno=${dto.boardno}">${dto.title }</a></td>
+							<td>${dto.username}</td>
 							<td>${dto.regdate}</td>
 						</tr>
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
 			<tr>
-				<td colspan="3" align="right"><input type="button" value="글쓰기"
-					onclick="location.href='manager.do?command=noticewrite' "
+				<td colspan="4" align="right"><input type="button" value="글쓰기"
+					onclick="location.href='manager.do?command=noticewriteform' "
 					style="background-color: #FFFBC1; color: black;"></td>
 			</tr>
 		</table>

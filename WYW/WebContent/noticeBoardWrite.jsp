@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="com.mvc.dto.UserDataDto"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,8 +69,8 @@ body>form {
 <body>
 	<header>
 		<div id="s0">
-			<a href="#"> <img alt="WYW_날씨를 입다" src="images/logo/logo_wyw.png"
-				width="200" height="100">
+			<a href="#"> <img alt="WYW_날씨를 입다"
+				src="images/logo/logo_wyw_yellow.png" width="200" height="100">
 			</a>
 		</div>
 		<div id="s1">
@@ -90,17 +91,19 @@ body>form {
 		<p>공지사항</p>
 	</div>
 	<%
-		String username = (String) session.getAttribute("username");
-	String userid = (String) session.getAttribute("userid");
+		UserDataDto dto = (UserDataDto) session.getAttribute("dto");
+		System.out.println("jsp페이지의 userno: "+dto.getUserno());
+		System.out.println("jsp페이지의 username: "+dto.getUserno());
 	%>
-	<form action="controller.do" method="post">
-		<input type="hidden" name="command" value="noticewrite"> <input
-			type="hidden" name="writer" value="<%=username%>"> <input
-			type="hidden" name="userid" value="<%=userid%>">
+	<form action="manager.do" method="post">
+		<input type="hidden" name="command" value="noticewrite"> 
+		<input type="hidden" name="userno" value="<%=dto.getUserno()%>"> 
+		<input type="hidden" name="userid" value="<%=dto.getUserid()%>">
+		<input type="hidden" name="username" value="<%=dto.getUsername()%>">
 		<table border="1">
 			<tr>
 				<th>WRITER</th>
-				<td><%=username%></td>
+				<td>${dto.username }</td>
 			</tr>
 			<tr>
 				<th>TITLE</th>

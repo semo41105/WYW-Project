@@ -68,7 +68,7 @@
 <body>
 	<header>
 		<div id="s0">
-			<a href="#"> <img alt="WYW_날씨를 입다" src="images/logo/logo_wyw.png"
+			<a href="#"> <img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png"
 				width="200" height="100">
 			</a>
 		</div>
@@ -96,6 +96,10 @@
 			<tr>
 				<th>DATE</th>
 				<td>${dto.regdate }</td>
+			</tr>
+			<tr>
+				<th>WRITER</th>
+				<td>${dto.username }</td>
 			</tr>
 			<tr>
 				<th>TITLE</th>

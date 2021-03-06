@@ -59,9 +59,9 @@ public class UserDataDto {
 	}
 	
 	//insertnotice
-	public UserDataDto(String userid, String writer, String title, String content) {
+	public UserDataDto(int userno, String writer, String title, String content) {
 
-		this.userid = userid;
+		this.userno = userno;
 		this.username = writer;
 		this.title = title;
 		this.content = content;

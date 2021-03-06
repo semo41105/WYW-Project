@@ -513,9 +513,9 @@ public class UserDataDao extends JDBCTemplate{
 		ResultSet rs = null;
 		List<UserDataDto> res = new ArrayList<UserDataDto>();
 
-		// 테이블 조인해서 유저권한 manager인 사람의 글만 보일 수 있게 쿼리문 작성
+		// 테이블 조인해서 유저권한 manager, ADMIN인 사람의 글만 보일 수 있게 쿼리문 작성
 		String sql = " SELECT * FROM USERCONTENT " + " JOIN USERDATA ON(USERCONTENT.USERID = USERDATA.USERNO) "
-				+ " WHERE USERROLE='MANAGER' ORDER BY REGDATE DESC ";
+				+ " WHERE USERROLE='ADMIN' OR USERROLE='MANAGER' ORDER BY REGDATE DESC ";
 
 		try {
 			pstm = con.prepareStatement(sql);
@@ -528,6 +528,7 @@ public class UserDataDao extends JDBCTemplate{
 				dto.setBoardno(rs.getInt(1));
 				dto.setTitle(rs.getString(4));
 				dto.setRegdate(rs.getDate(10));
+				dto.setUsername(rs.getString(14));
 				res.add(dto);
 			}
 
@@ -551,7 +552,8 @@ public class UserDataDao extends JDBCTemplate{
 		ResultSet rs = null;
 		UserDataDto res = new UserDataDto();
 
-		String sql = " SELECT * FROM USERCONTENT WHERE BOARDNO=? ";
+		String sql = " SELECT * FROM USERCONTENT JOIN USERDATA ON(USERCONTENT.USERID = USERDATA.USERNO) WHERE BOARDNO=? ";
+		
 
 		try {
 			pstm = con.prepareStatement(sql);
@@ -565,8 +567,10 @@ public class UserDataDao extends JDBCTemplate{
 				res.setTitle(rs.getString(4));
 				res.setContent(rs.getString(5));
 				res.setRegdate(rs.getDate(10));
+				res.setUsername(rs.getString(14));
+				
 			}
-
+			
 		} catch (SQLException e) {
 			System.out.println("3/4단계 에러");
 			e.printStackTrace();
@@ -595,7 +599,7 @@ public class UserDataDao extends JDBCTemplate{
 			pstm = con.prepareStatement(sql);
 			pstm.setString(1, dto.getTitle());
 			pstm.setString(2, dto.getContent());
-			pstm.setString(3, dto.getUserid());
+			pstm.setInt(3, dto.getUserno());
 			System.out.println("03. query 준비 " + sql);
 			
 			res = pstm.executeUpdate();
