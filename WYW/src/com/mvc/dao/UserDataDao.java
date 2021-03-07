@@ -443,6 +443,19 @@ public class UserDataDao extends JDBCTemplate{
 		return null;
 	}
 	
+	//마이페이지(검색기능)
+	public UserDataDto searchUser(int userno) {
+			Connection con = getConnection();
+			PreparedStatement pstm = null;
+			ResultSet rs = null;
+			UserDataDto res = new UserDataDto();
+			
+			String sql = " SELECT * FROM USERDATA ";
+			
+		
+		return null;
+	}
+	
 	//마이페이지(내정보)
 	public UserDataDto mypageUser(int userno) {
 		Connection con = getConnection();

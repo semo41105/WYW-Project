@@ -41,6 +41,9 @@ public class mypageController extends HttpServlet {
 		} else if(command.equals("myfollow")) {
 			response.sendRedirect("myfollow.jsp");
 		
+		} else if(command.equals("search")) {
+			String searchid = request.getParameter("searchid");
+			
 		}
 		
 		

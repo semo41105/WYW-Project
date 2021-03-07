@@ -63,19 +63,20 @@
 <!-- Header -->
 <header>	
 			<div id="s0">
-				<a>
 					<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200" height="100" onclick="location.href='mainController.do?command=mainpage'">
-				</a>
 			</div>
-			<div id="s1"><input type="text" placeholder="Search userid" name="search"></div>
-				<div id="s1">
-					<input id="ask1" type="button" value="검색" onclick="">
-						<a href="#" class="label">
-							<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px">
-							<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px" onclick="location.href='mainController.do?command=mypage'">
-							<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px">
-						</a>
-				</div>
+			<div id="s1">
+				<form action="mypageController.do" method="post">
+					<input type="hidden" name="command" value="search">
+					<input type="text" name="searchid">
+					<input type="submit" value="검색">
+				</form>
+			</div>			
+			<div id="s1">
+				<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px">
+				<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px" onclick="location.href='mainController.do?command=mypage'">
+				<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px">
+			</div>
 				
 			<!-- userprofile -->
 			<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
