@@ -30,7 +30,7 @@ public class UploadController extends HttpServlet {
         String saveDir = context.getRealPath("Upload"); //절대경로를 가져옴
         System.out.println("절대경로 >> " + saveDir);
         
-        int maxSize = 500*1024*1024; // 500MB
+        int maxSize = 10*1024*1024; // 10MB
         String encoding = "euc-kr";
         
         boolean isMulti = ServletFileUpload.isMultipartContent(request);
@@ -38,7 +38,29 @@ public class UploadController extends HttpServlet {
         	 MultipartRequest multi = new MultipartRequest(request, saveDir, maxSize, encoding, new DefaultFileRenamePolicy());
         	 UserDataDao dao = new UserDataDao();
         	 
-        	 //String 
+        	 String city = multi.getParameter("city");
+        	 String title = multi.getParameter("title");
+        	 String content = multi.getParameter("content");
+        	 String userimgname = multi.getFilesystemName("userimgname");
+        	 
+        	 try {
+				int result = dao.imgUpload(city,title,content,userimgname);
+				String moveUrl = "";
+				if(result>0) {
+					System.out.println("저장 완료");
+					moveUrl = "selectService";
+				}else {
+					System.out.println("저장 실패");
+					moveUrl = "StoryPage.jsp";
+				}
+				
+				response.sendRedirect(moveUrl);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+        }else {
+        	System.out.println("일반 전송 form 입니다.");
         }
         
 	}

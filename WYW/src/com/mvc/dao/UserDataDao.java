@@ -537,10 +537,52 @@ public class UserDataDao extends JDBCTemplate{
 		return 0;
 	}
 	
-	//스토리(사진 업로드)
-	public String imgUpload() {
+	//스토리(test)
+	public ArrayList<UserDataDto> selectAllContent(){
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		ArrayList<UserDataDto> res = new ArrayList<UserDataDto>();
 		
-		return null;
+		String sql = " SELECT * FROM USERCONTENT ORDER BY USERNO DESC ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			System.out.println("03. query 준비: "+sql);
+			
+			rs = pstm.executeQuery();
+			System.out.println("04. query 실행 및 리턴");
+			
+			while(rs.next()) {
+				UserDataDto tmp = new UserDataDto();
+				tmp.setUserno(rs.getInt(1));
+				tmp.setTitle(rs.getString(2));
+				tmp.setContent(rs.getString(3));
+				tmp.setUserimgname(rs.getString(4));
+				tmp.setUserlike(rs.getInt(5));
+				tmp.setRegdate(rs.getDate(6));
+				
+				res.add(tmp);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return res;
+	}
+	
+	//스토리(사진 업로드)
+	public int imgUpload(String city, String title, String content, String userimgname) {
+		
+		
+		return 0;
 	}
 	
 	//스토리(사진 다운로드)
@@ -855,6 +897,8 @@ public class UserDataDao extends JDBCTemplate{
 		
 		return res;
 	}
+
+	
 
 	
 	

@@ -110,7 +110,7 @@
 											<tr>
 												<td align="center">
 													<select id="select" name="selectloc">
-														<option value="">현재 계신 도시를 선택해주세요.</option>
+														<option value="">현제 계신 도시를 선택해주세요.</option>
 														<option value="seoul">서울특별시</option>
 							                            <option value="incheon">인천광역시</option>
 							                            <option value="daejeon">대전광역시</option>
@@ -132,12 +132,12 @@
 											</tr>
 											<tr>
 												<td align="center">
-													<select id="select" name="selectsex">
-														<option value="">성별 선택</option>
-														<option value="M">남성</option>
-														<option value="FM">여성</option>
-														<option value="O">그외</option>
-													</select>
+													<input id="select" type="text" value="제목을 입력해 주세요" onfocus="this.value='';return true;">
+												</td>
+											</tr>
+											<tr>
+												<td align="center">
+													<input id="select" type="text" value="내용을 입력해 주세요" onfocus="this.value='';return true;">
 												</td>
 											</tr>
 											<tr>
