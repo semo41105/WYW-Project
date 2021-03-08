@@ -544,7 +544,12 @@ public class UserDataDao extends JDBCTemplate{
 		ResultSet rs = null;
 		ArrayList<UserDataDto> res = new ArrayList<UserDataDto>();
 		
-		String sql = " SELECT * FROM USERCONTENT ORDER BY USERNO DESC ";
+		String sql = " SELECT BOARDNO, GROUPNO, GROUPSQ, TITLE, CONTENT "
+		+ " ,USERID FROM USERCONTENT "
+		+ " WHERE USERID = (SELECT USERNO FROM USERDATA "
+		+ " WHERE USERNO = (SELECT (USERDATA)USERID FROM USERDATA)) "
+		+ " ,USERIMGNAME, USERIMGM, USERLIKE, REEGDATE FROM USERCONTENT "
+		+ " FROM USERCONTENT ORDER BY GROUPNO ASC ";
 		
 		try {
 			pstm = con.prepareStatement(sql);
@@ -555,13 +560,17 @@ public class UserDataDao extends JDBCTemplate{
 			
 			while(rs.next()) {
 				UserDataDto tmp = new UserDataDto();
-				tmp.setUserno(rs.getInt(1));
-				tmp.setTitle(rs.getString(2));
-				tmp.setContent(rs.getString(3));
-				tmp.setUserimgname(rs.getString(4));
-				tmp.setUserlike(rs.getInt(5));
-				tmp.setRegdate(rs.getDate(6));
-				
+				tmp.setBoardno(rs.getInt(1));
+				tmp.setGroupno(rs.getInt(2));
+				tmp.setGroupsq(rs.getInt(3));
+				tmp.setTitle(rs.getString(4));
+				tmp.setContent(rs.getString(5));
+				tmp.setUserid(rs.getString(6));
+				tmp.setUserimgname(rs.getString(7));
+				tmp.setUserimg(rs.getString(8));
+				tmp.setUserlike(rs.getInt(9));
+				tmp.setRegdate(rs.getDate(10));
+
 				res.add(tmp);
 			}
 			
