@@ -580,9 +580,39 @@ public class UserDataDao extends JDBCTemplate{
 	
 	//스토리(사진 업로드)
 	public int imgUpload(String city, String title, String content, String userimgname) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res = 0;
 		
+		String sql = " INSERT INTO USERCONTENT "
+				+" VALUES(BOARDNOSQ.NEXTVAL, GROUPNOSQ.NEXTVAL, 1, ?,?,1,?,'',0, SYSDATE) ";
 		
-		return 0;
+		UserDataDto dto = new UserDataDto();
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, dto.getTitle());
+			pstm.setString(2, dto.getContent());
+			pstm.setString(3, dto.getUserimgname());
+			System.out.println("03. query 준비: "+sql);
+			
+			res = pstm.executeUpdate();
+			System.out.println("04. query 실행 및 리턴");
+			
+			if(res>0) {
+				commit(con);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return res;
 	}
 	
 	//스토리(사진 다운로드)
