@@ -21,10 +21,10 @@ public class mainController extends HttpServlet {
 		if(command.equals("mainpage")) {
 			response.sendRedirect("mainPage.jsp");
 			
-		} else if(command.equals("mypage")) {
-			response.sendRedirect("mypage.jsp");
-		
-		}
+		} else if(command.equals("StoryPage")) {
+	         response.sendRedirect("StoryPage.jsp");
+	         
+	    }
 		
 		
 		
