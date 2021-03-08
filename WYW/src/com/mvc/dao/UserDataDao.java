@@ -587,13 +587,13 @@ public class UserDataDao extends JDBCTemplate{
 		String sql = " INSERT INTO USERCONTENT "
 				+" VALUES(BOARDNOSQ.NEXTVAL, GROUPNOSQ.NEXTVAL, 1, ?,?,1,?,'',0, SYSDATE) ";
 		
-		UserDataDto dto = new UserDataDto();
+		System.out.println(city + " " + title + " " + content  + " " + userimgname);
 		
 		try {
 			pstm = con.prepareStatement(sql);
-			pstm.setString(1, dto.getTitle());
-			pstm.setString(2, dto.getContent());
-			pstm.setString(3, dto.getUserimgname());
+			pstm.setString(1, title);
+			pstm.setString(2, content);
+			pstm.setString(3, userimgname);
 			System.out.println("03. query 준비: "+sql);
 			
 			res = pstm.executeUpdate();
