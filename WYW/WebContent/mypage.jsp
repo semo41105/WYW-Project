@@ -63,20 +63,16 @@
 <!-- Header -->
 <header>	
 			<div id="s0">
-				<a>
 					<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200" height="100" onclick="location.href='mainController.do?command=mainpage'">
-				</a>
 			</div>
-			<div id="s1"><input type="text" placeholder="Search userid" name="search"></div>
-				<div id="s1">
-					<input id="ask1" type="button" value="검색" onclick="">
-						<a href="#" class="label">
-							<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px">
-							<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px" onclick="location.href='mainController.do?command=mypage'">
-							<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px">
-						</a>
-				</div>
-				
+			<div id="s1"></div>
+			<div id="s1">
+				<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px">
+				<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px" onclick="location.href='mainController.do?command=mypage'">
+				<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px">
+				<img id="s4" class="icons" src="images/icon/search.png" alt="search" align="right" width="30px" onclick="location.href='mypageController.do?command=searchpage'">
+			</div>
+			
 			<!-- userprofile -->
 			<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
 				<div id="header">
@@ -93,14 +89,18 @@
 							<span><b>45</b></span>
 							<span>&nbsp;&nbsp;Posts</span>
 						</div>
-						<div id="follower">
+						<a href="mypageController.do?command=myfollow">
+							<div id="follower">
 							<span><b>100&nbsp;&nbsp;</b></span>					
-							<a href="myfollow.jsp">Followers</a>
-						</div>
-						<div id="following">
-							<span><b>17&nbsp;&nbsp;</b></span>	
-							<a href="mypageController.do?command=myfollow">Following</a>										
-						</div>
+							<b>Followers</b>
+							</div>
+						</a>
+						<a href="mypageController.do?command=myfollow">
+							<div id="following">
+							<span><b>100&nbsp;&nbsp;</b></span>					
+							<b>Following</b>
+							</div>						
+						</a>
 					</div>
 				</div>
 			<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->

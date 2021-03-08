@@ -1,3 +1,4 @@
+.
 --�쉶�썝 踰덊샇 �떆���뒪(PRIMARY KEY)
 CREATE SEQUENCE USERNOSQ NOCACHE;
 

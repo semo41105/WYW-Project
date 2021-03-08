@@ -444,17 +444,49 @@ public class UserDataDao extends JDBCTemplate{
 	}
 	
 	//마이페이지(검색기능)
-	public UserDataDto searchUser(int userno) {
-			Connection con = getConnection();
-			PreparedStatement pstm = null;
-			ResultSet rs = null;
-			UserDataDto res = new UserDataDto();
-			
-			String sql = " SELECT * FROM USERDATA ";
-			
+	public List<UserDataDto> searchUser(String select, String searchid){
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		String kw="";
+		List<UserDataDto> res = new ArrayList<UserDataDto>();
 		
-		return null;
+		if(select.equals("id")) {
+			kw = "USERID";
+		} else if(select.equals("address")) {
+			kw = "USERADDR";
+		} else if(select.equals("name")) {
+			kw = "USERNAME";
+		}
+		
+		String sql = " SELECT * FROM USERDATA WHERE " +kw
+				+ " LIKE \'%" +searchid+ "%\' ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			
+			rs = pstm.executeQuery();
+			
+			while(rs.next()) {
+				UserDataDto tmp = new UserDataDto();
+				tmp.setUserno(rs.getInt(1));
+				tmp.setUserid(rs.getString(2));
+				tmp.setUseraddr(rs.getString(5));
+				tmp.setUsername(rs.getString(4));
+				
+				res.add(tmp);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstm);
+			close(rs);
+		}
+
+		
+		return res;
 	}
+	
 	
 	//마이페이지(내정보)
 	public UserDataDto mypageUser(int userno) {
