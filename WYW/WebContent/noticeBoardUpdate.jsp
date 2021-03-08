@@ -14,7 +14,6 @@
 <script src="assets/js/main.js"></script>
 <style type="text/css">
 #top>p {
-	margin-top: 50px;
 	margin-left: 100px;
 	font-size: 28pt;
 }
@@ -27,9 +26,6 @@
 	float: right;
 }
 
-body>form {
-	margin: 100px 300px;
-}
 
 #s0 {
 	float: left;
@@ -39,74 +35,87 @@ body>form {
 #s1 {
 	float: left;
 	width: 33%;
-	padding: 25px 0px 25px 0px
+	padding: 25px 0px 25px 0px;
 }
 
 #s2 {
 	float: left;
-	width: 100%
+	width: 100%;
+	height: 50px;
 }
 
 #s4 {
 	padding: 8px 0px 0px 0px;
 	margin-left: 25px;
 }
-
-#ask1 {
-	border: 2px solid black;
-	background-color: #fffbc1;
-	font-weight: bold;
-	color: #3f385a;
-}
 </style>
 </head>
 <body>
-	<header>
-		<div id="s0">
-			<a href="#"> <img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png"
-				width="200" height="100">
-			</a>
-		</div>
-		<div id="s1">
-			<input type="text">
-		</div>
-		<div id="s1">
-			<input id="ask1" type="button" value="검색" onclick=""> <a
-				href="#" class="label"> <img id="s4" class="icons"
-				src="images/icon/setting.png" alt="setting" align="right"
-				width="30px"> <img id="s4" class="icons"
-				src="images/icon/user.png" alt="user" align="right" width="30px">
-				<img id="s4" class="icons" src="images/icon/up.png" alt="upload"
-				align="right" width="30px">
-			</a>
-		</div>
-	</header>
-	<div id="top">
-		<p>공지사항</p>
-	</div>
-	<form action="manager.do" method="post">
-		<input type="hidden" name="command" value="noticeupdate"> <input
-			type="hidden" name="boardno" value="${dto.boardno }">
-		<table border="1">
-			<tr>
-				<th>DATE</th>
-				<td>${dto.regdate }</td>
-			</tr>
-			<tr>
-				<th>TITLE</th>
-				<td><input type="text" name="title" value="${dto.title }"></td>
-			</tr>
-			<tr>
-				<th>CONTENT</th>
-				<td><textarea rows="30" cols="40" name="content">${dto.content }</textarea></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="button" value="취소" id="button"
-					onclick="location.href='manager.do?command=noticedetail&boardno=${dto.boardno }'">
-					<input type="submit" value="수정" id="button"></td>
-			</tr>
-		</table>
+	<!-- Wrapper -->
+	<div id="wrapper">
+		<!-- Header -->
+		<header>
+			<div id="s0">
+				<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png"
+					width="200" height="100"
+					onclick="location.href='mainController.do?command=mainpage'">
+			</div>
+			<div id="s1"></div>
+			<div id="s1">
+				<img id="s4" class="icons" src="images/icon/setting.png"
+					alt="setting" align="right" width="30px"> <img id="s4"
+					class="icons" src="images/icon/user.png" alt="user" align="right"
+					width="30px"
+					onclick="location.href='mainController.do?command=mypage'"> <img
+					id="s4" class="icons" src="images/icon/up.png" alt="upload"
+					align="right" width="30px"> <img id="s4" class="icons"
+					src="images/icon/search.png" alt="search" align="right"
+					width="30px"
+					onclick="location.href='mypageController.do?command=searchpage'">
+			</div>
 
-	</form>
+			<div id="s2"></div>
+			<!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
+		</header>
+		<section id="topsection">
+			<div id="top">
+				<p>공지사항</p>
+				<br>
+			</div>
+		</section>
+		<section id="main">
+			<form action="manager.do" method="post">
+				<input type="hidden" name="command" value="noticeupdate"> <input
+					type="hidden" name="boardno" value="${dto.boardno }">
+				<table border="1">
+					<tr>
+						<th>DATE</th>
+						<td>${dto.regdate }</td>
+					</tr>
+					<tr>
+						<th>TITLE</th>
+						<td><input type="text" name="title" value="${dto.title }"></td>
+					</tr>
+					<tr>
+						<th>CONTENT</th>
+						<td><textarea rows="30" cols="40" name="content">${dto.content }</textarea></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="button" value="취소" id="button"
+							onclick="location.href='manager.do?command=noticedetail&boardno=${dto.boardno }'">
+							<input type="submit" value="수정" id="button"></td>
+					</tr>
+				</table>
+
+			</form>
+		</section>
+		<footer id="footer">
+			<p>
+				&copy; Untitled. All rights reserved. Design: <a
+					href="http://templated.co">TEMPLATED</a>. Demo Images: <a
+					href="http://unsplash.com">Unsplash</a>.
+			</p>
+		</footer>
+	</div>
 </body>
 </html>

@@ -79,7 +79,87 @@ INSERT INTO USERDATA VALUES(
 USERNOSQ.NEXTVAL, 'USER1', 'USER123', '홍길동', '서울시 서초구', '010-1234-4321', 'USER1@GAMIL.COM', 'Y', 
 'USER', 0
 );
+------------
+INSERT INTO USERDATA VALUES(
+USERNOSQ.NEXTVAL, 'admin', 'admin123', '관리자', '서울특별시', '010-1234-5678', 'admin1@gmail.com', 'Y', 
+'ADMIN', 0
+);
 
+INSERT INTO USERDATA VALUES(
+USERNOSQ.NEXTVAL, 'manager', 'manager123', '매니저', '경기도', '010-9876-5432', 'manager1@gmail.com', 'Y', 
+'MANAGER', 0
+);
+
+INSERT INTO USERDATA VALUES(
+USERNOSQ.NEXTVAL, 'honggd', 'hong123', '홍길동', '충청북도', '010-5256-4810', 'honggd@gmail.com', 'Y', 
+'USER', 0
+);
+
+INSERT INTO USERDATA VALUES(
+USERNOSQ.NEXTVAL, 'parksj', 'park123', '박성진', '부산광역시', '010-9319-0116', 'parksj@naver.com', 'Y', 
+'USER', 0
+);
+INSERT INTO USERDATA VALUES(
+USERNOSQ.NEXTVAL, 'choisg', 'choisg123', '최슬기', '경상북도', '010-6752-4572', 'choisg@kakao.com', 'Y', 
+'USER', 0
+);
+
+INSERT INTO USERDATA VALUES(
+USERNOSQ.NEXTVAL, 'boomj', 'boomj123', '부민준', '제주도', '010-9561-2568', 'boomj@nate.com', 'Y', 
+'USER', 0
+);
+
+INSERT INTO USERDATA VALUES(
+USERNOSQ.NEXTVAL, 'seoja', 'seoja123', '서지애', '울산광역시', '010-8739-5374', 'seoja@hanmail.net', 'Y', 
+'USER', 0
+);
+
+INSERT INTO USERDATA VALUES(
+USERNOSQ.NEXTVAL, 'kimdu', 'kimdu123', '김도운', '강원도', '010-2595-0825', 'kimdu@gmail.com', 'Y', 
+'USER', 0
+);
+
+INSERT INTO USERDATA VALUES(
+USERNOSQ.NEXTVAL, 'handy', 'handy123', '한도연', '전라남도', '010-4649-1245', 'handy@naver.com', 'Y', 
+'USER', 0
+);
+
+INSERT INTO USERDATA VALUES(
+USERNOSQ.NEXTVAL, 'leech', 'leech123', '이채현', '광주광역시', '010-1325-3585', 'leech@nate.com', 'N', 
+'USER', 0
+);
+
+INSERT INTO USERDATA VALUES(
+USERNOSQ.NEXTVAL, 'choi3854', 'choi3854123', '최승민', '인천광역시', '010-8453-3854', 'choi3854@empal.com', 'Y', 
+'USER', 0
+);
+
+INSERT INTO USERDATA VALUES(
+USERNOSQ.NEXTVAL, 'minyj', 'minyj123', '민예지', '경상남도', '010-9355-8975', 'minyj@korea.com', 'Y', 
+'USER', 0
+);
+
+INSERT INTO USERDATA VALUES(
+USERNOSQ.NEXTVAL, 'kwonmj', 'kwonmj123', '권민준', '대전광역시', '010-1213-4557', 'kwonmj@nate.com', 'N', 
+'USER', 0
+);
+
+INSERT INTO USERDATA VALUES(
+USERNOSQ.NEXTVAL, 'kimjw', 'kimjw123', '김재원', '전라북도', '010-7433-4656', 'kimjw@gmail.com', 'Y', 
+'USER', 0
+);
+
+INSERT INTO USERDATA VALUES(
+USERNOSQ.NEXTVAL, 'parksu', 'parksu123', '박선우', '서울특별시', '010-6536-5641', 'parksu@empal.com', 'N', 
+'USER', 0
+);
+
+INSERT INTO USERDATA VALUES(
+USERNOSQ.NEXTVAL, 'leegu', 'leegu123', '이가은', '경상북도', '010-9894-2343', 'leegu@hanmail.net', 'Y', 
+'USER', 0
+);
+
+-------
  SELECT * FROM USERCONTENT JOIN USERDATA ON(USERCONTENT.USERID = USERDATA.USERNO) WHERE BOARDNO=1;
 
 INSERT INTO USERCONTENT VALUES(

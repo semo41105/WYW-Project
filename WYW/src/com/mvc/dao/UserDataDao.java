@@ -18,7 +18,7 @@ public class UserDataDao extends JDBCTemplate{
 	 * 2.가입된 회원(userenabled='y')의 정보
 	 * 3.회원 등급 조정(userrole)
 	 * 4.공지사항 등록
-	 * */
+	 */
 	//회원 전체 정보(탈퇴 회원 포함)
 	public List<UserDataDto> selectAll(){
 		Connection con = getConnection();
@@ -737,7 +737,6 @@ public class UserDataDao extends JDBCTemplate{
 				tmp.setUserrole(rs.getString(9));
 				
 				res.add(tmp);
-				System.out.println(tmp.toString());
 			}
 			
 		

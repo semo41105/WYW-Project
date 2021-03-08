@@ -32,7 +32,7 @@
   
   <servlet-mapping>
     <servlet-name>ManagerPage</servlet-name>
-    <url-pattern>/manager</url-pattern>
+    <url-pattern>/manager.do</url-pattern>
   </servlet-mapping>  
   
 </web-app>

@@ -16,7 +16,7 @@ import javax.servlet.jsp.PageContext;
 import com.mvc.biz.ManagerBiz;
 import com.mvc.dto.UserDataDto;
 
-@WebServlet("/manager.do")
+@WebServlet("/managerpageController")
 public class managerpageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
