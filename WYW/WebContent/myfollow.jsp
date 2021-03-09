@@ -29,6 +29,14 @@
 		#pf999{border-bottom: 1px dotted;
 		   transform: translate(0px, 130px);
 		}
+		listform{
+        padding: 30px;
+        font-size: 50px;
+        font-weight: bold;
+        text-align: center;
+        background-color: #ffffff;
+        opacity: 0.5;
+      }
 	</style>
 <!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
@@ -62,9 +70,10 @@
 	<div id="pf999">&nbsp;</div>
 
 <!-- Main -->
-	<section id="main">
-					
-	</section>
+	<div id="list">
+		
+	
+	</div>
 
 <!-- Footer -->
 	<footer id="footer">

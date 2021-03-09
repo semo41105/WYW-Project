@@ -45,4 +45,14 @@
   	<url-pattern>/UploadController.do</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>myPage</servlet-name>
+    <servlet-class>controller.mypageController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>myPage</servlet-name>
+    <url-pattern>/mypageController.do</url-pattern>
+  </servlet-mapping>  
+  
 </web-app>
