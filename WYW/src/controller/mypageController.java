@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 //import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSession;
 
 import com.mvc.dao.UserDataDao;
 import com.mvc.dto.UserDataDto;
@@ -27,7 +28,7 @@ public class mypageController extends HttpServlet {
 		String command = request.getParameter("command");
 		System.out.println("[" + command + "]");
 
-		// HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		UserDataDao dao = new UserDataDao();
 
 		// login시 mypage
@@ -42,11 +43,12 @@ public class mypageController extends HttpServlet {
 		 */ if (command.equals("searchpage")) {
 			response.sendRedirect("mysearch.jsp");
 
-		} else if (command.equals("search")) {
+		}  else if (command.equals("search")) {
+			String myuserid = request.getParameter("userid");
 			String select = request.getParameter("select");
 			String searchid = request.getParameter("searchid");
 
-			List<UserDataDto> list = dao.searchUser(select, searchid);
+			List<UserDataDto> list = dao.searchUser(myuserid, select, searchid);
 			request.setAttribute("list", list);
 			dispatch("mysearch_res.jsp", request, response);
 
