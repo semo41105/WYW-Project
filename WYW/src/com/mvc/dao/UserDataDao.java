@@ -594,7 +594,7 @@ public class UserDataDao extends JDBCTemplate{
 				+" VALUES(BOARDNOSQ.NEXTVAL, GROUPNOSQ.NEXTVAL, 1, ?,?,?,?,0, SYSDATE) ";
 		
 		System.out.println(userid + " " + userno + " " + city + " " + title + " " + content  + " " + userimgname);
-		
+		 
 		UserDataDto tmp = new UserDataDto();
 		
 		try {
