@@ -132,6 +132,12 @@
 											</tr>
 											<tr>
 												<td align="center">
+													<input name="userid" id="select" type="text" value=${dto.userid } readonly>
+													<input name="userno" id="select" type="hidden" value=${dto.userno }>
+												</td>
+											</tr>
+											<tr>
+												<td align="center">
 													<input name="title" id="select" type="text" value="제목을 입력해 주세요" onfocus="this.value='';return true;">
 												</td>
 											</tr>

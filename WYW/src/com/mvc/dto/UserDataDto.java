@@ -30,7 +30,7 @@ public class UserDataDto {
 	public UserDataDto() {
 		super();
 	}
-
+ 
 
 	public UserDataDto(int userno, String userid, String userpw, String username, String useraddr, String userphone,
 			String useremail, String userenabled, String userrole, int userfollow, int boardno, int groupno,

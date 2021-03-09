@@ -35,15 +35,6 @@
     <url-pattern>/manager</url-pattern>
   </servlet-mapping>  
   
-    <servlet>
-    <servlet-name>myPage</servlet-name>
-    <servlet-class>controller.mypageController</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>myPage</servlet-name>
-    <url-pattern>/mypageController.do</url-pattern>
-  </servlet-mapping>  
   <servlet>
   	<servlet-name>StoryPage</servlet-name>
   	<servlet-class>controller.UploadController</servlet-class>
@@ -53,5 +44,15 @@
   	<servlet-name>StoryPage</servlet-name>
   	<url-pattern>/UploadController.do</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>myPage</servlet-name>
+    <servlet-class>controller.mypageController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>myPage</servlet-name>
+    <url-pattern>/mypageController.do</url-pattern>
+  </servlet-mapping>  
   
 </web-app>

@@ -46,7 +46,7 @@
 						<a href="#" class="label">
 							<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px">
 							<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px" onclick="location.href='mainController.do?command=mypage'">
-							<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px" >
+							<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px" onclick="location.href='mainController.do?command=StoryPage'">
 						</a>
 				</div>
 			</header>
