@@ -1,0 +1,21 @@
+package com.mvc.biz;
+
+import java.util.List;
+
+import com.mvc.dao.UserDataDao;
+import com.mvc.dto.UserDataDto;
+
+public class UploadControlBiz {
+	private UserDataDao dao = new UserDataDao();
+	
+	public UserDataDto imgUpload(UserDataDto dto) {
+		String res = dao.imgUpload(city, title, content, userimgname);
+	}
+	
+	public List<UserDataDto> selectAllContent(){
+		List<UserDataDto> res = dao.selectAllContent();
+		return res;
+	}
+	
+	
+}

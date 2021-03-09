@@ -1,0 +1,80 @@
+
+3월 02, 2021 09:47:05.09 NEW SESSION
+3월 02, 2021 09:47:05.09 [28836:43524:0302/094705.088:ERROR:cache_util_win.cc(20)] Unable to move the cache: 액세스가 거부되었습니다. (0x5)
+3월 02, 2021 09:47:05.09 [28836:43524:0302/094705.090:ERROR:cache_util.cc(144)] Unable to move cache folder C:\Users\85whg\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\85whg\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+3월 02, 2021 09:47:05.10 [28836:43524:0302/094705.090:ERROR:disk_cache.cc(184)] Unable to create cache
+3월 02, 2021 09:47:05.10 [28836:43524:0302/094705.090:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+3월 02, 2021 09:47:05.52 [28836:43524:0302/094705.523:ERROR:cache_util_win.cc(20)] Unable to move the cache: 액세스가 거부되었습니다. (0x5)
+3월 02, 2021 09:47:05.52 [28836:43524:0302/094705.523:ERROR:cache_util.cc(144)] Unable to move cache folder C:\Users\85whg\AppData\Local\Google\Chrome\User Data\GrShaderCache\GPUCache to C:\Users\85whg\AppData\Local\Google\Chrome\User Data\GrShaderCache\old_GPUCache_000
+3월 02, 2021 09:47:05.52 [28836:43524:0302/094705.523:ERROR:disk_cache.cc(184)] Unable to create cache
+3월 02, 2021 09:47:05.53 [28836:43524:0302/094705.523:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+3월 02, 2021 09:47:51.54 [12080:23356:0302/094751.540:ERROR:cache_util_win.cc(20)] Unable to move the cache: 액세스가 거부되었습니다. (0x5)
+3월 02, 2021 09:47:51.54 [12080:23356:0302/094751.542:ERROR:cache_util.cc(144)] Unable to move cache folder C:\Users\85whg\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\85whg\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+3월 02, 2021 09:47:51.54 [12080:23356:0302/094751.542:ERROR:disk_cache.cc(184)] Unable to create cache
+3월 02, 2021 09:47:51.54 [12080:23356:0302/094751.542:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+3월 02, 2021 09:47:52.07 [12080:23356:0302/094752.069:ERROR:cache_util_win.cc(20)] Unable to move the cache: 액세스가 거부되었습니다. (0x5)
+3월 02, 2021 09:47:52.07 [12080:23356:0302/094752.069:ERROR:cache_util.cc(144)] Unable to move cache folder C:\Users\85whg\AppData\Local\Google\Chrome\User Data\GrShaderCache\GPUCache to C:\Users\85whg\AppData\Local\Google\Chrome\User Data\GrShaderCache\old_GPUCache_000
+3월 02, 2021 09:47:52.07 [12080:23356:0302/094752.069:ERROR:disk_cache.cc(184)] Unable to create cache
+3월 02, 2021 09:47:52.07 [12080:23356:0302/094752.069:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+
+3월 02, 2021 09:50:04.44 NEW SESSION
+3월 02, 2021 09:50:04.44 [56564:28880:0302/095004.441:ERROR:cache_util_win.cc(20)] Unable to move the cache: 액세스가 거부되었습니다. (0x5)
+3월 02, 2021 09:50:04.44 [56564:28880:0302/095004.444:ERROR:cache_util.cc(144)] Unable to move cache folder C:\Users\85whg\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\85whg\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+3월 02, 2021 09:50:04.45 [56564:28880:0302/095004.444:ERROR:disk_cache.cc(184)] Unable to create cache
+3월 02, 2021 09:50:04.45 [56564:28880:0302/095004.444:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+3월 02, 2021 09:50:04.95 [56564:28880:0302/095004.954:ERROR:cache_util_win.cc(20)] Unable to move the cache: 액세스가 거부되었습니다. (0x5)
+3월 02, 2021 09:50:04.95 [56564:28880:0302/095004.954:ERROR:cache_util.cc(144)] Unable to move cache folder C:\Users\85whg\AppData\Local\Google\Chrome\User Data\GrShaderCache\GPUCache to C:\Users\85whg\AppData\Local\Google\Chrome\User Data\GrShaderCache\old_GPUCache_000
+3월 02, 2021 09:50:04.95 [56564:28880:0302/095004.954:ERROR:disk_cache.cc(184)] Unable to create cache
+3월 02, 2021 09:50:04.96 [56564:28880:0302/095004.954:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+3월 02, 2021 09:53:57.79 [52160:13008:0302/095357.787:ERROR:cache_util_win.cc(20)] Unable to move the cache: 액세스가 거부되었습니다. (0x5)
+3월 02, 2021 09:53:57.79 [52160:13008:0302/095357.792:ERROR:cache_util.cc(144)] Unable to move cache folder C:\Users\85whg\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\85whg\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+3월 02, 2021 09:53:57.79 [52160:13008:0302/095357.792:ERROR:disk_cache.cc(184)] Unable to create cache
+3월 02, 2021 09:53:57.80 [52160:13008:0302/095357.792:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+3월 02, 2021 09:53:58.21 [52160:13008:0302/095358.214:ERROR:cache_util_win.cc(20)] Unable to move the cache: 액세스가 거부되었습니다. (0x5)
+3월 02, 2021 09:53:58.21 [52160:13008:0302/095358.214:ERROR:cache_util.cc(144)] Unable to move cache folder C:\Users\85whg\AppData\Local\Google\Chrome\User Data\GrShaderCache\GPUCache to C:\Users\85whg\AppData\Local\Google\Chrome\User Data\GrShaderCache\old_GPUCache_000
+3월 02, 2021 09:53:58.22 [52160:13008:0302/095358.214:ERROR:disk_cache.cc(184)] Unable to create cache
+3월 02, 2021 09:53:58.22 [52160:13008:0302/095358.214:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+3월 02, 2021 09:54:11.05 [28840:13480:0302/095411.057:ERROR:cache_util_win.cc(20)] Unable to move the cache: 액세스가 거부되었습니다. (0x5)
+3월 02, 2021 09:54:11.06 [28840:13480:0302/095411.058:ERROR:cache_util.cc(144)] Unable to move cache folder C:\Users\85whg\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\85whg\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+3월 02, 2021 09:54:11.06 [28840:13480:0302/095411.058:ERROR:disk_cache.cc(184)] Unable to create cache
+3월 02, 2021 09:54:11.06 [28840:13480:0302/095411.058:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+3월 02, 2021 09:54:11.52 [28840:13480:0302/095411.524:ERROR:cache_util_win.cc(20)] Unable to move the cache: 액세스가 거부되었습니다. (0x5)
+3월 02, 2021 09:54:11.52 [28840:13480:0302/095411.524:ERROR:cache_util.cc(144)] Unable to move cache folder C:\Users\85whg\AppData\Local\Google\Chrome\User Data\GrShaderCache\GPUCache to C:\Users\85whg\AppData\Local\Google\Chrome\User Data\GrShaderCache\old_GPUCache_000
+3월 02, 2021 09:54:11.53 [28840:13480:0302/095411.524:ERROR:disk_cache.cc(184)] Unable to create cache
+3월 02, 2021 09:54:11.53 [28840:13480:0302/095411.524:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+
+3월 09, 2021 13:44:54.42 NEW SESSION
+3월 09, 2021 13:44:54.42 [33548:34760:0309/134454.422:ERROR:cache_util_win.cc(20)] Unable to move the cache: 액세스가 거부되었습니다. (0x5)
+3월 09, 2021 13:44:54.42 [33548:34760:0309/134454.423:ERROR:cache_util.cc(144)] Unable to move cache folder C:\Users\85whg\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\85whg\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+3월 09, 2021 13:44:54.42 [33548:34760:0309/134454.423:ERROR:disk_cache.cc(184)] Unable to create cache
+3월 09, 2021 13:44:54.43 [33548:34760:0309/134454.423:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+3월 09, 2021 13:44:54.77 [33548:34760:0309/134454.772:ERROR:cache_util_win.cc(20)] Unable to move the cache: 액세스가 거부되었습니다. (0x5)
+3월 09, 2021 13:44:54.77 [33548:34760:0309/134454.772:ERROR:cache_util.cc(144)] Unable to move cache folder C:\Users\85whg\AppData\Local\Google\Chrome\User Data\GrShaderCache\GPUCache to C:\Users\85whg\AppData\Local\Google\Chrome\User Data\GrShaderCache\old_GPUCache_000
+3월 09, 2021 13:44:54.77 [33548:34760:0309/134454.772:ERROR:disk_cache.cc(184)] Unable to create cache
+3월 09, 2021 13:44:54.77 [33548:34760:0309/134454.772:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+3월 09, 2021 13:45:33.35 [16948:48076:0309/134533.349:ERROR:cache_util_win.cc(20)] Unable to move the cache: 액세스가 거부되었습니다. (0x5)
+3월 09, 2021 13:45:33.35 [16948:48076:0309/134533.350:ERROR:cache_util.cc(144)] Unable to move cache folder C:\Users\85whg\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\85whg\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+3월 09, 2021 13:45:33.35 [16948:48076:0309/134533.350:ERROR:disk_cache.cc(184)] Unable to create cache
+3월 09, 2021 13:45:33.35 [16948:48076:0309/134533.350:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+3월 09, 2021 13:45:33.74 [16948:48076:0309/134533.744:ERROR:cache_util_win.cc(20)] Unable to move the cache: 액세스가 거부되었습니다. (0x5)
+3월 09, 2021 13:45:33.74 [16948:48076:0309/134533.744:ERROR:cache_util.cc(144)] Unable to move cache folder C:\Users\85whg\AppData\Local\Google\Chrome\User Data\GrShaderCache\GPUCache to C:\Users\85whg\AppData\Local\Google\Chrome\User Data\GrShaderCache\old_GPUCache_000
+3월 09, 2021 13:45:33.74 [16948:48076:0309/134533.744:ERROR:disk_cache.cc(184)] Unable to create cache
+3월 09, 2021 13:45:33.74 [16948:48076:0309/134533.744:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+3월 09, 2021 13:46:04.35 [18036:31760:0309/134604.351:ERROR:cache_util_win.cc(20)] Unable to move the cache: 액세스가 거부되었습니다. (0x5)
+3월 09, 2021 13:46:04.35 [18036:31760:0309/134604.352:ERROR:cache_util.cc(144)] Unable to move cache folder C:\Users\85whg\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\85whg\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+3월 09, 2021 13:46:04.35 [18036:31760:0309/134604.352:ERROR:disk_cache.cc(184)] Unable to create cache
+3월 09, 2021 13:46:04.35 [18036:31760:0309/134604.352:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+3월 09, 2021 13:46:04.67 [18036:31760:0309/134604.669:ERROR:cache_util_win.cc(20)] Unable to move the cache: 액세스가 거부되었습니다. (0x5)
+3월 09, 2021 13:46:04.67 [18036:31760:0309/134604.669:ERROR:cache_util.cc(144)] Unable to move cache folder C:\Users\85whg\AppData\Local\Google\Chrome\User Data\GrShaderCache\GPUCache to C:\Users\85whg\AppData\Local\Google\Chrome\User Data\GrShaderCache\old_GPUCache_000
+3월 09, 2021 13:46:04.67 [18036:31760:0309/134604.669:ERROR:disk_cache.cc(184)] Unable to create cache
+3월 09, 2021 13:46:04.67 [18036:31760:0309/134604.669:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+
+3월 09, 2021 13:47:35.34 NEW SESSION
+3월 09, 2021 13:47:35.34 [45172:24728:0309/134735.343:ERROR:cache_util_win.cc(20)] Unable to move the cache: 액세스가 거부되었습니다. (0x5)
+3월 09, 2021 13:47:35.34 [45172:24728:0309/134735.343:ERROR:cache_util.cc(144)] Unable to move cache folder C:\Users\85whg\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\85whg\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+3월 09, 2021 13:47:35.34 [45172:24728:0309/134735.343:ERROR:disk_cache.cc(184)] Unable to create cache
+3월 09, 2021 13:47:35.34 [45172:24728:0309/134735.343:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+3월 09, 2021 13:47:35.56 [45172:24728:0309/134735.566:ERROR:cache_util_win.cc(20)] Unable to move the cache: 액세스가 거부되었습니다. (0x5)
+3월 09, 2021 13:47:35.56 [45172:24728:0309/134735.566:ERROR:cache_util.cc(144)] Unable to move cache folder C:\Users\85whg\AppData\Local\Google\Chrome\User Data\GrShaderCache\GPUCache to C:\Users\85whg\AppData\Local\Google\Chrome\User Data\GrShaderCache\old_GPUCache_000
+3월 09, 2021 13:47:35.56 [45172:24728:0309/134735.566:ERROR:disk_cache.cc(184)] Unable to create cache
+3월 09, 2021 13:47:35.57 [45172:24728:0309/134735.566:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
