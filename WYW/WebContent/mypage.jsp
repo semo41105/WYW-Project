@@ -49,7 +49,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="assets/css/main.css" />
-	<!-- Scripts -->
+   <!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.poptrox.min.js"></script>
 <script src="assets/js/skel.min.js"></script>
@@ -61,94 +61,94 @@
 <div id="wrapper">
 
 <!-- Header -->
-<header>	
-			<div id="s0">
-					<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200" height="100" onclick="location.href='mainController.do?command=mainpage'">
-			</div>
-			<div id="s1"></div>
-			<div id="s1">
-				<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px">
-				<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px" onclick="location.href='mainController.do?command=mypage'">
-				<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px">
-				<img id="s4" class="icons" src="images/icon/search.png" alt="search" align="right" width="30px" onclick="location.href='mypageController.do?command=searchpage'">
-			</div>
-			
-			<!-- userprofile -->
-			<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
-				<div id="header">
-					<div id="pf1">
-						<span id="userimg" class="avatar"><img src="images/avatar.jpg" alt="" /></span>
-					</div>
-					<div id="pf2">
-						<span id="userid">${dto.userid }</span>
-						<img src="images/icon/map.png" width="26px">
-						<span>&nbsp;&nbsp;${dto.useraddr }</span>			
-					</div>
-					<div id="pf3">
-						<div id="post">
-							<span><b>45</b></span>
-							<span>&nbsp;&nbsp;Posts</span>
-						</div>
-						<a href="mypageController.do?command=myfollow">
-							<div id="follower">
-							<span><b>100&nbsp;&nbsp;</b></span>					
-							<b>Followers</b>
-							</div>
-						</a>
-						<a href="mypageController.do?command=myfollow">
-							<div id="following">
-							<span><b>100&nbsp;&nbsp;</b></span>					
-							<b>Following</b>
-							</div>						
-						</a>
-					</div>
-				</div>
-			<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
+<header>   
+         <div id="s0">
+               <img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200" height="100" onclick="location.href='mainController.do?command=mainpage'">
+         </div>
+         <div id="s1"></div>
+         <div id="s1">
+            <img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px">
+            <img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px" onclick="location.href='mainController.do?command=mypage'">
+            <img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px">
+            <img id="s4" class="icons" src="images/icon/search.png" alt="search" align="right" width="30px" onclick="location.href='mypageController.do?command=searchpage'">
+         </div>
+         
+         <!-- userprofile -->
+         <div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
+            <div id="header">
+               <div id="pf1">
+                  <span id="userimg" class="avatar"><img src="images/avatar.jpg" alt="" /></span>
+               </div>
+               <div id="pf2">
+                  <span id="userid">${dto.userid }</span>
+                  <img src="images/icon/map.png" width="26px">
+                  <span>&nbsp;&nbsp;${dto.useraddr }</span>         
+               </div>
+               <div id="pf3">
+                  <div id="post">
+                     <span><b>45</b></span>
+                     <span>&nbsp;&nbsp;Posts</span>
+                  </div>
+                  <a href="mypageController.do?command=myfollow">
+                     <div id="follower">
+                     <span><b>100&nbsp;&nbsp;</b></span>               
+                     <b>Followers</b>
+                     </div>
+                  </a>
+                  <a href="mypageController.do?command=myfollow">
+                     <div id="following">
+                     <span><b>100&nbsp;&nbsp;</b></span>               
+                     <b>Following</b>
+                     </div>                  
+                  </a>
+               </div>
+            </div>
+         <div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
 </header>
 
-	<div id="pf999">&nbsp;</div>
+   <div id="pf999">&nbsp;</div>
 
-		
+      
 <!-- Main -->
-	<section id="main">
-	
-	</section>
+   <section id="main">
+   
+   </section>
 <!-- Thumbnails -->
-	<section class="thumbnails">
-	
-					<div>
-						<a href="images/fulls/01.jpg">
-							<img src="images/thumbs/01.jpg" alt="" />
-						</a>
-						<a href="images/fulls/01.jpg">
-							<img src="images/thumbs/01.jpg" alt="" />
-						</a>
-					</div>
-					<div>
-						<a href="images/fulls/01.jpg">
-							<img src="images/thumbs/01.jpg" alt="" />
-						</a>
-						<a href="images/fulls/01.jpg">
-							<img src="images/thumbs/01.jpg" alt="" />
-						</a>
-					</div>
-					<div>
-						<a href="images/fulls/01.jpg">
-							<img src="images/thumbs/01.jpg" alt="" />
-						</a>
-						<a href="images/fulls/01.jpg">
-							<img src="images/thumbs/01.jpg" alt="" />
-						</a>
-					</div>
+   <section class="thumbnails">
+   
+               <div>
+                  <a href="images/fulls/01.jpg">
+                     <img src="images/thumbs/01.jpg" alt="" />
+                  </a>
+                  <a href="images/fulls/01.jpg">
+                     <img src="images/thumbs/01.jpg" alt="" />
+                  </a>
+               </div>
+               <div>
+                  <a href="images/fulls/01.jpg">
+                     <img src="images/thumbs/01.jpg" alt="" />
+                  </a>
+                  <a href="images/fulls/01.jpg">
+                     <img src="images/thumbs/01.jpg" alt="" />
+                  </a>
+               </div>
+               <div>
+                  <a href="images/fulls/01.jpg">
+                     <img src="images/thumbs/01.jpg" alt="" />
+                  </a>
+                  <a href="images/fulls/01.jpg">
+                     <img src="images/thumbs/01.jpg" alt="" />
+                  </a>
+               </div>
 
 
-	</section>
+   </section>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a href="http://unsplash.com">Unsplash</a>.</p>
-					</footer>
+            <!-- Footer -->
+               <footer id="footer">
+                  <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+               </footer>
 
-	</div>
+   </div>
 </body>
 </html>

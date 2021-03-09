@@ -19,8 +19,8 @@ public class UserDataDto {
 	private int groupsq;		//그룹 시퀀스 번호
 	private String title;		//제목
 	private String content;		//내용
+	private int useridno;		//usercontent에 useridno 정보
 	private String userimgname;	//등록한 사진 이름
-	private String userimg;		//등록한 사진 위치
 	private int userlike;		//좋아요 수
 	private Date regdate;		//글 등록 날자
 	private String users;	//로그인해서 검색하는 유저 아이디
@@ -52,8 +52,8 @@ public class UserDataDto {
 		this.groupsq = groupsq;
 		this.title = title;
 		this.content = content;
+		this.useridno = useridno;
 		this.userimgname = userimgname;
-		this.userimg = userimg;
 		this.userlike = userlike;
 		this.regdate = regdate;
 		this.users = users;
@@ -210,24 +210,20 @@ public class UserDataDto {
 		this.content = content;
 	}
 
+	public int getUseridno() {
+		return useridno;
+	}
+
+	public void setUseridno(int useridno) {
+		this.useridno = useridno;
+	}
 
 	public String getUserimgname() {
 		return userimgname;
 	}
 
-
 	public void setUserimgname(String userimgname) {
 		this.userimgname = userimgname;
-	}
-
-
-	public String getUserimg() {
-		return userimg;
-	}
-
-
-	public void setUserimg(String userimg) {
-		this.userimg = userimg;
 	}
 
 
@@ -264,11 +260,9 @@ public class UserDataDto {
 	public String getFolloweruser() {
 		return followeruser;
 	}
+	
+	
 
-
-	public void setFolloweruser(String followeruser) {
-		this.followeruser = followeruser;
-	}
-
-
+	
+	
 }
