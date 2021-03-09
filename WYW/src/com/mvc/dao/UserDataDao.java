@@ -514,7 +514,7 @@ public class UserDataDao extends JDBCTemplate{
 		List<UserDataDto> res = new ArrayList<UserDataDto>();
 
 		// 테이블 조인해서 유저권한 manager, ADMIN인 사람의 글만 보일 수 있게 쿼리문 작성
-		String sql = " SELECT * FROM USERCONTENT " + " JOIN USERDATA ON(USERCONTENT.USERID = USERDATA.USERNO) "
+		String sql = " SELECT * FROM USERCONTENT " + " JOIN USERDATA ON(USERCONTENT.USERIDNO = USERDATA.USERNO) "
 				+ " WHERE USERROLE='ADMIN' OR USERROLE='MANAGER' ORDER BY REGDATE DESC ";
 
 		try {
@@ -552,7 +552,7 @@ public class UserDataDao extends JDBCTemplate{
 		ResultSet rs = null;
 		UserDataDto res = new UserDataDto();
 
-		String sql = " SELECT * FROM USERCONTENT JOIN USERDATA ON(USERCONTENT.USERID = USERDATA.USERNO) WHERE BOARDNO=? ";
+		String sql = " SELECT * FROM USERCONTENT JOIN USERDATA ON(USERCONTENT.USERIDNO = USERDATA.USERNO) WHERE BOARDNO=? ";
 		
 
 		try {
@@ -591,7 +591,7 @@ public class UserDataDao extends JDBCTemplate{
 		int res = 0;
 
 		String sql = " INSERT INTO USERCONTENT VALUES(BOARDNOSQ.NEXTVAL," + " GROUPNOSQ.NEXTVAL, 1, ?, ?, ?,"
-		// GROUPNO, GROUPSQ,TITLE,CONTENT,USERID
+		// GROUPNO, GROUPSQ,TITLE,CONTENT,USERIDNO
 				+ " NULL, NULL, 0, SYSDATE) ";
 		// USERIMGNAME,USERIMG,USERLIKE,REGDATE
 
