@@ -462,11 +462,11 @@ public class UserDataDao extends JDBCTemplate{
 		}
 		
 		//검색쿼리1
-		String sql1 = " SELECT * FROM USERDATA WHERE " +kw
+		String sql = " SELECT * FROM USERDATA WHERE " +kw
 				+ " LIKE \'%" +searchid+ "%\' ";
 		
 		try {
-			pstm = con.prepareStatement(sql1);
+			pstm = con.prepareStatement(sql);
 			
 			rs = pstm.executeQuery();
 			
@@ -481,54 +481,16 @@ public class UserDataDao extends JDBCTemplate{
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} 
-		
-		//기본 검색과 함께 팔로우 테이블에도 검색
-		PreparedStatement pstm2 = null;
-		ResultSet rs2 = null;
-		List<UserDataDto> res2 = new ArrayList<UserDataDto>();
-
-		
-		//검색쿼리2 > 팔로우 테이블
-		//SELECT * FROM USERFOLLOW WHERE LOGINUSER='USER4' OR FOLLOWUSER='USER4';
- 		String sql2 = " SELECT * FROM USERFOLLOW WHERE LOGINUSER= " + "\'" + myuserid + "\'" + " OR FOLLOWUER= " + "\'" + searchid + "\' ";
-
-		try {
-			pstm2 = con.prepareStatement(sql2);
-
-			rs2 = pstm2.executeQuery();
-			
-			//만약 결과 값이 없다면?
-			//INSERT INTO USERFOLLOW VALUES('USER4','USER8');
-			if(rs2==null) {
-				
-				PreparedStatement pstm3 = null;
-				int insertres = 0;
-		
-				String sql3 = " INSERT INTO USERFOLLOW VALUES( " + "\'" + myuserid + "\'" + "," + "\'" + searchid + "\'" + ") ";
-		
-				try {
-					pstm3 = con.prepareStatement(sql3);
-					
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				
-				
-				
-				
-				
-			//만약 결과 값 있으면? 다시한번 결과테이블에서 검색
-			} 
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstm);
+			close(con);
 		}
 		
-		
 		return res;
+		
 	}
+	
 	
 	
 	

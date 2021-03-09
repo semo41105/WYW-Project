@@ -23,10 +23,10 @@ public class UserDataDto {
 	private String userimg;		//등록한 사진 위치
 	private int userlike;		//좋아요 수
 	private Date regdate;		//글 등록 날자
-	private String loginuser;	//로그인해서 검색하는 유저 아이디
-	private String followuser;  //검색되는 유저 아이디 
-
-
+	private String users;	//로그인해서 검색하는 유저 아이디
+	private String followeruser;  //검색되는 유저 아이디 
+	
+	
 	public UserDataDto() {
 		super();
 	}
@@ -35,7 +35,7 @@ public class UserDataDto {
 	public UserDataDto(int userno, String userid, String userpw, String username, String useraddr, String userphone,
 			String useremail, String userenabled, String userrole, int userfollow, int boardno, int groupno,
 			int groupsq, String title, String content, String userimgname, String userimg, int userlike, Date regdate,
-			String loginuser, String followuser) {
+			String users, String followeruser) {
 		super();
 		this.userno = userno;
 		this.userid = userid;
@@ -56,12 +56,10 @@ public class UserDataDto {
 		this.userimg = userimg;
 		this.userlike = userlike;
 		this.regdate = regdate;
-		this.loginuser = loginuser;
-		this.followuser = followuser;
+		this.users = users;
+		this.followeruser = followeruser;
 	}
 
-	//searchUser
-	
 
 	public int getUserno() {
 		return userno;
@@ -253,23 +251,23 @@ public class UserDataDto {
 	}
 
 
-	public String getLoginuser() {
-		return loginuser;
+	public String getUsers() {
+		return users;
 	}
 
 
-	public void setLoginuser(String loginuser) {
-		this.loginuser = loginuser;
+	public void setUsers(String users) {
+		this.users = users;
 	}
 
 
-	public String getFollowuser() {
-		return followuser;
+	public String getFolloweruser() {
+		return followeruser;
 	}
 
 
-	public void setFollowuser(String followuser) {
-		this.followuser = followuser;
+	public void setFolloweruser(String followeruser) {
+		this.followeruser = followeruser;
 	}
 
 
