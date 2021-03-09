@@ -94,9 +94,9 @@
 					<section>
 							<div style="position: absolute;">
 								<div style="position: relative;top: 160px; left: 385px;">
-									<a href="#">
+									<a onclick="location.href='mainController.do?command=mypage'">
 								    	<img class="avatacon" src="images/avatar.jpg">
-								    	<strong>&nbsp;&nbsp;userID</strong>
+								    	<strong>&nbsp;&nbsp;${dto.userid }</strong>
 							    	</a>
 								</div>
 								<div style="position: relative;top: 125px; left: 690px;">
