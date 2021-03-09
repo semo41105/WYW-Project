@@ -75,6 +75,16 @@ public class UserDataDto {
 		this.content = content;
 		
 	}
+	
+	//updateuser
+	public UserDataDto(String username, String useraddr, String userpw, String userphone, String useremail, int userno) {
+		this.username = username;
+		this.useraddr = useraddr;
+		this.userpw = userpw;
+		this.userphone = userphone;
+		this.useremail = useremail;
+		this.userno = userno;
+	}
 
 	public int getUserno() {
 		return userno;

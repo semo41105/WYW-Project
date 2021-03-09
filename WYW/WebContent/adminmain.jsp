@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Adminmain</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="w initial-scale=1" />
 <link rel="stylesheet" href="assets/css/main.css" />
 <!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>

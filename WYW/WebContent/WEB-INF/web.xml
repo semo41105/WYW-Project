@@ -35,4 +35,15 @@
     <url-pattern>/manager</url-pattern>
   </servlet-mapping>  
   
+   <servlet>
+    <servlet-name>SettingPage</servlet-name>
+    <servlet-class>controller.settingController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>SettingPage</servlet-name>
+    <url-pattern>/setting.do</url-pattern>
+  </servlet-mapping>  
+  
+    
 </web-app>

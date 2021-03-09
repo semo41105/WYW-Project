@@ -10,7 +10,7 @@ import java.util.List;
 import com.mvc.dto.UserDataDto;
 
 import common.JDBCTemplate;
-
+import com.mvc.dto.*;
 public class UserDataDao extends JDBCTemplate{
 	/*
 	 * 관리자 기능
@@ -494,17 +494,76 @@ public class UserDataDao extends JDBCTemplate{
 		return res;
 	}
 	
+	//3월 8일 김나현 내용 추가 
 	//설정(내 정보 수정)
-	public UserDataDto updateUser(int userno) {
+	public boolean updateUser(UserDataDto dto) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res = 0;
 		
-		return null;
+		String sql = " UPDATE USERDATA SET USERNAME=?, USEREMAIL=?, USERADDR=? WHERE USERNO=?" ;
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, dto.getUsername());
+			pstm.setString(2, dto.getUseremail());
+			pstm.setString(3, dto.getUseraddr());
+			pstm.setInt(4, dto.getUserno());
+			System.out.println("03. query 준비: "+sql);
+			
+			res = pstm.executeUpdate();
+			System.out.println("04. query 실행 및 리턴");
+			
+			if(res>0) {
+				commit(con);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return (res>0)?true:false;
 	}
 	
+	// 3월 8일 김나현 내용 추가
 	//설정(회원 탈퇴)
 	public boolean deleteUser(int userno) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res = 0;
 		
-		return false;
+		String sql = " UPDATE USERDATA SET USERENABLED='N' WHERE USERNO=? ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, userno);
+			System.out.println("03. query 준비: "+sql);
+			
+			res = pstm.executeUpdate();
+			System.out.println("04. query 실행 및 리턴");
+			
+			if(res>0) {
+				commit(con);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return (res>0)?true:false;
 	}
+	
+	
 	
 	//설정(전체 공지사항 보기)
 	public List<UserDataDto> selectAllNotice(){
