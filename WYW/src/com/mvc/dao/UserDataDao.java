@@ -363,23 +363,15 @@ public class UserDataDao extends JDBCTemplate{
 		return res;
 	}
 	
-	
-	
-	//메인페이지(위치에 따른 날씨정보 확인)
-	public String showWeather() {
-		
-		return null;
-	}
-
-	//메인페이지(추천 옷차림)
+	//메인페이지(추천 스토리)
 	public List<UserDataDto> clothesReco() {
 		Connection con = getConnection();
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
 		List<UserDataDto > res = new ArrayList<UserDataDto>();
 		
-		String sql = " SELECT * FROM USERCONTENT WHERE USERID = (SELECT USERNO FROM USERDATA) "
-					+" ORDER BY USERLIKE DESC ";
+		String sql = " SELECT * FROM USERCONTENT " + " JOIN USERDATA ON(USERCONTENT.USERID = USERDATA.USERNO) "
+				+ " WHERE USERROLE='USER' ORDER BY USERLIKE DESC ";
 		
 
 		try {
@@ -409,6 +401,12 @@ public class UserDataDao extends JDBCTemplate{
 		}
 		
 		return res;
+	}
+	
+	//메인페이지(팔로우 피드?)
+	public String showWeather() {
+		
+		return null;
 	}
 	
 	//스토리(게시판 전체 목록)

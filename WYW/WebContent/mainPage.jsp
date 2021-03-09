@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -85,16 +87,16 @@
 							<div class="icon"></div>
 						</div>
 					</div>
-				
+				<% request.getAttribute("list"); %>
 					<div class="recommend">
 						<div class="circle" id="one">
-							<img alt="추천스토리1" src="images/thumbs/01.jpg" onclick="">
+							<img alt="추천스토리1" src="images/${dto.userimgname}" onclick="location.href='mainController.do?command=clothesReco&userid=${list.userno}">
 						</div>
 						<div class="circle" id="two">
-							<img alt="추천스토리2" src="images/thumbs/02.jpg" onclick="">
+							<img alt="추천스토리2" src="images/${dto.userimgname}" onclick="location.href='mainController.do?command=clothesReco&userid=${list.userno}">
 						</div>
 						<div class="circle" id="three">
-							<img alt="추천스토리3" src="images/thumbs/03.jpg" onclick="">
+							<img alt="추천스토리3" src="images/thumbs/03.jpg" onclick="location.href='mainController.do?command=clothesReco&userid=${list.userno}">
 						</div>
 					</div>
 				
