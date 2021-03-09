@@ -400,11 +400,10 @@ public class UserDataDao extends JDBCTemplate{
 				dto.setGroupsq(rs.getInt(3));
 				dto.setTitle(rs.getString(4));
 				dto.setContent(rs.getString(5));
-				dto.setUserid(rs.getString(6));
+				dto.setUseridno(rs.getInt(6)); 
 				dto.setUserimgname(rs.getNString(7));
-				dto.setUserimg(rs.getString(8));
-				dto.setUserlike(rs.getInt(9));
-				dto.setRegdate(rs.getDate(10));
+				dto.setUserlike(rs.getInt(8));
+				dto.setRegdate(rs.getDate(9));
 				
 				res.add(dto);
 			}
@@ -445,11 +444,10 @@ public class UserDataDao extends JDBCTemplate{
 				res.setGroupsq(rs.getInt(3));
 				res.setTitle(rs.getString(4));
 				res.setContent(rs.getString(5));
-				res.setUserid(rs.getString(6));
+				res.setUseridno(rs.getInt(6));
 				res.setUserimgname(rs.getNString(7));
-				res.setUserimg(rs.getString(8));
-				res.setUserlike(rs.getInt(9));
-				res.setRegdate(rs.getDate(10));
+				res.setUserlike(rs.getInt(8));
+				res.setRegdate(rs.getDate(9));
 			}
 			
 		} catch (SQLException e) {
@@ -479,7 +477,7 @@ public class UserDataDao extends JDBCTemplate{
 			pstm.setString(1, dto.getTitle());
 			pstm.setString(2, dto.getContent());
 			pstm.setString(3, dto.getUserimgname());
-			pstm.setString(4, dto.getUserid());
+			pstm.setInt(4, dto.getUseridno());
 			System.out.println("03. query 준비: "+sql);
 			
 			res = pstm.executeUpdate();
@@ -567,7 +565,6 @@ public class UserDataDao extends JDBCTemplate{
 				tmp.setContent(rs.getString(5));
 				tmp.setUserid(rs.getString(6));
 				tmp.setUserimgname(rs.getString(7));
-				tmp.setUserimg(rs.getString(8));
 				tmp.setUserlike(rs.getInt(9));
 				tmp.setRegdate(rs.getDate(10));
 
@@ -588,21 +585,24 @@ public class UserDataDao extends JDBCTemplate{
 	}
 	
 	//스토리(사진 업로드)
-	public int imgUpload(String city, String title, String content, String userimgname) {
+	public int imgUpload(String userid, int userno, String city, String title, String content, String userimgname) {
 		Connection con = getConnection();
 		PreparedStatement pstm = null;
 		int res = 0;
 		
 		String sql = " INSERT INTO USERCONTENT "
-				+" VALUES(BOARDNOSQ.NEXTVAL, GROUPNOSQ.NEXTVAL, 1, ?,?,1,?,'',0, SYSDATE) ";
+				+" VALUES(BOARDNOSQ.NEXTVAL, GROUPNOSQ.NEXTVAL, 1, ?,?,?,?,0, SYSDATE) ";
 		
-		System.out.println(city + " " + title + " " + content  + " " + userimgname);
+		System.out.println(userid + " " + userno + " " + city + " " + title + " " + content  + " " + userimgname);
+		
+		UserDataDto tmp = new UserDataDto();
 		
 		try {
 			pstm = con.prepareStatement(sql);
 			pstm.setString(1, title);
 			pstm.setString(2, content);
-			pstm.setString(3, userimgname);
+			pstm.setInt(3, userno);
+			pstm.setString(4, userimgname);
 			System.out.println("03. query 준비: "+sql);
 			
 			res = pstm.executeUpdate();

@@ -80,7 +80,7 @@
                <div id="pf2">
                   <span id="userid">${dto.userid }</span>
                   <img src="images/icon/map.png" width="26px">
-                  <span>&nbsp;&nbsp;${dto.useraddr }</span>         
+                  <span>&nbsp;&nbsp;${dto.useraddr }</span>
                </div>
                <div id="pf3">
                   <div id="post">
