@@ -19,8 +19,8 @@ public class UserDataDto {
 	private int groupsq;		//그룹 시퀀스 번호
 	private String title;		//제목
 	private String content;		//내용
+	private int useridno;		//usercontent에 useridno 정보
 	private String userimgname;	//등록한 사진 이름
-	private String userimg;		//등록한 사진 위치
 	private int userlike;		//좋아요 수
 	private Date regdate;		//글 등록 날자
 	private int followno;		//팔로우 번호
@@ -31,7 +31,7 @@ public class UserDataDto {
 
 	public UserDataDto(int userno, String userid, String userpw, String username, String useraddr, String userphone,
 			String useremail, String userenabled, String userrole, int userfollow, int boardno, int groupno,
-			int groupsq, String title, String content, String userimgname, String userimg,
+			int groupsq, String title, String content, int useridno ,String userimgname,
 			int userlike, Date regdate, int followno, int followuser, int followinguser) {
 		super();
 		this.userno = userno;
@@ -49,8 +49,8 @@ public class UserDataDto {
 		this.groupsq = groupsq;
 		this.title = title;
 		this.content = content;
+		this.useridno = useridno;
 		this.userimgname = userimgname;
-		this.userimg = userimg;
 		this.userlike = userlike;
 		this.regdate = regdate;
 		this.followno = followno;
@@ -73,7 +73,6 @@ public class UserDataDto {
 		this.boardno = boardno;
 		this.title = title;
 		this.content = content;
-		
 	}
 
 	public int getUserno() {
@@ -196,20 +195,20 @@ public class UserDataDto {
 		this.content = content;
 	}
 
+	public int getUseridno() {
+		return useridno;
+	}
+
+	public void setUseridno(int useridno) {
+		this.useridno = useridno;
+	}
+
 	public String getUserimgname() {
 		return userimgname;
 	}
 
 	public void setUserimgname(String userimgname) {
 		this.userimgname = userimgname;
-	}
-
-	public String getUserimg() {
-		return userimg;
-	}
-
-	public void setUserimg(String userimg) {
-		this.userimg = userimg;
 	}
 
 	public int getUserlike() {
@@ -252,16 +251,8 @@ public class UserDataDto {
 		this.followinguser = followinguser;
 	}
 	
-	@Override
-	public String toString() {
-		return "UserDataDto [userno=" + userno + ", userid=" + userid + ", userpw=" + userpw + ", username=" + username
-				+ ", useraddr=" + useraddr + ", userphone=" + userphone + ", useremail=" + useremail + ", userenabled="
-				+ userenabled + ", userrole=" + userrole + ", userfollow=" + userfollow + ", boardno=" + boardno
-				+ ", groupno=" + groupno + ", groupsq=" + groupsq + ", title=" + title + ", content=" + content
-				+ ", userimgname=" + userimgname + ", userimg=" + userimg + ", userlike=" + userlike + ", regdate="
-				+ regdate + ", followno=" + followno + ", followuser=" + followuser + ", followinguser=" + followinguser
-				+ "]";
-	}
+	
+
 	
 	
 }

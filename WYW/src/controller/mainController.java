@@ -41,8 +41,10 @@ public class mainController extends HttpServlet {
 	    	
 	    	dispatcher.forward(request, response);
 	    	
-	    }
+		} else if(command.equals("mypage")) {
+			response.sendRedirect("mypage.jsp");
 		
+		}
 		
 		
 		

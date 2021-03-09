@@ -41,7 +41,7 @@ public class UploadController extends HttpServlet {
         	 String city = multi.getParameter("city");
         	 String title = multi.getParameter("title");
         	 String content = multi.getParameter("content");
-        	 String userimgname = multi.getFilesystemName("userimgname");
+        	 String userimgname = multi.getFilesystemName("file");
         	 
         	 try {
 				int result = dao.imgUpload(city,title,content,userimgname);
