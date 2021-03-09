@@ -43,7 +43,7 @@
 		<header>
 			<div
 				style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; padding: 20px;">
-				<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw.png" width="200"
+				<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200"
 					height="140">
 			</div>
 		</header>
@@ -87,7 +87,7 @@
 									<option value="ulsan">울산광역시</option>
 									<option value="busan">부산광역시</option>
 									<option value="gyeonggi-do">경기도</option>
-									<option value="gangwon-do">강원도</option>
+									<option value="강원도">강원도</option>
 									<option value="chungcheongbuk-do">충청북도</option>
 									<option value="chungcheongnam-do">충청남도</option>
 									<option value="jeollabuk-do">전라북도</option>

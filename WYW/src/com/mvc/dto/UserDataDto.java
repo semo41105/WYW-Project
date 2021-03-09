@@ -23,16 +23,19 @@ public class UserDataDto {
 	private String userimgname;	//등록한 사진 이름
 	private int userlike;		//좋아요 수
 	private Date regdate;		//글 등록 날자
-	private int followno;		//팔로우 번호
-	private int followuser;		//팔로우한 유저 번호
-	private int followinguser;	//팔로잉한 유저 번호
+	private String users;	//로그인해서 검색하는 유저 아이디
+	private String followeruser;  //검색되는 유저 아이디 
 	
-	public UserDataDto() {}
+	
+	public UserDataDto() {
+		super();
+	}
+ 
 
 	public UserDataDto(int userno, String userid, String userpw, String username, String useraddr, String userphone,
 			String useremail, String userenabled, String userrole, int userfollow, int boardno, int groupno,
-			int groupsq, String title, String content, int useridno ,String userimgname,
-			int userlike, Date regdate, int followno, int followuser, int followinguser) {
+			int groupsq, String title, String content, String userimgname, String userimg, int userlike, Date regdate,
+			String users, String followeruser) {
 		super();
 		this.userno = userno;
 		this.userid = userid;
@@ -53,143 +56,155 @@ public class UserDataDto {
 		this.userimgname = userimgname;
 		this.userlike = userlike;
 		this.regdate = regdate;
-		this.followno = followno;
-		this.followuser = followuser;
-		this.followinguser = followinguser;
+		this.users = users;
+		this.followeruser = followeruser;
 	}
-	
-	//insertnotice
-	public UserDataDto(String userid, String writer, String title, String content) {
 
-		this.userid = userid;
-		this.username = writer;
-		this.title = title;
-		this.content = content;
-
-	}
-	//updatenotice
-	public UserDataDto(int boardno, String title, String content) {
-		
-		this.boardno = boardno;
-		this.title = title;
-		this.content = content;
-	}
 
 	public int getUserno() {
 		return userno;
 	}
 
+
 	public void setUserno(int userno) {
 		this.userno = userno;
 	}
+
 
 	public String getUserid() {
 		return userid;
 	}
 
+
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
+
 
 	public String getUserpw() {
 		return userpw;
 	}
 
+
 	public void setUserpw(String userpw) {
 		this.userpw = userpw;
 	}
+
 
 	public String getUsername() {
 		return username;
 	}
 
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 
 	public String getUseraddr() {
 		return useraddr;
 	}
 
+
 	public void setUseraddr(String useraddr) {
 		this.useraddr = useraddr;
 	}
+
 
 	public String getUserphone() {
 		return userphone;
 	}
 
+
 	public void setUserphone(String userphone) {
 		this.userphone = userphone;
 	}
+
 
 	public String getUseremail() {
 		return useremail;
 	}
 
+
 	public void setUseremail(String useremail) {
 		this.useremail = useremail;
 	}
+
 
 	public String getUserenabled() {
 		return userenabled;
 	}
 
+
 	public void setUserenabled(String userenabled) {
 		this.userenabled = userenabled;
 	}
+
 
 	public String getUserrole() {
 		return userrole;
 	}
 
+
 	public void setUserrole(String userrole) {
 		this.userrole = userrole;
 	}
+
 
 	public int getUserfollow() {
 		return userfollow;
 	}
 
+
 	public void setUserfollow(int userfollow) {
 		this.userfollow = userfollow;
 	}
+
 
 	public int getBoardno() {
 		return boardno;
 	}
 
+
 	public void setBoardno(int boardno) {
 		this.boardno = boardno;
 	}
+
 
 	public int getGroupno() {
 		return groupno;
 	}
 
+
 	public void setGroupno(int groupno) {
 		this.groupno = groupno;
 	}
+
 
 	public int getGroupsq() {
 		return groupsq;
 	}
 
+
 	public void setGroupsq(int groupsq) {
 		this.groupsq = groupsq;
 	}
+
 
 	public String getTitle() {
 		return title;
 	}
 
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
+
 	public String getContent() {
 		return content;
 	}
+
 
 	public void setContent(String content) {
 		this.content = content;
@@ -211,48 +226,45 @@ public class UserDataDto {
 		this.userimgname = userimgname;
 	}
 
+
 	public int getUserlike() {
 		return userlike;
 	}
+
 
 	public void setUserlike(int userlike) {
 		this.userlike = userlike;
 	}
 
+
 	public Date getRegdate() {
 		return regdate;
 	}
+
 
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
 
-	public int getFollowno() {
-		return followno;
+
+	public String getUsers() {
+		return users;
 	}
 
-	public void setFollowno(int followno) {
-		this.followno = followno;
+
+	public void setUsers(String users) {
+		this.users = users;
 	}
 
-	public int getFollowuser() {
-		return followuser;
+
+	public String getFolloweruser() {
+		return followeruser;
 	}
 
-	public void setFollowuser(int followuser) {
-		this.followuser = followuser;
+
+	public void setFolloweruser(String followeruser) {
+		this.followeruser = followeruser;
 	}
 
-	public int getFollowinguser() {
-		return followinguser;
-	}
 
-	public void setFollowinguser(int followinguser) {
-		this.followinguser = followinguser;
-	}
-	
-	
-
-	
-	
 }

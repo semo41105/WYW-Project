@@ -630,8 +630,111 @@ public class UserDataDao extends JDBCTemplate{
 		return null;
 	}
 	
-	//마이페이지(팔로우 팔로잉 관리)
+	//마이페이지(검색기능)
+	public List<UserDataDto> searchUser(String myuserid, String select, String searchid){
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		String kw="";
+		List<UserDataDto> res = new ArrayList<UserDataDto>();
+		
+		//기본 검색창 쿼리 : 'select옵션 중 kw'의 'searchid 입력값'이 userdata에 있니?
+		
+		if(select.equals("id")) {
+			kw = "USERID";
+		} else if(select.equals("address")) {
+			kw = "USERADDR";
+		} else if(select.equals("name")) {
+			kw = "USERNAME";
+		}
+		
+		//검색쿼리1
+		String sql = " SELECT * FROM USERDATA WHERE " +kw
+				+ " LIKE \'%" +searchid+ "%\' ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			
+			rs = pstm.executeQuery();
+			
+			while(rs.next()) {
+				UserDataDto tmp = new UserDataDto();
+				tmp.setUserno(rs.getInt(1));
+				tmp.setUserid(rs.getString(2));
+				tmp.setUseraddr(rs.getString(5));
+				tmp.setUsername(rs.getString(4));
+				
+				res.add(tmp);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstm);
+			close(con);
+		}
+		
+		return res;
+		
+	}
+	
+	
+	
+	
+	//마이페이지(내정보)
+	public UserDataDto mypageUser(int userno) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		UserDataDto res = new UserDataDto();
+		
+		String sql = " SELECT * FROM USERDATA WHERE USERNO=? ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, userno);
+			
+			rs = pstm.executeQuery();
+			
+			while(rs.next()) {
+				res.setUserno(rs.getInt(1));
+				res.setUserid(rs.getString(2));
+				res.setUseraddr(rs.getString(5));
+				res.setUsername(rs.getString(4));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(con);
+			close(pstm);
+			close(rs);
+		}
+		
+		return res;
+		
+	}
+	
+	//마이페이지(follow 리스트 가져오기)
+	public UserDataDto selectfollow(int userno) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		UserDataDto res = null;		
+		
+		String sql = "  ";
+		
+		return null;
+	}
+	
+	//마이페이지(follow unfollow 기능)
 	public boolean followChk() {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		UserDataDto res = null;
+		
+		String sql = "  ";
 		
 		return false;
 	}
