@@ -368,10 +368,9 @@ public class UserDataDao extends JDBCTemplate{
 		Connection con = getConnection();
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
-		List<UserDataDto > res = new ArrayList<UserDataDto>();
+		List<UserDataDto> res = new ArrayList<UserDataDto>();
 		
-		String sql = " SELECT * FROM USERCONTENT " + " JOIN USERDATA ON(USERCONTENT.USERID = USERDATA.USERNO) "
-				+ " WHERE USERROLE='USER' ORDER BY USERLIKE DESC ";
+		String sql = "  ";
 		
 
 		try {
@@ -383,7 +382,7 @@ public class UserDataDao extends JDBCTemplate{
 
 			while(rs.next()) {
 				UserDataDto tmp = new UserDataDto();
-				tmp.setUserno(rs.getInt(6));
+				tmp.setUseridno(rs.getInt(6));
 				tmp.setUserimgname(rs.getString(7));
 				tmp.setUserlike(rs.getInt(9));
 				
@@ -432,11 +431,10 @@ public class UserDataDao extends JDBCTemplate{
 				dto.setGroupsq(rs.getInt(3));
 				dto.setTitle(rs.getString(4));
 				dto.setContent(rs.getString(5));
-				dto.setUserid(rs.getString(6));
+				dto.setUseridno(rs.getInt(6));
 				dto.setUserimgname(rs.getNString(7));
-				dto.setUserimg(rs.getString(8));
-				dto.setUserlike(rs.getInt(9));
-				dto.setRegdate(rs.getDate(10));
+				dto.setUserlike(rs.getInt(8));
+				dto.setRegdate(rs.getDate(9));
 				
 				res.add(dto);
 			}
@@ -477,11 +475,10 @@ public class UserDataDao extends JDBCTemplate{
 				res.setGroupsq(rs.getInt(3));
 				res.setTitle(rs.getString(4));
 				res.setContent(rs.getString(5));
-				res.setUserid(rs.getString(6));
+				res.setUseridno(rs.getInt(6));
 				res.setUserimgname(rs.getNString(7));
-				res.setUserimg(rs.getString(8));
-				res.setUserlike(rs.getInt(9));
-				res.setRegdate(rs.getDate(10));
+				res.setUserlike(rs.getInt(8));
+				res.setRegdate(rs.getDate(9));
 			}
 			
 		} catch (SQLException e) {
@@ -597,11 +594,10 @@ public class UserDataDao extends JDBCTemplate{
 				tmp.setGroupsq(rs.getInt(3));
 				tmp.setTitle(rs.getString(4));
 				tmp.setContent(rs.getString(5));
-				tmp.setUserid(rs.getString(6));
+				tmp.setUseridno(rs.getInt(6));
 				tmp.setUserimgname(rs.getString(7));
-				tmp.setUserimg(rs.getString(8));
-				tmp.setUserlike(rs.getInt(9));
-				tmp.setRegdate(rs.getDate(10));
+				tmp.setUserlike(rs.getInt(8));
+				tmp.setRegdate(rs.getDate(9));
 
 				res.add(tmp);
 			}

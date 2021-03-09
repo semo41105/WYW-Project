@@ -31,7 +31,10 @@ public class mainController extends HttpServlet {
 			
 		} else if(command.equals("StoryPage")) {
 	         response.sendRedirect("StoryPage.jsp");
-	         
+	     
+		} else if(command.equals("mypage")) {
+			response.sendRedirect("mypage.jsp");
+			
 	    } else if(command.equals("clothesReco")) {
 	    	List<UserDataDto> list = dao.clothesReco();
 	    	
@@ -41,8 +44,7 @@ public class mainController extends HttpServlet {
 	    	
 	    	dispatcher.forward(request, response);
 	    	
-		} else if(command.equals("mypage")) {
-			response.sendRedirect("mypage.jsp");
+		
 		
 		}
 		

@@ -3,11 +3,10 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
 
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title>메인페이지</title>
+	<title>MainPage</title>
 	<style type="text/css">
 	#s0{ float: left; width: 34% }
 	#s1{ float: left; width: 33%; padding: 25px 0px 25px 0px; }
@@ -39,7 +38,7 @@
 			<header style="height: 100px">
 				<div id="s0">
 					<a>
-						<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw.png" width="200" height="100" onclick="location.href='mainController.do?command=mainpage'">
+						<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200" height="100" onclick="location.href='mainController.do?command=mainpage'">
 					</a>
 				</div>
 				<div id="s1"><input type="text"></div>
@@ -90,13 +89,13 @@
 				<% request.getAttribute("list"); %>
 					<div class="recommend">
 						<div class="circle" id="one">
-							<img alt="추천스토리1" src="images/${dto.userimgname}" onclick="location.href='mainController.do?command=clothesReco&userid=${list.userno}">
+							<img alt="추천스토리1" src="images/${list[0].userimgname}" onclick="location.href='mainController.do?command=clothesReco&useridno=${list.useridno}">
 						</div>
 						<div class="circle" id="two">
-							<img alt="추천스토리2" src="images/${dto.userimgname}" onclick="location.href='mainController.do?command=clothesReco&userid=${list.userno}">
+							<img alt="추천스토리2" src="images/${list[1].userimgname}" onclick="location.href='mainController.do?command=clothesReco&useridno=${list.useridno}">
 						</div>
 						<div class="circle" id="three">
-							<img alt="추천스토리3" src="images/thumbs/03.jpg" onclick="location.href='mainController.do?command=clothesReco&userid=${list.userno}">
+							<img alt="추천스토리3" src="images/thumbs/03.jpg" onclick="location.href='mainController.do?command=clothesReco&useridno=${list.useridno}">
 						</div>
 					</div>
 				
