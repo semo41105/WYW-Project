@@ -39,7 +39,7 @@
 	#pf999{border-bottom: 1px dotted;
 		   transform: translate(0px, 130px);
 		}
-	#post{float: left; margin-left: 80px;}
+	#post{float: left; margin-left: 80px; font-size:30px;}
 	#follower{float:left; margin-left: 80px;}
 	#following{float:left; margin-left:80px;}	
 /*main*/		
@@ -79,28 +79,18 @@
 					<div id="pf1">
 						<span id="userimg" class="avatar"><img src="images/avatar.jpg" alt="" /></span>
 					</div>
-					<div id="pf2">
-						<span id="userid">${dto.userid }</span>
-						<img src="images/icon/map.png" width="26px">
-						<span>&nbsp;&nbsp;${dto.useraddr }</span>			
+					<div id="pf2" style="padding-top:10px;">
+						<span id="userid" style="margin-left:300px;">${dto.userid }</span>
 					</div>
 					<div id="pf3">
 						<div id="post">
-							<span><b>45</b></span>
+							<span style="margin-left:95px;"><b>45</b></span>
 							<span>&nbsp;&nbsp;Posts</span>
 						</div>
-						<a href="mypageController.do?command=myfollow">
-							<div id="follower">
-							<span><b>100&nbsp;&nbsp;</b></span>					
-							<b>Followers</b>
-							</div>
-						</a>
-						<a href="mypageController.do?command=myfollow">
-							<div id="following">
-							<span><b>100&nbsp;&nbsp;</b></span>					
-							<b>Following</b>
-							</div>						
-						</a>
+						<div>
+							<img src="images/icon/map.png" width="26px" style="margin-left:80px;">
+							<span style="line-heigt:0;">&nbsp;${dto.useraddr }</span>	
+						</div>
 					</div>
 				</div>
 			<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
