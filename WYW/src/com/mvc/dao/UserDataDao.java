@@ -379,20 +379,126 @@ public class UserDataDao extends JDBCTemplate{
 	
 	//스토리(게시판 전체 목록)
 	public List<UserDataDto> selectAllBoard(){
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		List<UserDataDto> res = new ArrayList<UserDataDto>();
 		
-		return null;
+		String sql = " SELECT * FROM USERCONTENT ORDER BY GROUPNO DESC, GROUPSQ ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			System.out.println("03. query 준비: "+sql);
+			
+			rs = pstm.executeQuery();
+			System.out.println("04. query 실행 및 리턴");
+			
+			while(rs.next()) {
+				UserDataDto dto = new UserDataDto();
+				dto.setBoardno(rs.getInt(1));
+				dto.setGroupno(rs.getInt(2));
+				dto.setGroupsq(rs.getInt(3));
+				dto.setTitle(rs.getString(4));
+				dto.setContent(rs.getString(5));
+				dto.setUserid(rs.getString(6));
+				dto.setUserimgname(rs.getNString(7));
+				dto.setUserimg(rs.getString(8));
+				dto.setUserlike(rs.getInt(9));
+				dto.setRegdate(rs.getDate(10));
+				
+				res.add(dto);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return res;
 	}
 	
 	//스토리(게시판 글 선택)
-	public UserDataDto selectOneBoard(int seq) {
+	public UserDataDto selectOneBoard(int boardno) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		UserDataDto res = new UserDataDto();
 		
-		return null;
+		String sql = " SELECT * FROM USERCONTENT WHERE BOARDNO=? ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, boardno);
+			System.out.println("03. query 준비: "+sql);
+			
+			rs = pstm.executeQuery();
+			System.out.println("04. query 실행 및 리턴");
+			
+			while(rs.next()) {
+				res.setBoardno(rs.getInt(1));
+				res.setGroupno(rs.getInt(2));
+				res.setGroupsq(rs.getInt(3));
+				res.setTitle(rs.getString(4));
+				res.setContent(rs.getString(5));
+				res.setUserid(rs.getString(6));
+				res.setUserimgname(rs.getNString(7));
+				res.setUserimg(rs.getString(8));
+				res.setUserlike(rs.getInt(9));
+				res.setRegdate(rs.getDate(10));
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return res;
 	}
 	
 	//스토리(게시판 글 작성)
 	public int insertBoard(UserDataDto dto) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res = 0;
 		
-		return 0;
+		String sql = " INSERT INTO USERCONTENT "
+				+" VALUES(BOARDNOSQ.NEXTVAL, GROUPNOSQ.NEXTVAL, 1, ?,?,?,?,0, SYSDATE) ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, dto.getTitle());
+			pstm.setString(2, dto.getContent());
+			pstm.setString(3, dto.getUserimgname());
+			pstm.setString(4, dto.getUserid());
+			System.out.println("03. query 준비: "+sql);
+			
+			res = pstm.executeUpdate();
+			System.out.println("04. query 실행 및 리턴");
+			
+			if(res>0) {
+				commit(con);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return res;
 	}
 	
 	//스토리(게시판 글 수정)
@@ -431,10 +537,91 @@ public class UserDataDao extends JDBCTemplate{
 		return 0;
 	}
 	
-	//스토리(사진 업로드)
-	public String imgUpload() {
+	//스토리(test)
+	public ArrayList<UserDataDto> selectAllContent(){
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		ArrayList<UserDataDto> res = new ArrayList<UserDataDto>();
 		
-		return null;
+		String sql = " SELECT BOARDNO, GROUPNO, GROUPSQ, TITLE, CONTENT "
+		+ " ,USERID FROM USERCONTENT "
+		+ " WHERE USERID = (SELECT USERNO FROM USERDATA "
+		+ " WHERE USERNO = (SELECT (USERDATA)USERID FROM USERDATA)) "
+		+ " ,USERIMGNAME, USERIMGM, USERLIKE, REEGDATE FROM USERCONTENT "
+		+ " FROM USERCONTENT ORDER BY GROUPNO ASC ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			System.out.println("03. query 준비: "+sql);
+			
+			rs = pstm.executeQuery();
+			System.out.println("04. query 실행 및 리턴");
+			
+			while(rs.next()) {
+				UserDataDto tmp = new UserDataDto();
+				tmp.setBoardno(rs.getInt(1));
+				tmp.setGroupno(rs.getInt(2));
+				tmp.setGroupsq(rs.getInt(3));
+				tmp.setTitle(rs.getString(4));
+				tmp.setContent(rs.getString(5));
+				tmp.setUserid(rs.getString(6));
+				tmp.setUserimgname(rs.getString(7));
+				tmp.setUserimg(rs.getString(8));
+				tmp.setUserlike(rs.getInt(9));
+				tmp.setRegdate(rs.getDate(10));
+
+				res.add(tmp);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return res;
+	}
+	
+	//스토리(사진 업로드)
+	public int imgUpload(String city, String title, String content, String userimgname) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res = 0;
+		
+		String sql = " INSERT INTO USERCONTENT "
+				+" VALUES(BOARDNOSQ.NEXTVAL, GROUPNOSQ.NEXTVAL, 1, ?,?,1,?,'',0, SYSDATE) ";
+		
+		System.out.println(city + " " + title + " " + content  + " " + userimgname);
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, title);
+			pstm.setString(2, content);
+			pstm.setString(3, userimgname);
+			System.out.println("03. query 준비: "+sql);
+			
+			res = pstm.executeUpdate();
+			System.out.println("04. query 실행 및 리턴");
+			
+			if(res>0) {
+				commit(con);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return res;
 	}
 	
 	//스토리(사진 다운로드)
@@ -749,6 +936,8 @@ public class UserDataDao extends JDBCTemplate{
 		
 		return res;
 	}
+
+	
 
 	
 	

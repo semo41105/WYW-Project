@@ -35,4 +35,14 @@
     <url-pattern>/manager</url-pattern>
   </servlet-mapping>  
   
+  <servlet>
+  	<servlet-name>StoryPage</servlet-name>
+  	<servlet-class>controller.UploadController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>StoryPage</servlet-name>
+  	<url-pattern>/UploadController.do</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
