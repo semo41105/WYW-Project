@@ -12,13 +12,14 @@ import com.mvc.dto.UserDataDto;
 import common.JDBCTemplate;
 
 public class UserDataDao extends JDBCTemplate{
+	private static UserDataDao instance = new UserDataDao();
 	/*
 	 * 관리자 기능
 	 * 1.회원 전체 정보(탈퇴 회원 포함)
 	 * 2.가입된 회원(userenabled='y')의 정보
 	 * 3.회원 등급 조정(userrole)
 	 * 4.공지사항 등록
-	 */
+	 * */
 	//회원 전체 정보(탈퇴 회원 포함)
 	public List<UserDataDto> selectAll(){
 		Connection con = getConnection();
@@ -363,78 +364,211 @@ public class UserDataDao extends JDBCTemplate{
 		return res;
 	}
 	
-	
-	
-	//메인페이지(위치에 따른 날씨정보 확인)
-	public String showWeather() {
-		
-		return null;
-	}
-
-	//메인페이지(추천 옷차림)
-	public String clothesReco() {
-		
-		return null;
-	}
-	
 	//스토리(게시판 전체 목록)
 	public List<UserDataDto> selectAllBoard(){
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		List<UserDataDto> res = new ArrayList<UserDataDto>();
 		
-		return null;
+		String sql = " SELECT * FROM USERCONTENT ORDER BY GROUPNO DESC, GROUPSQ ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			System.out.println("03. query 준비: "+sql);
+			
+			rs = pstm.executeQuery();
+			System.out.println("04. query 실행 및 리턴");
+			
+			while(rs.next()) {
+				UserDataDto dto = new UserDataDto();
+				dto.setBoardno(rs.getInt(1));
+				dto.setGroupno(rs.getInt(2));
+				dto.setGroupsq(rs.getInt(3));
+				dto.setTitle(rs.getString(4));
+				dto.setContent(rs.getString(5));
+				dto.setUseridno(rs.getInt(6)); 
+				dto.setUserimgname(rs.getNString(7));
+				dto.setUserlike(rs.getInt(8));
+				dto.setRegdate(rs.getDate(9));
+				
+				res.add(dto);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return res;
 	}
 	
 	//스토리(게시판 글 선택)
-	public UserDataDto selectOneBoard(int seq) {
+	public UserDataDto selectOneBoard(int boardno) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		UserDataDto res = new UserDataDto();
 		
-		return null;
+		String sql = " SELECT * FROM USERCONTENT WHERE BOARDNO=? ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, boardno);
+			System.out.println("03. query 준비: "+sql);
+			
+			rs = pstm.executeQuery();
+			System.out.println("04. query 실행 및 리턴");
+			
+			while(rs.next()) {
+				res.setBoardno(rs.getInt(1));
+				res.setGroupno(rs.getInt(2));
+				res.setGroupsq(rs.getInt(3));
+				res.setTitle(rs.getString(4));
+				res.setContent(rs.getString(5));
+				res.setUseridno(rs.getInt(6));
+				res.setUserimgname(rs.getNString(7));
+				res.setUserlike(rs.getInt(8));
+				res.setRegdate(rs.getDate(9));
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return res;
 	}
 	
 	//스토리(게시판 글 작성)
 	public int insertBoard(UserDataDto dto) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res = 0;
 		
-		return 0;
+		String sql = " INSERT INTO USERCONTENT "
+				+" VALUES(BOARDNOSQ.NEXTVAL, GROUPNOSQ.NEXTVAL, 1, ?,?,?,?,0, SYSDATE) ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, dto.getTitle());
+			pstm.setString(2, dto.getContent());
+			pstm.setString(3, dto.getUserimgname());
+			pstm.setInt(4, dto.getUseridno());
+			System.out.println("03. query 준비: "+sql);
+			
+			res = pstm.executeUpdate();
+			System.out.println("04. query 실행 및 리턴");
+			
+			if(res>0) {
+				commit(con);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return res;
 	}
 	
-	//스토리(게시판 글 수정)
-	public int updateBoard(UserDataDto dto) {
+	//스토리(test)
+	public ArrayList<UserDataDto> selectAllContent(){
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		ArrayList<UserDataDto> res = new ArrayList<UserDataDto>();
 		
-		return 0;
-	}
-	
-	//스토리(글 삭제)
-	public int deleteBoard(int seq) {
+		String sql = " SELECT * FROM USERCONTENT ";
 		
-		return 0;
-	}
-	
-	//스토리(글 다중 삭제)
-	public int multiDeleteBoard(String[] seq) {
+		try {
+			pstm = con.prepareStatement(sql);
+			System.out.println("03. query 준비: "+sql);
+			
+			rs = pstm.executeQuery();
+			System.out.println("04. query 실행 및 리턴");
+			
+			while(rs.next()) {
+				res.add(new UserDataDto(
+					rs.getInt(1),
+					rs.getInt(2),
+					rs.getInt(3),
+					rs.getString(4),
+					rs.getString(5),
+					rs.getInt(6),
+					rs.getString(7),
+					rs.getInt(8),
+					rs.getDate(9)
+						)
+					);
+				
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
 		
-		return 0;
-	}
-	
-	//스토리(좋아요)
-	public int like(int userlike) {
-		
-		return 0;
-	}
-	
-	//스토리(팔로어)
-	public int follower() {
-		
-		return 0;
-	}
-	
-	//스토리(팔로잉)
-	public int following() {
-		
-		return 0;
+		return res;
 	}
 	
 	//스토리(사진 업로드)
-	public String imgUpload() {
+	public int imgUpload(String userid, int userno, String city, String title, String content, String userimgname) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res = 0;
 		
-		return null;
+		String sql = " INSERT INTO USERCONTENT "
+				+" VALUES(BOARDNOSQ.NEXTVAL, GROUPNOSQ.NEXTVAL, 1, ?,?,?,?,0, SYSDATE) ";
+		
+		System.out.println(userid + " " + userno + " " + city + " " + title + " " + content  + " " + userimgname);
+		
+		UserDataDto tmp = new UserDataDto();
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, title);
+			pstm.setString(2, content);
+			pstm.setInt(3, userno);
+			pstm.setString(4, userimgname);
+			System.out.println("03. query 준비: "+sql);
+			
+			res = pstm.executeUpdate();
+			System.out.println("04. query 실행 및 리턴");
+			
+			if(res>0) {
+				commit(con);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return res;
 	}
 	
 	//스토리(사진 다운로드)
@@ -443,8 +577,111 @@ public class UserDataDao extends JDBCTemplate{
 		return null;
 	}
 	
-	//마이페이지(팔로우 팔로잉 관리)
+	//마이페이지(검색기능)
+	public List<UserDataDto> searchUser(String myuserid, String select, String searchid){
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		String kw="";
+		List<UserDataDto> res = new ArrayList<UserDataDto>();
+		
+		//기본 검색창 쿼리 : 'select옵션 중 kw'의 'searchid 입력값'이 userdata에 있니?
+		
+		if(select.equals("id")) {
+			kw = "USERID";
+		} else if(select.equals("address")) {
+			kw = "USERADDR";
+		} else if(select.equals("name")) {
+			kw = "USERNAME";
+		}
+		
+		//검색쿼리1
+		String sql = " SELECT * FROM USERDATA WHERE " +kw
+				+ " LIKE \'%" +searchid+ "%\' ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			
+			rs = pstm.executeQuery();
+			
+			while(rs.next()) {
+				UserDataDto tmp = new UserDataDto();
+				tmp.setUserno(rs.getInt(1));
+				tmp.setUserid(rs.getString(2));
+				tmp.setUseraddr(rs.getString(5));
+				tmp.setUsername(rs.getString(4));
+				
+				res.add(tmp);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstm);
+			close(con);
+		}
+		
+		return res;
+		
+	}
+	
+	
+	
+	
+	//마이페이지(내정보)
+	public UserDataDto mypageUser(int userno) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		UserDataDto res = new UserDataDto();
+		
+		String sql = " SELECT * FROM USERDATA WHERE USERNO=? ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, userno);
+			
+			rs = pstm.executeQuery();
+			
+			while(rs.next()) {
+				res.setUserno(rs.getInt(1));
+				res.setUserid(rs.getString(2));
+				res.setUseraddr(rs.getString(5));
+				res.setUsername(rs.getString(4));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(con);
+			close(pstm);
+			close(rs);
+		}
+		
+		return res;
+		
+	}
+	
+	//마이페이지(follow 리스트 가져오기)
+	public UserDataDto selectfollow(int userno) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		UserDataDto res = null;		
+		
+		String sql = "  ";
+		
+		return null;
+	}
+	
+	//마이페이지(follow unfollow 기능)
 	public boolean followChk() {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		UserDataDto res = null;
+		
+		String sql = "  ";
 		
 		return false;
 	}
@@ -495,15 +732,70 @@ public class UserDataDao extends JDBCTemplate{
 	}
 	
 	//설정(내 정보 수정)
-	public UserDataDto updateUser(int userno) {
+	public boolean updateUser(UserDataDto dto) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res = 0;
 		
-		return null;
+		String sql = " UPDATE USERDATA SET USERNAME=?, USEREMAIL=?, USERADDR=? WHERE USERNO=?" ;
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, dto.getUsername());
+			pstm.setString(2, dto.getUseremail());
+			pstm.setString(3, dto.getUseraddr());
+			pstm.setInt(4, dto.getUserno());
+			System.out.println("03. query 준비: "+sql);
+			
+			res = pstm.executeUpdate();
+			System.out.println("04. query 실행 및 리턴");
+			
+			if(res>0) {
+				commit(con);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return (res>0)?true:false;
 	}
 	
 	//설정(회원 탈퇴)
 	public boolean deleteUser(int userno) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res = 0;
 		
-		return false;
+		String sql = " UPDATE USERDATA SET USERENABLED='N' WHERE USERNO=? ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, userno);
+			System.out.println("03. query 준비: "+sql);
+			
+			res = pstm.executeUpdate();
+			System.out.println("04. query 실행 및 리턴");
+			
+			if(res>0) {
+				commit(con);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return (res>0)?true:false;
 	}
 	
 	//설정(전체 공지사항 보기)
@@ -515,7 +807,7 @@ public class UserDataDao extends JDBCTemplate{
 
 		// 테이블 조인해서 유저권한 manager, ADMIN인 사람의 글만 보일 수 있게 쿼리문 작성
 		String sql = " SELECT * FROM USERCONTENT " + " JOIN USERDATA ON(USERCONTENT.USERIDNO = USERDATA.USERNO) "
-				+ " WHERE USERROLE='ADMIN' OR USERROLE='MANAGER' ORDER BY REGDATE DESC ";
+				+ " WHERE USERROLE='ADMIN' OR USERROLE='MANAGER' ORDER BY BOARDNO DESC ";
 
 		try {
 			pstm = con.prepareStatement(sql);
@@ -527,8 +819,8 @@ public class UserDataDao extends JDBCTemplate{
 				UserDataDto dto = new UserDataDto();
 				dto.setBoardno(rs.getInt(1));
 				dto.setTitle(rs.getString(4));
-				dto.setRegdate(rs.getDate(10));
-				dto.setUsername(rs.getString(14));
+				dto.setRegdate(rs.getDate(9));
+				dto.setUsername(rs.getString(13));
 				res.add(dto);
 			}
 
@@ -566,8 +858,8 @@ public class UserDataDao extends JDBCTemplate{
 				res.setBoardno(rs.getInt(1));
 				res.setTitle(rs.getString(4));
 				res.setContent(rs.getString(5));
-				res.setRegdate(rs.getDate(10));
-				res.setUsername(rs.getString(14));
+				res.setRegdate(rs.getDate(9));
+				res.setUsername(rs.getString(13));
 				
 			}
 			
@@ -592,8 +884,8 @@ public class UserDataDao extends JDBCTemplate{
 
 		String sql = " INSERT INTO USERCONTENT VALUES(BOARDNOSQ.NEXTVAL," + " GROUPNOSQ.NEXTVAL, 1, ?, ?, ?,"
 		// GROUPNO, GROUPSQ,TITLE,CONTENT,USERIDNO
-				+ " NULL, NULL, 0, SYSDATE) ";
-		// USERIMGNAME,USERIMG,USERLIKE,REGDATE
+				+ " NULL, 0, SYSDATE) ";
+		// USERIMGNAME,USERLIKE,REGDATE
 
 		try {
 			pstm = con.prepareStatement(sql);
@@ -752,10 +1044,102 @@ public class UserDataDao extends JDBCTemplate{
 		
 		return res;
 	}
+	
+	public static UserDataDao getInstance() {
+		return instance;
+	}
 
-	
-	
+	public UserDataDto selectOneContent(int num) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		
+		UserDataDto res = null;
+		
+		String sql = " SELECT * FROM USERCONTENT WHERE BOARDNO=? ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			System.out.println("03. query 준비: " + sql);
+			
+			pstm.setInt(1, num);
+			
+			rs = pstm.executeQuery();
+			System.out.println("04. queery 준비 및 실행");
+			
+			if(rs.next()) {
+				res = new UserDataDto(
+						rs.getInt(1),
+						rs.getInt(2),
+						rs.getInt(3),
+						rs.getString(4),
+						rs.getString(5),
+						rs.getInt(6),
+						rs.getString(7),
+						rs.getInt(8),
+						rs.getDate(9)
+						);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료 \n");
+		}
+		
+		return res;
+	}
+
+	public ArrayList<UserDataDto> mainselectAllContent() {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		ArrayList<UserDataDto> res = new ArrayList<UserDataDto>();
+		
+		String sql = " SELECT * FROM USERCONTENT ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			System.out.println("03. query 준비: "+sql);
+			
+			rs = pstm.executeQuery();
+			System.out.println("04. query 실행 및 리턴");
+			
+			while(rs.next()) {
+				res.add(new UserDataDto(rs.getInt(1),
+					rs.getInt(2),
+					rs.getInt(3),
+					rs.getString(4),
+					rs.getString(5),
+					rs.getInt(6),
+					rs.getString(7),
+					rs.getInt(8),
+					rs.getDate(9)
+						)
+					);
+				
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return res;
+	}
 	
 	
 	
 }
+	
+	
+	

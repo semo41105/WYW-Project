@@ -13,8 +13,8 @@
 		<style type="text/css">
 			#s0{ float: left; width: 34% }
 			#s1{ float: left; width: 33%; padding: 25px 0px 25px 0px }
-			#s2{ float: left; width: 100% }
-			#s4{ padding: 8px 0px 0px 0px }
+			#s2{ float: left; width: 100%; height: 50px; }
+			#s4{ padding: 8px 0px 0px 0px; margin-left: 25px; }
 			#s6{ float: left; }
 			#ask1{ 
 				border: 2px solid black;
@@ -75,16 +75,16 @@
 					<header>
 						<div id="s0">
 							<a href="#">
-								<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200" height="100"/>
+								<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200" height="100" onclick="location.href='mainController.do?command=mainpage'">
 							</a>
 						</div>
-						<div id="s1"><input type="text"></div>
+						<div id="s1"></div>
 						<div id="s1">
-							<input id="ask1" type="button" value="검색" onclick="">
 							<a href="#" class="label">
 								<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px">
-								<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px">
-								<img id="s4" class="icons" src="images/icon/home.png" alt="home" align="right" width="30px">
+								<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px" onclick="location.href='mainController.do?command=mypage'">
+								<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px" onclick="location.href='mainController.do?command=StoryPage'">
+								<img id="s4" class="icons" src="images/icon/search.png" alt="search" align="right" width="30px" onclick="location.href='mypageController.do?command=searchpage'">
 							</a>
 						</div>
 						<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
@@ -93,23 +93,23 @@
 				<!-- Main -->
 					<section>
 							<div style="position: absolute;">
-								<div style="position: relative;top: 110px; left: 280px;">
-									<a href="#">
+								<div style="position: relative;top: 160px; left: 385px;">
+									<a onclick="location.href='mainController.do?command=mypage'">
 								    	<img class="avatacon" src="images/avatar.jpg">
-								    	<strong>&nbsp;&nbsp;userID</strong>
+								    	<strong>&nbsp;&nbsp;${dto.userid }</strong>
 							    	</a>
 								</div>
-								<div style="position: relative;top: 75px; left: 585px;">
+								<div style="position: relative;top: 125px; left: 690px;">
 									<img id="hidemenu" alt="menu" src="images/icon/menu.png" width="30px">
 									<img id="viewmenu" alt="menu" src="images/icon/overmenu.png" width="30px">								
 								</div>
-								<div id="menu" style="position: relative; top: 33px; left: 623px; background-color: #fffbc1; color: black; font-weight: bold;">
-									<form name="upload" method="post" action="">
+								<div id="menu" style="position: relative; top: 83px; left: 728px; background-color: #fffbc1; color: black; font-weight: bold;">
+									<form method="post" action="UploadController" enctype="multipart/form-data">
 										<table border="1">
 											<col width="250">
 											<tr>
 												<td align="center">
-													<select id="select" name="selectloc">
+													<select id="select" name="city">
 														<option value="">현재 계신 도시를 선택해주세요.</option>
 														<option value="seoul">서울특별시</option>
 							                            <option value="incheon">인천광역시</option>
@@ -132,21 +132,27 @@
 											</tr>
 											<tr>
 												<td align="center">
-													<select id="select" name="selectsex">
-														<option value="">성별 선택</option>
-														<option value="M">남성</option>
-														<option value="FM">여성</option>
-														<option value="O">그외</option>
-													</select>
+													<input name="userid" id="select" type="text" value=${dto.userid } readonly>
+													<input name="userno" id="select" type="hidden" value=${dto.userno }>
 												</td>
 											</tr>
 											<tr>
 												<td align="center">
-													<input name="fname" type="file" value="사진 선택" style="color: black;" accept=".jpg, .jpeg, .png, .gif, .bmp; images/storyimg/*; capture=camera"/>
+													<input name="title" id="select" type="text" value="제목을 입력해 주세요" onfocus="this.value='';return true;">
 												</td>
 											</tr>
 											<tr>
-												<td align="center"><input type="submit" style="width: 100%; height: 100%;" value="내용 업로드" onclick=""></td>
+												<td align="center">
+													<input name="content" id="select" type="text" value="내용을 입력해 주세요" onfocus="this.value='';return true;">
+												</td>
+											</tr>
+											<tr>
+												<td align="center">
+													<input name="file" type="file" value="사진 선택" style="color: black;" accept=".jpg, .jpeg, .png, .gif, .bmp; images/storyimg/*; capture=camera"/>
+												</td>
+											</tr>
+											<tr>
+												<td align="center"><input type="submit" style="width: 100%; height: 100%;" value="내용 업로드"></td>
 											</tr>
 										</table>
 									</form>
