@@ -200,9 +200,9 @@ tr>td {
 					<td><%=dto.getUserphone()%></td>
 					<td><%=dto.getUserenabled().equals("Y") ? "가입" : "탈퇴"%></td>
 					<td><input type="button" value="수정"
-						onclick="location.href='(회원정보 컨트롤러)?command=(회원 정보수정커맨드)&userno=${dto.userno}'"
+						onclick="location.href='setting.do?command=updateuserform&userno=${dto.userno}'"
 						id="button" style="font-size:10pt;"> <input type="button" value="탈퇴"
-						onclick="location.href='(회원정보 컨트롤러)?command=(회원 탈퇴 커맨드)&userno=${dto.userno}'"
+						onclick="location.href='setting.do?command=deleteform&userno=${dto.userno}'"
 						id="button" style="font-size:10pt; margin:1px;"></td>
 
 				</tr>

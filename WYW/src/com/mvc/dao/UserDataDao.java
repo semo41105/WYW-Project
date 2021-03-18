@@ -515,7 +515,7 @@ public class UserDataDao extends JDBCTemplate{
 
 		// 테이블 조인해서 유저권한 manager, ADMIN인 사람의 글만 보일 수 있게 쿼리문 작성
 		String sql = " SELECT * FROM USERCONTENT " + " JOIN USERDATA ON(USERCONTENT.USERIDNO = USERDATA.USERNO) "
-				+ " WHERE USERROLE='ADMIN' OR USERROLE='MANAGER' ORDER BY REGDATE DESC ";
+				+ " WHERE USERROLE='ADMIN' OR USERROLE='MANAGER' ORDER BY BOARDNO DESC ";
 
 		try {
 			pstm = con.prepareStatement(sql);
@@ -527,8 +527,8 @@ public class UserDataDao extends JDBCTemplate{
 				UserDataDto dto = new UserDataDto();
 				dto.setBoardno(rs.getInt(1));
 				dto.setTitle(rs.getString(4));
-				dto.setRegdate(rs.getDate(10));
-				dto.setUsername(rs.getString(14));
+				dto.setRegdate(rs.getDate(9));
+				dto.setUsername(rs.getString(13));
 				res.add(dto);
 			}
 
@@ -566,8 +566,8 @@ public class UserDataDao extends JDBCTemplate{
 				res.setBoardno(rs.getInt(1));
 				res.setTitle(rs.getString(4));
 				res.setContent(rs.getString(5));
-				res.setRegdate(rs.getDate(10));
-				res.setUsername(rs.getString(14));
+				res.setRegdate(rs.getDate(9));
+				res.setUsername(rs.getString(13));
 				
 			}
 			
@@ -592,8 +592,8 @@ public class UserDataDao extends JDBCTemplate{
 
 		String sql = " INSERT INTO USERCONTENT VALUES(BOARDNOSQ.NEXTVAL," + " GROUPNOSQ.NEXTVAL, 1, ?, ?, ?,"
 		// GROUPNO, GROUPSQ,TITLE,CONTENT,USERIDNO
-				+ " NULL, NULL, 0, SYSDATE) ";
-		// USERIMGNAME,USERIMG,USERLIKE,REGDATE
+				+ " NULL, 0, SYSDATE) ";
+		// USERIMGNAME,USERLIKE,REGDATE
 
 		try {
 			pstm = con.prepareStatement(sql);
