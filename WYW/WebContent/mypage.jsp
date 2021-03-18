@@ -1,5 +1,8 @@
+<%@page import="com.mvc.dto.UserDataDto"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <% request.setCharacterEncoding("UTF-8"); %>    
 <% response.setContentType("text/html; charset=UTF-8"); %>
@@ -28,6 +31,9 @@
 		}
 	#userid{float: left;
 			margin-left: 150px;
+			font-size:30pt;
+			transform: translate(0px, -10px);
+			
 		}
 	#pf3{float:left; position:absoulte; width: 70%;
      	 transform: translate(0px, 85px);
@@ -46,7 +52,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="assets/css/main.css" />
-	<!-- Scripts -->
+   <!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.poptrox.min.js"></script>
 <script src="assets/js/skel.min.js"></script>
@@ -59,21 +65,17 @@
 
 <!-- Header -->
 <header>	
-			<div id="s0">
-				<a>
-					<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200" height="100" onclick="location.href='mainController.do?command=mainpage'">
-				</a>
-			</div>
-			<div id="s1"><input type="text"></div>
-				<div id="s1">
-					<input id="ask1" type="button" value="검색" onclick="">
-						<a href="#" class="label">
-							<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px">
-							<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px">
-							<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px">
-						</a>
-				</div>
-				
+         <div id="s0">
+         	<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200" height="100" onclick="location.href='mainController.do?command=mainpage'">
+         </div>
+         <div id="s1"></div>
+	         <div id="s1">
+	            <img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px" onclick="location.href='setting.do?command=UserInfoForm'">
+	            <img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px" onclick="location.href='mainController.do?command=mypage'">
+	            <img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px" onclick="location.href='mainController.do?command=StoryPage'">
+	            <img id="s4" class="icons" src="images/icon/search.png" alt="search" align="right" width="30px" onclick="location.href='mypageController.do?command=searchpage'">
+	         </div>
+			
 			<!-- userprofile -->
 			<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
 				<div id="header">
@@ -81,71 +83,43 @@
 						<span id="userimg" class="avatar"><img src="images/avatar.jpg" alt="" /></span>
 					</div>
 					<div id="pf2">
-						<span id="userid">UserId</span>
+						<span id="userid">${dto.userid }</span>
 						<img src="images/icon/map.png" width="26px">
-						<span>&nbsp;&nbsp;Set Location</span>			
-					</div>
-					<div id="pf3">
-						<div id="post">
-							<span><b>45</b></span>
-							<span>&nbsp;&nbsp;Posts</span>
-						</div>
-						<div id="follower">
-							<span><b>100&nbsp;&nbsp;</b></span>					
-							<a href="">Followers</a>
-						</div>
-						<div id="following">
-							<span><b>17&nbsp;&nbsp;</b></span>				
-							<a href="">Following</a>
-						</div>
+						<span>&nbsp;&nbsp;${dto.useraddr }</span>			
 					</div>
 				</div>
 			<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
 </header>
 
-	<div id="pf999">&nbsp;</div>
+   <div id="pf999">&nbsp;</div>
 
-		
+      
 <!-- Main -->
-	<section id="main">
-	
-	</section>
+   <section id="main">
+   
+   </section>
 <!-- Thumbnails -->
-	<section class="thumbnails">
-	
-					<div>
-						<a href="images/fulls/01.jpg">
-							<img src="images/thumbs/01.jpg" alt="" />
-						</a>
-						<a href="images/fulls/01.jpg">
-							<img src="images/thumbs/01.jpg" alt="" />
-						</a>
-					</div>
-					<div>
-						<a href="images/fulls/01.jpg">
-							<img src="images/thumbs/01.jpg" alt="" />
-						</a>
-						<a href="images/fulls/01.jpg">
-							<img src="images/thumbs/01.jpg" alt="" />
-						</a>
-					</div>
-					<div>
-						<a href="images/fulls/01.jpg">
-							<img src="images/thumbs/01.jpg" alt="" />
-						</a>
-						<a href="images/fulls/01.jpg">
-							<img src="images/thumbs/01.jpg" alt="" />
-						</a>
-					</div>
+   <section class="thumbnails">
+   		<table>
+   			<c:forEach items="${list }" var="i">
+   				<tr>
+   				<td>
+	               <div>
+	                  <a href="Upload/${i.userimgname }">
+	                     <img src="Upload/${i.userimgname }" alt="" />
+	                  </a>
+	               </div>
+                </td>
+                </tr>
+            </c:forEach>
+       </table>
+   </section>
 
+            <!-- Footer -->
+               <footer id="footer">
+                  <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+               </footer>
 
-	</section>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a href="http://unsplash.com">Unsplash</a>.</p>
-					</footer>
-
-	</div>
+   </div>
 </body>
 </html>

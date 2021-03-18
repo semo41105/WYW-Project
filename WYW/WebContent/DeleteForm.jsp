@@ -1,13 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("UTF-8"); %>
+
+<% request.setCharacterEncoding("UTF-8"); %>    
 <% response.setContentType("text/html; charset=UTF-8"); %>
+
+<%@ page import="com.mvc.dto.UserDataDto"%>
+<%@ page import="com.mvc.dao.UserDataDao"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>프로필편집</title>
+    <title>회원탈퇴</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -19,95 +24,106 @@
     <script src="assets/js/main.js"></script>
 
 <style type="text/css">
-    .a1{
-        margin : 10px;
-    }
-    #t1 {
-       margin-left : 10%;
-       margin-top : 35px;
-    }
-    #t2{
-        float : right;
-        margin-top : 50px;
-        margin-right : 15%;
-    }
-    #t3{
-        padding : 20px 0px 0px 380px;
-    }
-    section{
-        height: 500px;
-    }
-    #left{   
-        width: 10%;
-        height: 85%;
-        float: left;
-        margin-top:5%;
-        margin-left:12.5%;
-        
-    }
-    #right{
-        width: 60%;
-        height: 85%;
-        float: right;
-        margin-top:5%;
-        margin-right:12.5%;
-        background-color: rgba(255, 255, 255, 0.185);
-        border-radius : 30px 30px 30px 30px;
-    }
-    #btn{ 
-        width:  131px;
-        height: 40px;
-        background-color: rgba(255, 255, 255, 0.185);
-        border-radius : 10px 10px 10px 10px;
-    }
-    form {
-        padding: 20px 0px 40px 320px;
-        font-size: 14px;
-    }
-    .a1>h1{
-    	text-align : center;
-    	padding : 40px 0px 0px 0px;
-    }
-    
-    
+ 
+    #s0{ float: left; width: 34% }
+	#s1{ float: left; width: 33%; padding: 25px 0px 25px 0px }
+	#s2{ float: left; width: 100% }
+	#s4{ padding: 8px 0px 0px 0px;
+			 margin-left: 25px;
+			}
+	#ask1{ 
+			border: 2px solid black;
+			background-color: #fffbc1; 
+			font-weight: bold; 
+			color: #3f385a;
+			}
+	section {
+			height: 500px;
+	}
+	#top{
+		margin-top : 5%;
+		margin-left : 28%;
+	}
+	
+	#bottom{
+		float : right;
+		width : 40%;
+		height : 90%;
+		margin-right : 30%;
+	}
+	
+	#b2{
+		
+		width:120px;
+		height:50px;
+		background-color : #FFFBC1; 
+        color: black;
+	}
+	
+
 </style>    
 </head>
 <body>
-    <header class="a1">
-            <div id="t1">
-                <img alt="WYW_날씨를 입다"
-                    src="images/logo/logo_wyw_yellow.png" width="200" height="100">       
-                    <div id="t2">
-                       <a href=""><img alt="home" src="images/button/home.png" width="30" height="30"></a>
-                        <a href=""><img alt="map" src="images/button/map.png" width="30" height="30"></a>
-                        <a href=""><img alt="set" src="images/button/set.png" width="30" height="30"></a>
-                        <a href=""><img alt="user" src="images/button/user.png" width="30" height="30"></a>
-                    </div>
-            </div>
-    </header>
 
-    <section class="a1">
-        <article class="a1" id="left">
-            <button onclick="location.href = 'UserInfoForm.jsp'" id="btn">회원정보수정</button>
-            <button onclick="location.href = 'DeleteForm.jsp'" id="btn">회원탈퇴</button>
-            <button onclick="location.href = 'NoticeForm.jsp'" id="btn">공지사항</button>
-        </article>
-        <article class="a1" id="right">
-            	<h1>회원탈퇴</h1>
-            <form>
-                   <label> 아이디  </label> <input type="text" name="userid" style="text-align:center; width:250px; height:50px;"><br>
-                    <label> 비밀번호  </label> <input type="text" name="userpw" style="text-align:center; width:250px; height:50px;" placeholder="비밀번호를 입력하세요"><br>               
-           			<input type="submit" value="확인">    
-            </form>   
-            	 
-        </article>
+<%
+	UserDataDto dto = new UserDataDto();
+%>
+
+	
+<!-- Wrapper -->
+<div id="wrapper">
+
+<!-- Header -->
+<header>	
+			<div id="s0">
+					<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200" height="100" onclick="location.href='mainController.do?command=mainpage'">
+			</div>
+			<div id="s1"></div>
+			<div id="s1">
+				<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px" onclick="location.href='setting.do?command=UserInfoForm'">
+				<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px" onclick="location.href='mainController.do?command=mypage'">
+				<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px" onclick="location.href='mainController.do?command=StoryPage'">
+				<img id="s4" class="icons" src="images/icon/search.png" alt="search" align="right" width="30px" onclick="location.href='mypageController.do?command=searchpage'">
+			</div>
+			
+			<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
+</header>
+
+		<hr>
+		
+    <section>
+	    	 <div id="top">
+			    <input type="button" value="공지사항" id="b2" onclick="location.href='manager.do?command=noticelist'">
+			    <input type="button" value="정보수정" id="b2" onclick="location.href='setting.do?command=updateuserform'">
+		    	<input type="button" value="회원탈퇴" id="b2" onclick="location.href='setting.do?command=deleteform&userno=${dto.userno}'">
+			    <input type="button" value="로그아웃" id="b2" onclick="location.href='loginController.do?command=logout'">
+	    	</div>
+	    	<div id="bottom">
+	    	<form action="setting.do" method="post">
+	    	 <input type="hidden" name="command" value="deleteUser">
+	    	 <input type="hidden" name="userno" value="${dto.userno }">
+	    		<table style="margin-top:15%">
+						<tr style="background-color:transparent;">
+							<th style="text-align:center;">ID</th>
+							<td>
+								<input type="text" name="userid" 
+									style="margin-left:120px; margin-bottom:10px; width:250px; height:30px;" readonly="readonly" value="${dto.userid }">
+							</td>
+						</tr>
+						<tr>
+							<th style="text-align:center;">PW</th>
+							<td><input type="password" name="userpw" 
+									   placeholder="비밀번호를 입력하세요" style="margin-left:120px; width:250px; height:30px;"></td>
+						</tr>
+				</table>
+	    				<input type="submit" value="회원탈퇴" style="margin-left:44%;"> 
+	    	</form>
+	    	</div>
     </section>
-  
-    <footer class="a1">
-        <p>&copy; Untitled. All rights reserved. Design: 
-            <a href="http://templated.co">TEMPLATED</a>. Demo Images: 
-            <a href="http://unsplash.com">Unsplash</a>.</p>
-    </footer>
     
+<!-- Footer -->
+		<footer id="footer">
+			<p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+		</footer>
 </body>
 </html>

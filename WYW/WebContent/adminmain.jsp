@@ -58,7 +58,6 @@
 			<div style="display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
 				<h1>관리자 페이지</h1>
 				  <h2><%=dto.getUserid() %> 님 환영합니다.(회원등급: <strong><%=dto.getUserrole() %></strong>)</h2>
-				  <!-- 0305 이유나 수정 a태그 닫음, 경로 managerpage의 memberlist로 변경 -->
 					<table>
 						<col width="310">
 						<tr style="background-color:transparent; border: solid 0px; text-align:center;">
@@ -69,11 +68,6 @@
 						<tr style="background-color:transparent; border: solid 0px; text-align:center;">
 							<td>
 								<a href="manager.do?command=memberlistall">회원 정보 조회(탈퇴 회원 포함))</a>
-							</td>
-						</tr>
-						<tr style="background-color:transparent; border: solid 0px; text-align:center;">
-							<td>
-								<a href="loginController.do?command=userlistenabled">회원 정보 조회(enabled='y')</a>
 							</td>
 						</tr>
 						<tr style="background-color:transparent; border: solid 0px; text-align:center;">

@@ -57,22 +57,14 @@
 		<!-- Header -->
 		<header>
 			<div id="s0">
-				<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png"
-					width="200" height="100"
-					onclick="location.href='mainController.do?command=mainpage'">
+				<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200" height="100" onclick="location.href='manager.do?command=adminmain'">
 			</div>
 			<div id="s1"></div>
 			<div id="s1">
-				<img id="s4" class="icons" src="images/icon/setting.png"
-					alt="setting" align="right" width="30px"> <img id="s4"
-					class="icons" src="images/icon/user.png" alt="user" align="right"
-					width="30px"
-					onclick="location.href='mainController.do?command=mypage'"> <img
-					id="s4" class="icons" src="images/icon/up.png" alt="upload"
-					align="right" width="30px"> <img id="s4" class="icons"
-					src="images/icon/search.png" alt="search" align="right"
-					width="30px"
-					onclick="location.href='mypageController.do?command=searchpage'">
+				<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px" onclick="location.href='setting.do?command=UserInfoForm'">
+				<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px" onclick="location.href='mainController.do?command=mypage'">
+				<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px" onclick="location.href='mainController.do?command=StoryPage'">
+				<img id="s4" class="icons" src="images/icon/search.png" alt="search" align="right" width="30px" onclick="location.href='mypageController.do?command=searchpage'">
 			</div>
 
 			<div id="s2"></div>

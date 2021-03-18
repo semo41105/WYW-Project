@@ -8,6 +8,7 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
 
+
 /* Reset */
 
 	@charset "UTF-8";
@@ -72,7 +73,7 @@ div .icon{
 	border: 1px solid black;
 }
 
-.recommend {
+/* .recommend {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -89,14 +90,13 @@ div .circle{
 	height:150px;
 	border-radius:75px;
 	overflow: hidden;
-}
+} */
 
 .follower {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
     border: 1px solid black;
-    height: 200px;
     width: 660px;
 	margin: 20px;
 }

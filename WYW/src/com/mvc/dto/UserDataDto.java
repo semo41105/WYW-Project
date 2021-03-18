@@ -24,13 +24,13 @@ public class UserDataDto {
 	private int userlike;		//좋아요 수
 	private Date regdate;		//글 등록 날자
 	private String users;	//로그인해서 검색하는 유저 아이디
-	private String followeruser;  //검색되는 유저 아이디 
-	
-	
+	private String followeruser;  //검색되는 유저 아이디
+
+
 	public UserDataDto() {
 		super();
 	}
- 
+
 
 	public UserDataDto(int userno, String userid, String userpw, String username, String useraddr, String userphone,
 			String useremail, String userenabled, String userrole, int userfollow, int boardno, int groupno,
@@ -58,6 +58,48 @@ public class UserDataDto {
 		this.regdate = regdate;
 		this.users = users;
 		this.followeruser = followeruser;
+	}
+
+	//insertnotice
+	public UserDataDto(int userno, String writer, String title, String content) {
+
+		this.userno = userno;
+		this.username = writer;
+		this.title = title;
+		this.content = content;
+
+	}
+	//updatenotice
+	public UserDataDto(int boardno, String title, String content) {
+
+		this.boardno = boardno;
+		this.title = title;
+		this.content = content;
+
+	}
+
+	//updateuser
+	public UserDataDto(String username, String useraddr, String userpw, String userphone, String useremail, int userno) {
+		this.username = username;
+		this.useraddr = useraddr;
+		this.userpw = userpw;
+		this.userphone = userphone;
+		this.useremail = useremail;
+		this.userno = userno;
+	}
+
+	public UserDataDto(int boardno, int groupno, int groupsq, String title, String content, int useridno,
+			String userimgname, int userlike, Date regdate) {
+		super();
+		this.boardno = boardno;
+		this.groupno = groupno;
+		this.groupsq = groupsq;
+		this.title = title;
+		this.content = content;
+		this.useridno = useridno;
+		this.userimgname = userimgname;
+		this.userlike = userlike;
+		this.regdate = regdate;
 	}
 
 
@@ -262,27 +304,6 @@ public class UserDataDto {
 	}
 
 
-	public void setFolloweruser(String followeruser) {
-		this.followeruser = followeruser;
-	}
-	//insertnotice
-	public UserDataDto(int userno, String writer, String title, String content) {
 
-		this.userno = userno;
-		this.username = writer;
-		this.title = title;
-		this.content = content;
-
-	}
-	//updatenotice
-	public UserDataDto(int boardno, String title, String content) {
-		
-		this.boardno = boardno;
-		this.title = title;
-		this.content = content;
-		
-	}
 
 }
-	
-	

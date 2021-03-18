@@ -141,7 +141,14 @@ public class managerpageController extends HttpServlet {
 			request.setAttribute("list", list);
 			dispatch("memberList.jsp", request, response);
 
-		}
+		} else if(command.equals("adminmain")) {
+	         
+	         
+	         dispatch("adminmain.jsp", request, response); 
+	         
+	         
+	         
+	      }
 
 	}
 

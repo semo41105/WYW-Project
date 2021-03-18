@@ -19,11 +19,13 @@ public class mainController extends HttpServlet {
 		System.out.println("["+command+"]");
 		
 		if(command.equals("mainpage")) {
-			response.sendRedirect("mainPage.jsp");
+			response.sendRedirect("mainpageSelectController");
 			
 		} else if(command.equals("mypage")) {
-			response.sendRedirect("mypage.jsp");
+			response.sendRedirect("selectController");
 		
+		} else if(command.equals("StoryPage")) {
+			response.sendRedirect("StoryPage.jsp");
 		}
 		
 		
