@@ -49,7 +49,7 @@ public class UploadController extends HttpServlet {
 				String moveUrl = "";
 				if(result>0) {
 					System.out.println("저장 완료");
-					moveUrl = "selectService";
+					moveUrl = "selectController";
 				}else {
 					System.out.println("저장 실패");
 					moveUrl = "StoryPage.jsp";

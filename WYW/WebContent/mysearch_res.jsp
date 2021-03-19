@@ -58,19 +58,6 @@ tr>td {
 <script src="assets/js/jquery.poptrox.min.js"></script>
 <script src="assets/js/skel.min.js"></script>
 <script src="assets/js/main.js"></script>
-<script type="text/javascript">
-	window.onload = function(){
-		var followbtn = document.getElementById('followbtn');
-		var followingbtn = document.getElementById('followingbtn');
-		
-		followbtn.style.display = "none";
-
-		followbtn.onclick = function(){
-			
-		}
-		
-	}
-</script>
 </head>
 <body>
 <% List<UserDataDto> list = (List<UserDataDto>)request.getAttribute("list"); %>
@@ -83,10 +70,10 @@ tr>td {
 			</div>
 			<div id="s1">&nbsp;</div>
 			<div id="s1">
-				<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px">
+				<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px" onclick="location.href='setting.do?command=UserInfoForm'">
 				<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px" onclick="location.href='mainController.do?command=mypage'">
-				<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px">
-				<img id="s4" class="icons" src="images/icon/search.png" alt="upload" align="right" width="30px">
+				<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px" onclick="location.href='mainController.do?command=StoryPage'">
+				<img id="s4" class="icons" src="images/icon/search.png" alt="search" align="right" width="30px" onclick="location.href='mypageController.do?command=searchpage'">
 			</div>
 				
 			<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
@@ -133,9 +120,9 @@ tr>td {
 		<col width="100">
 		<col width="100">
 		<tr>
-			<th>아이디</th>
-			<th>이름</th>
-			<th>주소</th>
+			<th style="padding-top:15px; text-align:center; font-size:20px; ">아이디</th>
+			<th style="padding-top:15px; text-align:center; font-size:20px; ">이름</th>
+			<th style="padding-top:15px; text-align:center; font-size:20px;">주소</th>
 		</tr>
 		<%
 			for (UserDataDto dto : list) {
@@ -144,11 +131,6 @@ tr>td {
 			<td><%=dto.getUserid()%></td>
 			<td><%=dto.getUsername()%></td>
 			<td><%=dto.getUseraddr()%></td>
-			<td>
-				<img id="followbtn" alt="fbt" src="images/icon/follow.png" width="100px">
-				<img id="followingbtn" alt="fbt" src="images/icon/following.png" width="100px"> 
-			</td>
-
 		</tr>
 		<%
 			}

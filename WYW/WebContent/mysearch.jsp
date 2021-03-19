@@ -62,10 +62,10 @@ tr>td {
 			</div>
 			<div id="s1"></div>
 			<div id="s1">
-				<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px">
+				<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px" onclick="location.href='setting.do?command=UserInfoForm'">
 				<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px" onclick="location.href='mainController.do?command=mypage'">
-				<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px">
-				<img id="s4" class="icons" src="images/icon/search.png" alt="upload" align="right" width="30px">
+				<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px" onclick="location.href='mainController.do?command=StoryPage'">
+				<img id="s4" class="icons" src="images/icon/search.png" alt="search" align="right" width="30px" onclick="location.href='mypageController.do?command=searchpage'">
 			</div>
 				
 			<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
