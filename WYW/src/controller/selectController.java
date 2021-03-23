@@ -1,7 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,45 +13,31 @@ import javax.servlet.http.HttpServletResponse;
 import com.mvc.dao.UserDataDao;
 import com.mvc.dto.UserDataDto;
 
-@WebServlet("/mainController")
-public class mainController extends HttpServlet {
+@WebServlet("/selectController")
+public class selectController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
-		String command = request.getParameter("command");
-		System.out.println("["+command+"]");
-				
-		if(command.equals("mainpage")) {
-			response.sendRedirect("mainpageSelectController");
-			
-		} else if(command.equals("StoryPage")) {
-	         response.sendRedirect("StoryPage.jsp");
-	     
-		} else if(command.equals("mypage")) {
-			response.sendRedirect("selectController");
+		UserDataDao dao = new UserDataDao();
 		
-		} 
+		ArrayList<UserDataDto> list = dao.selectAllContent();
 		
+		if(list != null) {
+			request.setAttribute("list", list);
+		}else {
+			System.out.println("실패");
+		}
 		
+		RequestDispatcher dis = request.getRequestDispatcher("mypage.jsp");
+		dis.forward(request, response);
 		
-		
-		
-		
-	}		
-		
-		
-		
-		
-		
-		
-		
-	
+	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 
 }

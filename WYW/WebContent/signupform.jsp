@@ -43,7 +43,7 @@
 		<header>
 			<div
 				style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; padding: 20px;">
-				<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw.png" width="200"
+				<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200"
 					height="140">
 			</div>
 		</header>
@@ -79,22 +79,22 @@
 							<td>
 								<select name="useraddr" style="width:150px; height:30px; font-size:11px;" >
 									<option hidden>현재 위치를 선택해주세요.</option>
-		                            <option value="seoul">서울특별시</option>
-									<option value="incheon">인천광역시</option>
-									<option value="daejeon">대전광역시</option>
-									<option value="gwangju">광주광역시</option>
-									<option value="daegu">대구광역시</option>
-									<option value="ulsan">울산광역시</option>
-									<option value="busan">부산광역시</option>
-									<option value="gyeonggi-do">경기도</option>
-									<option value="gangwon-do">강원도</option>
-									<option value="chungcheongbuk-do">충청북도</option>
-									<option value="chungcheongnam-do">충청남도</option>
-									<option value="jeollabuk-do">전라북도</option>
-									<option value="jeollanam-do">전라남도</option>
-									<option value="gyeongsangbuk-do">경상북도</option>
-									<option value="gyeongsangnam-do">경상남도</option>
-									<option value="jeju-do">제주도</option>
+		                           <option value="서울특별시">서울특별시</option>
+                                    <option value="인천광역시">인천광역시</option>
+                                    <option value="대전광역시">대전광역시</option>
+                                    <option value="광주광역시">광주광역시</option>
+                                    <option value="대구광역시">대구광역시</option>
+                                    <option value="울산광역시">울산광역시</option>
+                                    <option value="부산광역시">부산광역시</option>
+                                    <option value="경기도">경기도</option>
+                                    <option value="강원도">강원도</option>
+                                    <option value="충청북도">충청북도</option>
+                                    <option value="충청남도">충청남도</option>
+                                    <option value="전라북도">전라북도</option>
+                                    <option value="전라남도">전라남도</option>
+                                    <option value="경상북도">경상북도</option>
+                                    <option value="경상남도">경상남도</option>
+                                    <option value="제주도">제주도</option>
 							</select>
 							</td>
 							<!-- 수정 전 코 -->
