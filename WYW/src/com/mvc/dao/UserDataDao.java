@@ -363,50 +363,31 @@ public class UserDataDao extends JDBCTemplate{
 		return res;
 	}
 	
-	//메인페이지(추천 스토리)
-	public List<UserDataDto> clothesReco() {
-		Connection con = getConnection();
-		PreparedStatement pstm = null;
-		ResultSet rs = null;
-		List<UserDataDto> res = new ArrayList<UserDataDto>();
-		
-		String sql = "  ";
-		
-
-		try {
-			pstm = con.prepareStatement(sql);
-			System.out.println("03. query 준비: "+ sql);
-
-			rs = pstm.executeQuery();
-			System.out.println("04. query 실행 및 리턴");
-
-			while(rs.next()) {
-				UserDataDto tmp = new UserDataDto();
-				tmp.setUseridno(rs.getInt(6));
-				tmp.setUserimgname(rs.getString(7));
-				tmp.setUserlike(rs.getInt(9));
-				
-				res.add(tmp);
-			}
-			
-		} catch (SQLException e) {
-			System.out.println("3/4 단계 에러");
-			e.printStackTrace();
-		}finally {
-			close(rs);
-			close(pstm);
-			close(con);
-			System.out.println("05. db 종료\n");
-		}
-		
-		return res;
-	}
-	
-	//메인페이지(팔로우 피드?)
-	public String showWeather() {
-		
-		return null;
-	}
+	/*
+	 * //메인페이지(추천 스토리) public List<UserDataDto> clothesReco() { Connection con =
+	 * getConnection(); PreparedStatement pstm = null; ResultSet rs = null;
+	 * List<UserDataDto> res = new ArrayList<UserDataDto>();
+	 * 
+	 * String sql = "  ";
+	 * 
+	 * 
+	 * try { pstm = con.prepareStatement(sql); System.out.println("03. query 준비: "+
+	 * sql);
+	 * 
+	 * rs = pstm.executeQuery(); System.out.println("04. query 실행 및 리턴");
+	 * 
+	 * while(rs.next()) { UserDataDto tmp = new UserDataDto();
+	 * tmp.setUseridno(rs.getInt(6)); tmp.setUserimgname(rs.getString(7));
+	 * tmp.setUserlike(rs.getInt(9));
+	 * 
+	 * res.add(tmp); }
+	 * 
+	 * } catch (SQLException e) { System.out.println("3/4 단계 에러");
+	 * e.printStackTrace(); }finally { close(rs); close(pstm); close(con);
+	 * System.out.println("05. db 종료\n"); }
+	 * 
+	 * return res; }
+	 */
 	
 	//스토리(게시판 전체 목록)
 	public List<UserDataDto> selectAllBoard(){

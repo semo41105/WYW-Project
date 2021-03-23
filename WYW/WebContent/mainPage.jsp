@@ -86,8 +86,7 @@
 							<div class="icon"></div>
 						</div>
 					</div>
-				<% request.getAttribute("list"); %>
-					<div class="recommend">
+					<%-- <div class="recommend">
 						<div class="circle" id="one">
 							<img alt="추천스토리1" src="images/${list[0].userimgname}" onclick="location.href='mainController.do?command=clothesReco&useridno=${list.useridno}">
 						</div>
@@ -97,7 +96,7 @@
 						<div class="circle" id="three">
 							<img alt="추천스토리3" src="images/thumbs/03.jpg" onclick="location.href='mainController.do?command=clothesReco&useridno=${list.useridno}">
 						</div>
-					</div>
+					</div> --%>
 				
 					<div class="follower">
 						<span>스토리 세로 배치 / 클릭 시 해당 페이지로</span>

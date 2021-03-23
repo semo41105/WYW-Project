@@ -23,9 +23,7 @@ public class mainController extends HttpServlet {
 		
 		String command = request.getParameter("command");
 		System.out.println("["+command+"]");
-		
-		UserDataDao dao = new UserDataDao();
-		
+				
 		if(command.equals("mainpage")) {
 			response.sendRedirect("mainPage.jsp");
 			
@@ -34,19 +32,11 @@ public class mainController extends HttpServlet {
 	     
 		} else if(command.equals("mypage")) {
 			response.sendRedirect("mypage.jsp");
-			
-	    } else if(command.equals("clothesReco")) {
-	    	List<UserDataDto> list = dao.clothesReco();
-	    	
-	    	request.setAttribute("list", list);
-	    	
-	    	RequestDispatcher dispatcher = request.getRequestDispatcher("mypage.jsp");
-	    	
-	    	dispatcher.forward(request, response);
-	    	
+		
+		} 
 		
 		
-		}
+		
 		
 		
 		
