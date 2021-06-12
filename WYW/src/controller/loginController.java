@@ -48,7 +48,7 @@ public class loginController extends HttpServlet {
 				if(dto.getUserrole().equals("ADMIN")) {
 					dispatch("adminmain.jsp", request, response); //Logincontroller.do?command=adminmain
 				}else if(dto.getUserrole().equals("USER") || dto.getUserrole().equals("MANAGER")) {
-					dispatch("mainPage.jsp", request, response); //Logincontroller.do?command=usermain
+					dispatch("mainpageSelectController", request, response); //Logincontroller.do?command=usermain
 				}
 				
 			}else {

@@ -1,5 +1,8 @@
+<%@page import="com.mvc.dto.UserDataDto"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
 <!DOCTYPE html>
@@ -19,6 +22,7 @@
 	font-weight: bold; 
 	color: #3f385a;
 	}
+	.thumbnails {margin-top: 100px;}
 	
 	</style>
 	<meta charset="utf-8" />
@@ -35,20 +39,16 @@
 	<div id="wrapper">
 			<!-- Header -->
 			<header style="height: 100px">
-				<div id="s0">
-					<a>
-						<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200" height="100" onclick="location.href='mainController.do?command=mainpage'">
-					</a>
-				</div>
-				<div id="s1"><input type="text"></div>
-				<div id="s1">
-					<input id="ask1" type="button" value="검색" onclick="">
-						<a href="#" class="label">
-							<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px">
-							<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px" onclick="location.href='mainController.do?command=mypage'">
-							<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px" onclick="location.href='mainController.do?command=StoryPage'">
-						</a>
-				</div>
+         <div id="s0">
+         	<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200" height="100" onclick="location.href='mainController.do?command=mainpage'">
+         </div>
+         <div id="s1"></div>
+	         <div id="s1">
+	            <img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px" onclick="location.href='setting.do?command=UserInfoForm'">
+	            <img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px" onclick="location.href='mainController.do?command=mypage'">
+	            <img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px" onclick="location.href='mainController.do?command=StoryPage'">
+	            <img id="s4" class="icons" src="images/icon/search.png" alt="search" align="right" width="30px" onclick="location.href='mypageController.do?command=searchpage'">
+	         </div>
 			</header>
 			<br>
 			<br>
@@ -86,23 +86,25 @@
 						</div>
 					</div>
 				
-					<div class="recommend">
-						<div class="circle" id="one">
-							<img alt="추천스토리1" src="images/thumbs/01.jpg" onclick="">
-						</div>
-						<div class="circle" id="two">
-							<img alt="추천스토리2" src="images/thumbs/02.jpg" onclick="">
-						</div>
-						<div class="circle" id="three">
-							<img alt="추천스토리3" src="images/thumbs/03.jpg" onclick="">
-						</div>
-					</div>
-				
-					<div class="follower">
-						<span>스토리 세로 배치 / 클릭 시 해당 페이지로</span>
-					</div>
 				</div>
 			</section>
+			
+			<!-- Thumbnails -->
+			<section class="thumbnails">
+		   		<table>
+		   			<c:forEach items="${list }" var="i">
+		   				<tr>
+		   				<td>
+			               <div>
+			                  <a href="Upload/${i.userimgname }">
+			                     <img src="Upload/${i.userimgname }" alt="" />
+			                  </a>
+			               </div>
+		                </td>
+		                </tr>
+		            </c:forEach>
+		       </table>
+		   </section>
 			<!-- Footer -->
 			<footer id="footer">
 				<p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a href="http://unsplash.com">Unsplash</a>.</p>
