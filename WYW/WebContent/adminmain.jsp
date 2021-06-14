@@ -62,17 +62,17 @@
 						<col width="310">
 						<tr style="background-color:transparent; border: solid 0px; text-align:center;">
 							<td>
-								<a href="loginController.do?command=userlistall">회원 정보 조회(탈퇴 회원 포함))
+								<a href="manager.do?command=noticelist">공지사항</a>
 							</td>
 						</tr>
 						<tr style="background-color:transparent; border: solid 0px; text-align:center;">
 							<td>
-								<a href="loginController.do?command=userlistenabled">회원 정보 조회(enabled='y')
+								<a href="manager.do?command=memberlistall">회원 정보 조회(탈퇴 회원 포함))</a>
 							</td>
 						</tr>
 						<tr style="background-color:transparent; border: solid 0px; text-align:center;">
 							<td>
-								<a href="loginController.do?command=logout">로그아웃
+								<a href="loginController.do?command=logout">로그아웃</a>
 							</td>
 						</tr>
 						

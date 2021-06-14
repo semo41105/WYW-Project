@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("UTF-8"); %>
+
+<% request.setCharacterEncoding("UTF-8"); %>    
 <% response.setContentType("text/html; charset=UTF-8"); %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>프로필편집</title>
+    <title>내정보수정</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -19,96 +21,101 @@
     <script src="assets/js/main.js"></script>
 
 <style type="text/css">
-    .a1{
-        margin : 10px;
+    #s0{ float: left; width: 34% }
+	#s1{ float: left; width: 33%; padding: 25px 0px 25px 0px; }
+	#s2{ float: left; width: 100%; height: 50px;}
+	#s4{ padding: 8px 0px 0px 0px;
+		 margin-left: 25px;
+		}			
+	#ask1{ 
+		border: 2px solid black;
+		
+		background-color: #fffbc1; 
+		font-weight: bold; 
+		color: #3f385a;
+		}
+			
+	section{
+			height:500px;
+	}
+  
+	#s5{ 
+		 float:left; width:25%; height:500px; margin-left:12%;
+         background-color: rgba(128, 128, 128, 0.205);
     }
-    #t1 {
-       margin-left : 10%;
-       margin-top : 35px;
+    #s6{ 
+    	float:left; width:25%; height:500px; 
+        background-color: rgba(128, 128, 128, 0.205);
     }
-    #t2{
-        float : right;
-        margin-top : 50px;
-        margin-right : 15%;
-    }
-    #t3{
-        padding : 20px 0px 0px 380px;
-    }
-    section{
-        height: 500px;
-    }
-    #left{   
-        width: 10%;
-        height: 85%;
-        float: left;
-        margin-top:5%;
-        margin-left:12.5%;
-        
-    }
-    #right{
-        width: 60%;
-        height: 85%;
-        float: right;
-        margin-top:5%;
-        margin-right:12.5%;
-         background-color: rgba(255, 255, 255, 0.185);
-        border-radius : 30px 30px 30px 30px;
-    }
-    #btn{ 
-        width:  131px;
-        height: 40px;
-        background-color: rgba(255, 255, 255, 0.185);
-        border-radius : 10px 10px 10px 10px;
-    }
-    form {
-        padding: 0px 0px 40px 325px;
-        font-size: 14px;
-    }
-    
+    #s7{
+     	float:left; width:25%; height:500px; 	
+        background-color: rgba(128, 128, 128, 0.205);  
+   }
+         
+    #btn{
+    	margin-left:30%; 
+    	margin-top:20%; 
+    	background-color:#FFFBC1;
+    	color: black;
+   }    
+      
+    #lo{
+        width:150px;
+        opacity: 60%;
+        margin-left: 25%;
+        margin-top:40%;
+   }
+ 
+ 
 </style>    
 </head>
 <body>
-    <header class="a1">
-            <div id="t1">
-                <img alt="WYW_날씨를 입다"
-                    src="images/logo_wyw_yellow.png" width="200" height="100">       
-                    <div id="t2">
-                        <a href=""><img alt="home" src="images/button/home.png" width="30" height="30"></a>
-                        <a href=""><img alt="map" src="images/button/map.png" width="30" height="30"></a>
-                        <a href=""><img alt="set" src="images/button/set.png" width="30" height="30"></a>
-                        <a href=""><img alt="user" src="images/button/user.png" width="30" height="30"></a>
-                    </div>
-            </div>
-    </header>
+	<!-- 3월 7일 김나현 코드 전체 수정  -->
+<!-- Wrapper -->
+<div id="wrapper">
 
-    <section class="a1">
-        <article class="a1" id="left">
-            <button onclick="location.href = 'UserInfoForm.jsp'" id="btn">회원정보수정</button>
-            <button onclick="location.href = 'DeleteForm.jsp'" id="btn">회원탈퇴</button>
-            <button onclick="location.href = 'NoticeForm.jsp'" id="btn">공지사항</button>
-        </article>
-        <article class="a1" id="right">
-            <div id="t3">
-                <img src="images/button/user.png">
+<!-- Header -->
+<header>	
+			<div id="s0">
+					<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200" height="100" onclick="location.href='mainController.do?command=mainpage'">
+			</div>
+			<div id="s1"></div>
+			<div id="s1">
+				<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px" onclick="location.href='setting.do?command=UserInfoForm'">
+				<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px" onclick="location.href='mainController.do?command=mypage'">
+				<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px" onclick="location.href='mainController.do?command=StoryPage'">
+				<img id="s4" class="icons" src="images/icon/search.png" alt="search" align="right" width="30px" onclick="location.href='mypageController.do?command=searchpage'">
+			</div>
+			<div id="s2"></div><!-- 위쪽 div 와 아래쪽 div를 나누는 용도 -->
+</header>
+
+		<hr>
+			
+<!-- Section -->		
+    <section>
+    		<div id="s5">
+                    <img src="images/icon/b3.png" id="lo" alt="notice">
+                        <input type="button" id="btn" value="공지사항" onclick="location.href='manager.do?command=noticelist'">
             </div>
-            <form>
-                    <label> 이름 <input type="text" name="username" style="text-align:center; width:170px; height:30px;"> </label>
-                    <label> 아이디 <input type="text" name="userid" style="text-align:center; width:170px; height:30px;"></label>   
-                    <label> 비밀번호 <input type="text" name="userpw" style="text-align:center; width:170px; height:30px;"> </label>
-                    <label> 이메일 <input type="text" name="usermail" style="text-align:center; width:170px; height:30px;"> </label>
-                    <label> 주소 <input type="text" name="usernaddr" style="text-align:center; width:200px; height:30px;"></label>   
-                   
-            </form>   
-        </article>
-        
+            <div id="s6">
+                    <img src="images/icon/b1.png" id="lo" alt="modify">
+                    <input type="button" id="btn" value="내정보수정" onclick="location.href='setting.do?command=updateuserform'">
+            </div>
+            <div id="s7">
+            		  <img src="images/icon/b2.png" id="lo" alt="delete">
+                    <input type="button" id="btn" value="로그아웃" onclick="location.href='loginController.do?command=logout'">
+                  
+            </div>
+            
     </section>
+    
+    
    
+<!-- Footer -->
+		<footer id="footer">
+			<p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+		</footer>
 
-    <footer class="a1">
-        <p>&copy; Untitled. All rights reserved. Design: 
-            <a href="http://templated.co">TEMPLATED</a>. Demo Images: 
-            <a href="http://unsplash.com">Unsplash</a>.</p>
-    </footer>
     
 </body>
 </html>

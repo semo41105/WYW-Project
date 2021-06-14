@@ -24,6 +24,7 @@
 				alert("내용을 입력해주세요.");
 				return false;
 			}
+
 		});
 	});
 </script>
@@ -35,39 +36,48 @@
 	margin-bottom: 0px;
 	font-size: 28pt;
 }
+
 option {
 	color: #000000;
 }
+
 #middle {
 	float: left;
 }
+
 .space {
 	width: 30%;
 }
+
 tr>th {
 	text-align: center;
 	vertical-align:center;
 	padding: 11px;
 	font-size: 11pt;
 }
+
 tr>td {
 	text-align: center;
 	font-size: 12pt;
 }
+
 #s0 {
 	float: left;
 	width: 34%
 }
+
 #s1 {
 	float: left;
 	width: 33%;
 	padding: 25px 0px 25px 0px;
 }
+
 #s2 {
 	float: left;
 	width: 100%;
 	height: 50px;
 }
+
 #s4 {
 	padding: 8px 0px 0px 0px;
 	margin-left: 25px;
@@ -94,16 +104,10 @@ tr>td {
 			</div>
 			<div id="s1"></div>
 			<div id="s1">
-				<img id="s4" class="icons" src="images/icon/setting.png"
-					alt="setting" align="right" width="30px"> <img id="s4"
-					class="icons" src="images/icon/user.png" alt="user" align="right"
-					width="30px"
-					onclick="location.href='mainController.do?command=mypage'"> <img
-					id="s4" class="icons" src="images/icon/up.png" alt="upload"
-					align="right" width="30px"> <img id="s4" class="icons"
-					src="images/icon/search.png" alt="search" align="right"
-					width="30px"
-					onclick="location.href='mypageController.do?command=searchpage'">
+				<img id="s4" class="icons" src="images/icon/setting.png" alt="setting" align="right" width="30px" onclick="location.href='setting.do?command=UserInfoForm'">
+				<img id="s4" class="icons" src="images/icon/user.png" alt="user" align="right" width="30px" onclick="location.href='mainController.do?command=mypage'">
+				<img id="s4" class="icons" src="images/icon/up.png" alt="upload" align="right" width="30px" onclick="location.href='mainController.do?command=StoryPage'">
+				<img id="s4" class="icons" src="images/icon/search.png" alt="search" align="right" width="30px" onclick="location.href='mypageController.do?command=searchpage'">
 			</div>
 
 			<div id="s2"></div>
@@ -190,9 +194,9 @@ tr>td {
 					<td><%=dto.getUserphone()%></td>
 					<td><%=dto.getUserenabled().equals("Y") ? "가입" : "탈퇴"%></td>
 					<td><input type="button" value="수정"
-						onclick="location.href='(회원정보 컨트롤러)?command=(회원 정보수정커맨드)&userno=${dto.userno}'"
+						onclick="location.href='setting.do?command=updateuserform&userno=${dto.userno}'"
 						id="button" style="font-size:10pt;"> <input type="button" value="탈퇴"
-						onclick="location.href='(회원정보 컨트롤러)?command=(회원 탈퇴 커맨드)&userno=${dto.userno}'"
+						onclick="location.href='setting.do?command=deleteform&userno=${dto.userno}'"
 						id="button" style="font-size:10pt; margin:1px;"></td>
 
 				</tr>

@@ -45,9 +45,9 @@ public class loginController extends HttpServlet {
 				session.setAttribute("dto", dto);
 				session.setMaxInactiveInterval(3600);				
 			
-				if(dto.getUserrole().equals("ADMIN")) {
+				if(dto.getUserrole().equals("ADMIN") || dto.getUserrole().equals("MANAGER")) {
 					dispatch("adminmain.jsp", request, response); //Logincontroller.do?command=adminmain
-				}else if(dto.getUserrole().equals("USER") || dto.getUserrole().equals("MANAGER")) {
+				}else if(dto.getUserrole().equals("USER")) {
 					dispatch("mainPage.jsp", request, response); //Logincontroller.do?command=usermain
 				}
 				

@@ -363,20 +363,6 @@ public class UserDataDao extends JDBCTemplate{
 		return res;
 	}
 	
-	
-	
-	//메인페이지(위치에 따른 날씨정보 확인)
-	public String showWeather() {
-		
-		return null;
-	}
-
-	//메인페이지(추천 옷차림)
-	public String clothesReco() {
-		
-		return null;
-	}
-	
 	//스토리(게시판 전체 목록)
 	public List<UserDataDto> selectAllBoard(){
 		Connection con = getConnection();
@@ -499,42 +485,6 @@ public class UserDataDao extends JDBCTemplate{
 		return res;
 	}
 	
-	//스토리(게시판 글 수정)
-	public int updateBoard(UserDataDto dto) {
-		
-		return 0;
-	}
-	
-	//스토리(글 삭제)
-	public int deleteBoard(int seq) {
-		
-		return 0;
-	}
-	
-	//스토리(글 다중 삭제)
-	public int multiDeleteBoard(String[] seq) {
-		
-		return 0;
-	}
-	
-	//스토리(좋아요)
-	public int like(int userlike) {
-		
-		return 0;
-	}
-	
-	//스토리(팔로어)
-	public int follower() {
-		
-		return 0;
-	}
-	
-	//스토리(팔로잉)
-	public int following() {
-		
-		return 0;
-	}
-	
 	//스토리(test)
 	public ArrayList<UserDataDto> selectAllContent(){
 		Connection con = getConnection();
@@ -542,12 +492,7 @@ public class UserDataDao extends JDBCTemplate{
 		ResultSet rs = null;
 		ArrayList<UserDataDto> res = new ArrayList<UserDataDto>();
 		
-		String sql = " SELECT BOARDNO, GROUPNO, GROUPSQ, TITLE, CONTENT "
-		+ " ,USERID FROM USERCONTENT "
-		+ " WHERE USERID = (SELECT USERNO FROM USERDATA "
-		+ " WHERE USERNO = (SELECT USERDATA.USERID FROM USERDATA)) "
-		+ " ,USERIMGNAME, USERIMGM, USERLIKE, REEGDATE FROM USERCONTENT "
-		+ " FROM USERCONTENT ORDER BY GROUPNO ASC ";
+		String sql = " SELECT * FROM USERCONTENT ";
 		
 		try {
 			pstm = con.prepareStatement(sql);
@@ -557,18 +502,18 @@ public class UserDataDao extends JDBCTemplate{
 			System.out.println("04. query 실행 및 리턴");
 			
 			while(rs.next()) {
-				UserDataDto tmp = new UserDataDto();
-				tmp.setBoardno(rs.getInt(1));
-				tmp.setGroupno(rs.getInt(2));
-				tmp.setGroupsq(rs.getInt(3));
-				tmp.setTitle(rs.getString(4));
-				tmp.setContent(rs.getString(5));
-				tmp.setUserid(rs.getString(6));
-				tmp.setUserimgname(rs.getString(7));
-				tmp.setUserlike(rs.getInt(9));
-				tmp.setRegdate(rs.getDate(10));
-
-				res.add(tmp);
+				res.add(new UserDataDto(rs.getInt(1),
+					rs.getInt(2),
+					rs.getInt(3),
+					rs.getString(4),
+					rs.getString(5),
+					rs.getInt(6),
+					rs.getString(7),
+					rs.getInt(8),
+					rs.getDate(9)
+						)
+					);
+				
 			}
 			
 		} catch (SQLException e) {
@@ -785,15 +730,70 @@ public class UserDataDao extends JDBCTemplate{
 	}
 	
 	//설정(내 정보 수정)
-	public UserDataDto updateUser(int userno) {
+	public boolean updateUser(UserDataDto dto) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res = 0;
 		
-		return null;
+		String sql = " UPDATE USERDATA SET USERNAME=?, USEREMAIL=?, USERADDR=? WHERE USERNO=?" ;
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, dto.getUsername());
+			pstm.setString(2, dto.getUseremail());
+			pstm.setString(3, dto.getUseraddr());
+			pstm.setInt(4, dto.getUserno());
+			System.out.println("03. query 준비: "+sql);
+			
+			res = pstm.executeUpdate();
+			System.out.println("04. query 실행 및 리턴");
+			
+			if(res>0) {
+				commit(con);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return (res>0)?true:false;
 	}
 	
 	//설정(회원 탈퇴)
 	public boolean deleteUser(int userno) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res = 0;
 		
-		return false;
+		String sql = " UPDATE USERDATA SET USERENABLED='N' WHERE USERNO=? ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, userno);
+			System.out.println("03. query 준비: "+sql);
+			
+			res = pstm.executeUpdate();
+			System.out.println("04. query 실행 및 리턴");
+			
+			if(res>0) {
+				commit(con);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 에러");
+			e.printStackTrace();
+		}finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return (res>0)?true:false;
 	}
 	
 	//설정(전체 공지사항 보기)
@@ -803,9 +803,9 @@ public class UserDataDao extends JDBCTemplate{
 		ResultSet rs = null;
 		List<UserDataDto> res = new ArrayList<UserDataDto>();
 
-		// 테이블 조인해서 유저권한 manager인 사람의 글만 보일 수 있게 쿼리문 작성
-		String sql = " SELECT * FROM USERCONTENT " + " JOIN USERDATA ON(USERCONTENT.USERID = USERDATA.USERNO) "
-				+ " WHERE USERROLE='MANAGER' ORDER BY REGDATE DESC ";
+		// 테이블 조인해서 유저권한 manager, ADMIN인 사람의 글만 보일 수 있게 쿼리문 작성
+		String sql = " SELECT * FROM USERCONTENT " + " JOIN USERDATA ON(USERCONTENT.USERIDNO = USERDATA.USERNO) "
+				+ " WHERE USERROLE='ADMIN' OR USERROLE='MANAGER' ORDER BY BOARDNO DESC ";
 
 		try {
 			pstm = con.prepareStatement(sql);
@@ -817,7 +817,8 @@ public class UserDataDao extends JDBCTemplate{
 				UserDataDto dto = new UserDataDto();
 				dto.setBoardno(rs.getInt(1));
 				dto.setTitle(rs.getString(4));
-				dto.setRegdate(rs.getDate(10));
+				dto.setRegdate(rs.getDate(9));
+				dto.setUsername(rs.getString(13));
 				res.add(dto);
 			}
 
@@ -841,7 +842,8 @@ public class UserDataDao extends JDBCTemplate{
 		ResultSet rs = null;
 		UserDataDto res = new UserDataDto();
 
-		String sql = " SELECT * FROM USERCONTENT WHERE BOARDNO=? ";
+		String sql = " SELECT * FROM USERCONTENT JOIN USERDATA ON(USERCONTENT.USERIDNO = USERDATA.USERNO) WHERE BOARDNO=? ";
+		
 
 		try {
 			pstm = con.prepareStatement(sql);
@@ -854,9 +856,11 @@ public class UserDataDao extends JDBCTemplate{
 				res.setBoardno(rs.getInt(1));
 				res.setTitle(rs.getString(4));
 				res.setContent(rs.getString(5));
-				res.setRegdate(rs.getDate(10));
+				res.setRegdate(rs.getDate(9));
+				res.setUsername(rs.getString(13));
+				
 			}
-
+			
 		} catch (SQLException e) {
 			System.out.println("3/4단계 에러");
 			e.printStackTrace();
@@ -877,15 +881,15 @@ public class UserDataDao extends JDBCTemplate{
 		int res = 0;
 
 		String sql = " INSERT INTO USERCONTENT VALUES(BOARDNOSQ.NEXTVAL," + " GROUPNOSQ.NEXTVAL, 1, ?, ?, ?,"
-		// GROUPNO, GROUPSQ,TITLE,CONTENT,USERID
-				+ " NULL, NULL, 0, SYSDATE) ";
-		// USERIMGNAME,USERIMG,USERLIKE,REGDATE
+		// GROUPNO, GROUPSQ,TITLE,CONTENT,USERIDNO
+				+ " NULL, 0, SYSDATE) ";
+		// USERIMGNAME,USERLIKE,REGDATE
 
 		try {
 			pstm = con.prepareStatement(sql);
 			pstm.setString(1, dto.getTitle());
 			pstm.setString(2, dto.getContent());
-			pstm.setString(3, dto.getUserid());
+			pstm.setInt(3, dto.getUserno());
 			System.out.println("03. query 준비 " + sql);
 			
 			res = pstm.executeUpdate();
@@ -1023,7 +1027,6 @@ public class UserDataDao extends JDBCTemplate{
 				tmp.setUserrole(rs.getString(9));
 				
 				res.add(tmp);
-				System.out.println(tmp.toString());
 			}
 			
 		
@@ -1041,10 +1044,10 @@ public class UserDataDao extends JDBCTemplate{
 	}
 
 	
-
-	
-	
 	
 	
 	
 }
+	
+	
+	

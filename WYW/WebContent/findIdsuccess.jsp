@@ -25,7 +25,7 @@
 		<!-- Header -->
 		<header>
 			<div style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; padding:20px;">
-				<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw_yellow.png" width="200"
+				<img alt="WYW_날씨를 입다" src="images/logo/logo_wyw.png" width="200"
 					height="140">
 			</div>
 		</header>
